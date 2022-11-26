@@ -1,0 +1,954 @@
+<html><head>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Language" content="pl">
+    <meta http-equiv="Reply-to" content="jackssplinter@gmail.com">
+    <meta name="description" content="Homepage of BridgeQ - build your own bridges">
+    <meta name="keywords" content=" Hashiwokakero, Hashi, Ai-Ki-Ai, Chopsticks, Bridges, build bridges">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+    <meta name="robots" content="NOINDEX, NOFOLLOW">
+    <link rel="stylesheet" type="text/css" href="css/styl.css">
+    <link rel="stylesheet" type="text/css" href="css/stylMostq.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/dj.ico">
+    <script type="text/javascript" src="jscripts/jsMostq.js">
+    </script>
+    <title>BridgeQ by Splinter - build your own bridges</title>
+</head>
+<body onload="checkMSIE()">
+    
+    <div id="autograph">
+    .........................................................
+    .........................................................
+    ...made by...............................................
+    .............0000000000000....0...........0......©.2009..
+    ...........00................0...00......0...............
+    ..........00................0...00....0000000............
+    ..........00...............0...........0.................
+    ............0000.....0000.0....0.000..0..000...000.......
+    ...............00...0..0.0....0.0..0.0..00000.0..0.......
+    ...............00..0..0.0....0.0..0.0..0.....0...........
+    ..............00..0000.0000.0.0..0.0..0000..0............
+    .............00..0.......................................
+    .....00000000...0........................................
+    .........................................................
+    ..Author: Jack Splinter jackssplinter@gmail.com.......... 
+    ..Source: http://jacksplinter.github.io..................
+    .........................................................
+    .........................................................
+    .........................................................
+    </div>
+
+    <div id="PAGE">
+  <div id="HEADER">
+   </div>			
+    
+    
+    <div id="MENU_LEFT"> 
+    <br>
+    
+    </div>			<div id="CONTENT"> 
+    <div id="contentDescription">
+    Solve you own board or try sample board <span id="wymiar">16</span>x16. <br>
+    The game is to connect all of the islands (circles) with each other 
+    using bridges (lines). 
+    Each one of the bridges connect precisely two islands and they can't cross, between two islands can be 
+    two bridges at most. 
+    Digit placed on the island means how many bridges connect this island with others. 
+    Every island must have got at least one bridge connecting it to other island, 
+    so it is possible to reach each island from any other.
+
+<br><br>
+    </div>
+    <form name="formNav" action="">
+    <div id="navigation">
+    <span id="nav0" onclick="goBackTo('0')">0</span><span id="navLeft"><span id="navL">&lt;</span></span>
+    <span id="navA">
+    <input type="text" id="innav" name="inputNav" onchange="changeNav()" value="0" maxlength="5">
+    </span>
+    <span id="navRight"><span id="navR">&gt;</span></span><span id="navZ"><span>0</span></span>
+    </div>
+    </form>
+    <br>
+    <div id="mostq"><form name="forma" action=""><div class="row">
+    <div class="p" id="p1">
+    <input onclick="inone(1)" onchange="change(1)" onfocus="focused(1)" class="in" name="in1" id="in1" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p2">
+    <input onclick="intwo(2)" onchange="change(2)" onfocus="focused(2)" class="inl" name="in2" id="in2" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p3">
+    <input onclick="inone(3)" onchange="change(3)" onfocus="focused(3)" class="in" name="in3" id="in3" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p4">
+    <input onclick="intwo(4)" onchange="change(4)" onfocus="focused(4)" class="inl" name="in4" id="in4" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p5">
+    <input onclick="inone(5)" onchange="change(5)" onfocus="focused(5)" class="in" name="in5" id="in5" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p6">
+    <input onclick="intwo(6)" onchange="change(6)" onfocus="focused(6)" class="inl" name="in6" id="in6" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p7">
+    <input onclick="inone(7)" onchange="change(7)" onfocus="focused(7)" class="in" name="in7" id="in7" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p8">
+    <input onclick="intwo(8)" onchange="change(8)" onfocus="focused(8)" class="inl" name="in8" id="in8" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p9">
+    <input onclick="inone(9)" onchange="change(9)" onfocus="focused(9)" class="in" name="in9" id="in9" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p10">
+    <input onclick="intwo(10)" onchange="change(10)" onfocus="focused(10)" class="inl" name="in10" id="in10" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p11">
+    <input onclick="inone(11)" onchange="change(11)" onfocus="focused(11)" class="in" name="in11" id="in11" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p12">
+    <input onclick="intwo(12)" onchange="change(12)" onfocus="focused(12)" class="inl" name="in12" id="in12" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p13">
+    <input onclick="inone(13)" onchange="change(13)" onfocus="focused(13)" class="in" name="in13" id="in13" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p14">
+    <input onclick="intwo(14)" onchange="change(14)" onfocus="focused(14)" class="inl" name="in14" id="in14" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p15">
+    <input onclick="inone(15)" onchange="change(15)" onfocus="focused(15)" class="in" name="in15" id="in15" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p16">
+    <input onclick="intwo(16)" onchange="change(16)" onfocus="focused(16)" class="inl" name="in16" id="in16" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p17">
+    <input onclick="intwo(17)" onchange="change(17)" onfocus="focused(17)" class="inl" name="in17" id="in17" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p18">
+    <input onclick="inone(18)" onchange="change(18)" onfocus="focused(18)" class="in" name="in18" id="in18" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p19">
+    <input onclick="intwo(19)" onchange="change(19)" onfocus="focused(19)" class="inl" name="in19" id="in19" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p20">
+    <input onclick="inone(20)" onchange="change(20)" onfocus="focused(20)" class="in" name="in20" id="in20" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p21">
+    <input onclick="intwo(21)" onchange="change(21)" onfocus="focused(21)" class="inl" name="in21" id="in21" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p22">
+    <input onclick="inone(22)" onchange="change(22)" onfocus="focused(22)" class="in" name="in22" id="in22" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p23">
+    <input onclick="intwo(23)" onchange="change(23)" onfocus="focused(23)" class="inl" name="in23" id="in23" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p24">
+    <input onclick="inone(24)" onchange="change(24)" onfocus="focused(24)" class="in" name="in24" id="in24" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p25">
+    <input onclick="intwo(25)" onchange="change(25)" onfocus="focused(25)" class="inl" name="in25" id="in25" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p26">
+    <input onclick="inone(26)" onchange="change(26)" onfocus="focused(26)" class="in" name="in26" id="in26" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p27">
+    <input onclick="intwo(27)" onchange="change(27)" onfocus="focused(27)" class="inl" name="in27" id="in27" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p28">
+    <input onclick="inone(28)" onchange="change(28)" onfocus="focused(28)" class="in" name="in28" id="in28" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p29">
+    <input onclick="intwo(29)" onchange="change(29)" onfocus="focused(29)" class="inl" name="in29" id="in29" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p30">
+    <input onclick="inone(30)" onchange="change(30)" onfocus="focused(30)" class="in" name="in30" id="in30" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p31">
+    <input onclick="intwo(31)" onchange="change(31)" onfocus="focused(31)" class="inl" name="in31" id="in31" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p32">
+    <input onclick="inone(32)" onchange="change(32)" onfocus="focused(32)" class="in" name="in32" id="in32" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p33">
+    <input onclick="inone(33)" onchange="change(33)" onfocus="focused(33)" class="in" name="in33" id="in33" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p34">
+    <input onclick="intwo(34)" onchange="change(34)" onfocus="focused(34)" class="inl" name="in34" id="in34" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p35">
+    <input onclick="inone(35)" onchange="change(35)" onfocus="focused(35)" class="in" name="in35" id="in35" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p36">
+    <input onclick="intwo(36)" onchange="change(36)" onfocus="focused(36)" class="inl" name="in36" id="in36" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p37">
+    <input onclick="inone(37)" onchange="change(37)" onfocus="focused(37)" class="in" name="in37" id="in37" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p38">
+    <input onclick="intwo(38)" onchange="change(38)" onfocus="focused(38)" class="inl" name="in38" id="in38" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p39">
+    <input onclick="inone(39)" onchange="change(39)" onfocus="focused(39)" class="in" name="in39" id="in39" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p40">
+    <input onclick="intwo(40)" onchange="change(40)" onfocus="focused(40)" class="inl" name="in40" id="in40" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p41">
+    <input onclick="inone(41)" onchange="change(41)" onfocus="focused(41)" class="in" name="in41" id="in41" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p42">
+    <input onclick="intwo(42)" onchange="change(42)" onfocus="focused(42)" class="inl" name="in42" id="in42" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p43">
+    <input onclick="inone(43)" onchange="change(43)" onfocus="focused(43)" class="in" name="in43" id="in43" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p44">
+    <input onclick="intwo(44)" onchange="change(44)" onfocus="focused(44)" class="inl" name="in44" id="in44" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p45">
+    <input onclick="inone(45)" onchange="change(45)" onfocus="focused(45)" class="in" name="in45" id="in45" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p46">
+    <input onclick="intwo(46)" onchange="change(46)" onfocus="focused(46)" class="inl" name="in46" id="in46" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p47">
+    <input onclick="inone(47)" onchange="change(47)" onfocus="focused(47)" class="in" name="in47" id="in47" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p48">
+    <input onclick="intwo(48)" onchange="change(48)" onfocus="focused(48)" class="inl" name="in48" id="in48" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p49">
+    <input onclick="intwo(49)" onchange="change(49)" onfocus="focused(49)" class="inl" name="in49" id="in49" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p50">
+    <input onclick="inone(50)" onchange="change(50)" onfocus="focused(50)" class="in" name="in50" id="in50" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p51">
+    <input onclick="intwo(51)" onchange="change(51)" onfocus="focused(51)" class="inl" name="in51" id="in51" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p52">
+    <input onclick="inone(52)" onchange="change(52)" onfocus="focused(52)" class="in" name="in52" id="in52" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p53">
+    <input onclick="intwo(53)" onchange="change(53)" onfocus="focused(53)" class="inl" name="in53" id="in53" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p54">
+    <input onclick="inone(54)" onchange="change(54)" onfocus="focused(54)" class="in" name="in54" id="in54" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p55">
+    <input onclick="intwo(55)" onchange="change(55)" onfocus="focused(55)" class="inl" name="in55" id="in55" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p56">
+    <input onclick="inone(56)" onchange="change(56)" onfocus="focused(56)" class="in" name="in56" id="in56" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p57">
+    <input onclick="intwo(57)" onchange="change(57)" onfocus="focused(57)" class="inl" name="in57" id="in57" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p58">
+    <input onclick="inone(58)" onchange="change(58)" onfocus="focused(58)" class="in" name="in58" id="in58" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p59">
+    <input onclick="intwo(59)" onchange="change(59)" onfocus="focused(59)" class="inl" name="in59" id="in59" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p60">
+    <input onclick="inone(60)" onchange="change(60)" onfocus="focused(60)" class="in" name="in60" id="in60" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p61">
+    <input onclick="intwo(61)" onchange="change(61)" onfocus="focused(61)" class="inl" name="in61" id="in61" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p62">
+    <input onclick="inone(62)" onchange="change(62)" onfocus="focused(62)" class="in" name="in62" id="in62" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p63">
+    <input onclick="intwo(63)" onchange="change(63)" onfocus="focused(63)" class="inl" name="in63" id="in63" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p64">
+    <input onclick="inone(64)" onchange="change(64)" onfocus="focused(64)" class="in" name="in64" id="in64" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p65">
+    <input onclick="inone(65)" onchange="change(65)" onfocus="focused(65)" class="in" name="in65" id="in65" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p66">
+    <input onclick="intwo(66)" onchange="change(66)" onfocus="focused(66)" class="inl" name="in66" id="in66" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p67">
+    <input onclick="inone(67)" onchange="change(67)" onfocus="focused(67)" class="in" name="in67" id="in67" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p68">
+    <input onclick="intwo(68)" onchange="change(68)" onfocus="focused(68)" class="inl" name="in68" id="in68" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p69">
+    <input onclick="inone(69)" onchange="change(69)" onfocus="focused(69)" class="in" name="in69" id="in69" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p70">
+    <input onclick="intwo(70)" onchange="change(70)" onfocus="focused(70)" class="inl" name="in70" id="in70" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p71">
+    <input onclick="inone(71)" onchange="change(71)" onfocus="focused(71)" class="in" name="in71" id="in71" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p72">
+    <input onclick="intwo(72)" onchange="change(72)" onfocus="focused(72)" class="inl" name="in72" id="in72" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p73">
+    <input onclick="inone(73)" onchange="change(73)" onfocus="focused(73)" class="in" name="in73" id="in73" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p74">
+    <input onclick="intwo(74)" onchange="change(74)" onfocus="focused(74)" class="inl" name="in74" id="in74" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p75">
+    <input onclick="inone(75)" onchange="change(75)" onfocus="focused(75)" class="in" name="in75" id="in75" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p76">
+    <input onclick="intwo(76)" onchange="change(76)" onfocus="focused(76)" class="inl" name="in76" id="in76" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p77">
+    <input onclick="inone(77)" onchange="change(77)" onfocus="focused(77)" class="in" name="in77" id="in77" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p78">
+    <input onclick="intwo(78)" onchange="change(78)" onfocus="focused(78)" class="inl" name="in78" id="in78" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p79">
+    <input onclick="inone(79)" onchange="change(79)" onfocus="focused(79)" class="in" name="in79" id="in79" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p80">
+    <input onclick="intwo(80)" onchange="change(80)" onfocus="focused(80)" class="inl" name="in80" id="in80" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p81">
+    <input onclick="intwo(81)" onchange="change(81)" onfocus="focused(81)" class="inl" name="in81" id="in81" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p82">
+    <input onclick="inone(82)" onchange="change(82)" onfocus="focused(82)" class="in" name="in82" id="in82" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p83">
+    <input onclick="intwo(83)" onchange="change(83)" onfocus="focused(83)" class="inl" name="in83" id="in83" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p84">
+    <input onclick="inone(84)" onchange="change(84)" onfocus="focused(84)" class="in" name="in84" id="in84" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p85">
+    <input onclick="intwo(85)" onchange="change(85)" onfocus="focused(85)" class="inl" name="in85" id="in85" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p86">
+    <input onclick="inone(86)" onchange="change(86)" onfocus="focused(86)" class="in" name="in86" id="in86" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p87">
+    <input onclick="intwo(87)" onchange="change(87)" onfocus="focused(87)" class="inl" name="in87" id="in87" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p88">
+    <input onclick="inone(88)" onchange="change(88)" onfocus="focused(88)" class="in" name="in88" id="in88" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p89">
+    <input onclick="intwo(89)" onchange="change(89)" onfocus="focused(89)" class="inl" name="in89" id="in89" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p90">
+    <input onclick="inone(90)" onchange="change(90)" onfocus="focused(90)" class="in" name="in90" id="in90" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p91">
+    <input onclick="intwo(91)" onchange="change(91)" onfocus="focused(91)" class="inl" name="in91" id="in91" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p92">
+    <input onclick="inone(92)" onchange="change(92)" onfocus="focused(92)" class="in" name="in92" id="in92" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p93">
+    <input onclick="intwo(93)" onchange="change(93)" onfocus="focused(93)" class="inl" name="in93" id="in93" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p94">
+    <input onclick="inone(94)" onchange="change(94)" onfocus="focused(94)" class="in" name="in94" id="in94" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p95">
+    <input onclick="intwo(95)" onchange="change(95)" onfocus="focused(95)" class="inl" name="in95" id="in95" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p96">
+    <input onclick="inone(96)" onchange="change(96)" onfocus="focused(96)" class="in" name="in96" id="in96" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p97">
+    <input onclick="inone(97)" onchange="change(97)" onfocus="focused(97)" class="in" name="in97" id="in97" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p98">
+    <input onclick="intwo(98)" onchange="change(98)" onfocus="focused(98)" class="inl" name="in98" id="in98" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p99">
+    <input onclick="inone(99)" onchange="change(99)" onfocus="focused(99)" class="in" name="in99" id="in99" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p100">
+    <input onclick="intwo(100)" onchange="change(100)" onfocus="focused(100)" class="inl" name="in100" id="in100" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p101">
+    <input onclick="inone(101)" onchange="change(101)" onfocus="focused(101)" class="in" name="in101" id="in101" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p102">
+    <input onclick="intwo(102)" onchange="change(102)" onfocus="focused(102)" class="inl" name="in102" id="in102" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p103">
+    <input onclick="inone(103)" onchange="change(103)" onfocus="focused(103)" class="in" name="in103" id="in103" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p104">
+    <input onclick="intwo(104)" onchange="change(104)" onfocus="focused(104)" class="inl" name="in104" id="in104" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p105">
+    <input onclick="inone(105)" onchange="change(105)" onfocus="focused(105)" class="in" name="in105" id="in105" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p106">
+    <input onclick="intwo(106)" onchange="change(106)" onfocus="focused(106)" class="inl" name="in106" id="in106" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p107">
+    <input onclick="inone(107)" onchange="change(107)" onfocus="focused(107)" class="in" name="in107" id="in107" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p108">
+    <input onclick="intwo(108)" onchange="change(108)" onfocus="focused(108)" class="inl" name="in108" id="in108" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p109">
+    <input onclick="inone(109)" onchange="change(109)" onfocus="focused(109)" class="in" name="in109" id="in109" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p110">
+    <input onclick="intwo(110)" onchange="change(110)" onfocus="focused(110)" class="inl" name="in110" id="in110" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p111">
+    <input onclick="inone(111)" onchange="change(111)" onfocus="focused(111)" class="in" name="in111" id="in111" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p112">
+    <input onclick="intwo(112)" onchange="change(112)" onfocus="focused(112)" class="inl" name="in112" id="in112" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p113">
+    <input onclick="intwo(113)" onchange="change(113)" onfocus="focused(113)" class="inl" name="in113" id="in113" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p114">
+    <input onclick="inone(114)" onchange="change(114)" onfocus="focused(114)" class="in" name="in114" id="in114" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p115">
+    <input onclick="intwo(115)" onchange="change(115)" onfocus="focused(115)" class="inl" name="in115" id="in115" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p116">
+    <input onclick="inone(116)" onchange="change(116)" onfocus="focused(116)" class="in" name="in116" id="in116" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p117">
+    <input onclick="intwo(117)" onchange="change(117)" onfocus="focused(117)" class="inl" name="in117" id="in117" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p118">
+    <input onclick="inone(118)" onchange="change(118)" onfocus="focused(118)" class="in" name="in118" id="in118" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p119">
+    <input onclick="intwo(119)" onchange="change(119)" onfocus="focused(119)" class="inl" name="in119" id="in119" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p120">
+    <input onclick="inone(120)" onchange="change(120)" onfocus="focused(120)" class="in" name="in120" id="in120" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p121">
+    <input onclick="intwo(121)" onchange="change(121)" onfocus="focused(121)" class="inl" name="in121" id="in121" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p122">
+    <input onclick="inone(122)" onchange="change(122)" onfocus="focused(122)" class="in" name="in122" id="in122" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p123">
+    <input onclick="intwo(123)" onchange="change(123)" onfocus="focused(123)" class="inl" name="in123" id="in123" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p124">
+    <input onclick="inone(124)" onchange="change(124)" onfocus="focused(124)" class="in" name="in124" id="in124" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p125">
+    <input onclick="intwo(125)" onchange="change(125)" onfocus="focused(125)" class="inl" name="in125" id="in125" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p126">
+    <input onclick="inone(126)" onchange="change(126)" onfocus="focused(126)" class="in" name="in126" id="in126" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p127">
+    <input onclick="intwo(127)" onchange="change(127)" onfocus="focused(127)" class="inl" name="in127" id="in127" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p128">
+    <input onclick="inone(128)" onchange="change(128)" onfocus="focused(128)" class="in" name="in128" id="in128" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p129">
+    <input onclick="inone(129)" onchange="change(129)" onfocus="focused(129)" class="in" name="in129" id="in129" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p130">
+    <input onclick="intwo(130)" onchange="change(130)" onfocus="focused(130)" class="inl" name="in130" id="in130" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p131">
+    <input onclick="inone(131)" onchange="change(131)" onfocus="focused(131)" class="in" name="in131" id="in131" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p132">
+    <input onclick="intwo(132)" onchange="change(132)" onfocus="focused(132)" class="inl" name="in132" id="in132" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p133">
+    <input onclick="inone(133)" onchange="change(133)" onfocus="focused(133)" class="in" name="in133" id="in133" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p134">
+    <input onclick="intwo(134)" onchange="change(134)" onfocus="focused(134)" class="inl" name="in134" id="in134" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p135">
+    <input onclick="inone(135)" onchange="change(135)" onfocus="focused(135)" class="in" name="in135" id="in135" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p136">
+    <input onclick="intwo(136)" onchange="change(136)" onfocus="focused(136)" class="inl" name="in136" id="in136" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p137">
+    <input onclick="inone(137)" onchange="change(137)" onfocus="focused(137)" class="in" name="in137" id="in137" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p138">
+    <input onclick="intwo(138)" onchange="change(138)" onfocus="focused(138)" class="inl" name="in138" id="in138" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p139">
+    <input onclick="inone(139)" onchange="change(139)" onfocus="focused(139)" class="in" name="in139" id="in139" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p140">
+    <input onclick="intwo(140)" onchange="change(140)" onfocus="focused(140)" class="inl" name="in140" id="in140" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p141">
+    <input onclick="inone(141)" onchange="change(141)" onfocus="focused(141)" class="in" name="in141" id="in141" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p142">
+    <input onclick="intwo(142)" onchange="change(142)" onfocus="focused(142)" class="inl" name="in142" id="in142" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p143">
+    <input onclick="inone(143)" onchange="change(143)" onfocus="focused(143)" class="in" name="in143" id="in143" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p144">
+    <input onclick="intwo(144)" onchange="change(144)" onfocus="focused(144)" class="inl" name="in144" id="in144" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p145">
+    <input onclick="intwo(145)" onchange="change(145)" onfocus="focused(145)" class="inl" name="in145" id="in145" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p146">
+    <input onclick="inone(146)" onchange="change(146)" onfocus="focused(146)" class="in" name="in146" id="in146" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p147">
+    <input onclick="intwo(147)" onchange="change(147)" onfocus="focused(147)" class="inl" name="in147" id="in147" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p148">
+    <input onclick="inone(148)" onchange="change(148)" onfocus="focused(148)" class="in" name="in148" id="in148" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p149">
+    <input onclick="intwo(149)" onchange="change(149)" onfocus="focused(149)" class="inl" name="in149" id="in149" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p150">
+    <input onclick="inone(150)" onchange="change(150)" onfocus="focused(150)" class="in" name="in150" id="in150" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p151">
+    <input onclick="intwo(151)" onchange="change(151)" onfocus="focused(151)" class="inl" name="in151" id="in151" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p152">
+    <input onclick="inone(152)" onchange="change(152)" onfocus="focused(152)" class="in" name="in152" id="in152" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p153">
+    <input onclick="intwo(153)" onchange="change(153)" onfocus="focused(153)" class="inl" name="in153" id="in153" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p154">
+    <input onclick="inone(154)" onchange="change(154)" onfocus="focused(154)" class="in" name="in154" id="in154" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p155">
+    <input onclick="intwo(155)" onchange="change(155)" onfocus="focused(155)" class="inl" name="in155" id="in155" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p156">
+    <input onclick="inone(156)" onchange="change(156)" onfocus="focused(156)" class="in" name="in156" id="in156" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p157">
+    <input onclick="intwo(157)" onchange="change(157)" onfocus="focused(157)" class="inl" name="in157" id="in157" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p158">
+    <input onclick="inone(158)" onchange="change(158)" onfocus="focused(158)" class="in" name="in158" id="in158" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p159">
+    <input onclick="intwo(159)" onchange="change(159)" onfocus="focused(159)" class="inl" name="in159" id="in159" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p160">
+    <input onclick="inone(160)" onchange="change(160)" onfocus="focused(160)" class="in" name="in160" id="in160" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p161">
+    <input onclick="inone(161)" onchange="change(161)" onfocus="focused(161)" class="in" name="in161" id="in161" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p162">
+    <input onclick="intwo(162)" onchange="change(162)" onfocus="focused(162)" class="inl" name="in162" id="in162" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p163">
+    <input onclick="inone(163)" onchange="change(163)" onfocus="focused(163)" class="in" name="in163" id="in163" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p164">
+    <input onclick="intwo(164)" onchange="change(164)" onfocus="focused(164)" class="inl" name="in164" id="in164" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p165">
+    <input onclick="inone(165)" onchange="change(165)" onfocus="focused(165)" class="in" name="in165" id="in165" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p166">
+    <input onclick="intwo(166)" onchange="change(166)" onfocus="focused(166)" class="inl" name="in166" id="in166" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p167">
+    <input onclick="inone(167)" onchange="change(167)" onfocus="focused(167)" class="in" name="in167" id="in167" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p168">
+    <input onclick="intwo(168)" onchange="change(168)" onfocus="focused(168)" class="inl" name="in168" id="in168" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p169">
+    <input onclick="inone(169)" onchange="change(169)" onfocus="focused(169)" class="in" name="in169" id="in169" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p170">
+    <input onclick="intwo(170)" onchange="change(170)" onfocus="focused(170)" class="inl" name="in170" id="in170" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p171">
+    <input onclick="inone(171)" onchange="change(171)" onfocus="focused(171)" class="in" name="in171" id="in171" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p172">
+    <input onclick="intwo(172)" onchange="change(172)" onfocus="focused(172)" class="inl" name="in172" id="in172" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p173">
+    <input onclick="inone(173)" onchange="change(173)" onfocus="focused(173)" class="in" name="in173" id="in173" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p174">
+    <input onclick="intwo(174)" onchange="change(174)" onfocus="focused(174)" class="inl" name="in174" id="in174" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p175">
+    <input onclick="inone(175)" onchange="change(175)" onfocus="focused(175)" class="in" name="in175" id="in175" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p176">
+    <input onclick="intwo(176)" onchange="change(176)" onfocus="focused(176)" class="inl" name="in176" id="in176" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p177">
+    <input onclick="intwo(177)" onchange="change(177)" onfocus="focused(177)" class="inl" name="in177" id="in177" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p178">
+    <input onclick="inone(178)" onchange="change(178)" onfocus="focused(178)" class="in" name="in178" id="in178" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p179">
+    <input onclick="intwo(179)" onchange="change(179)" onfocus="focused(179)" class="inl" name="in179" id="in179" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p180">
+    <input onclick="inone(180)" onchange="change(180)" onfocus="focused(180)" class="in" name="in180" id="in180" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p181">
+    <input onclick="intwo(181)" onchange="change(181)" onfocus="focused(181)" class="inl" name="in181" id="in181" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p182">
+    <input onclick="inone(182)" onchange="change(182)" onfocus="focused(182)" class="in" name="in182" id="in182" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p183">
+    <input onclick="intwo(183)" onchange="change(183)" onfocus="focused(183)" class="inl" name="in183" id="in183" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p184">
+    <input onclick="inone(184)" onchange="change(184)" onfocus="focused(184)" class="in" name="in184" id="in184" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p185">
+    <input onclick="intwo(185)" onchange="change(185)" onfocus="focused(185)" class="inl" name="in185" id="in185" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p186">
+    <input onclick="inone(186)" onchange="change(186)" onfocus="focused(186)" class="in" name="in186" id="in186" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p187">
+    <input onclick="intwo(187)" onchange="change(187)" onfocus="focused(187)" class="inl" name="in187" id="in187" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p188">
+    <input onclick="inone(188)" onchange="change(188)" onfocus="focused(188)" class="in" name="in188" id="in188" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p189">
+    <input onclick="intwo(189)" onchange="change(189)" onfocus="focused(189)" class="inl" name="in189" id="in189" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p190">
+    <input onclick="inone(190)" onchange="change(190)" onfocus="focused(190)" class="in" name="in190" id="in190" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p191">
+    <input onclick="intwo(191)" onchange="change(191)" onfocus="focused(191)" class="inl" name="in191" id="in191" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p192">
+    <input onclick="inone(192)" onchange="change(192)" onfocus="focused(192)" class="in" name="in192" id="in192" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p193">
+    <input onclick="inone(193)" onchange="change(193)" onfocus="focused(193)" class="in" name="in193" id="in193" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p194">
+    <input onclick="intwo(194)" onchange="change(194)" onfocus="focused(194)" class="inl" name="in194" id="in194" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p195">
+    <input onclick="inone(195)" onchange="change(195)" onfocus="focused(195)" class="in" name="in195" id="in195" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p196">
+    <input onclick="intwo(196)" onchange="change(196)" onfocus="focused(196)" class="inl" name="in196" id="in196" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p197">
+    <input onclick="inone(197)" onchange="change(197)" onfocus="focused(197)" class="in" name="in197" id="in197" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p198">
+    <input onclick="intwo(198)" onchange="change(198)" onfocus="focused(198)" class="inl" name="in198" id="in198" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p199">
+    <input onclick="inone(199)" onchange="change(199)" onfocus="focused(199)" class="in" name="in199" id="in199" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p200">
+    <input onclick="intwo(200)" onchange="change(200)" onfocus="focused(200)" class="inl" name="in200" id="in200" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p201">
+    <input onclick="inone(201)" onchange="change(201)" onfocus="focused(201)" class="in" name="in201" id="in201" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p202">
+    <input onclick="intwo(202)" onchange="change(202)" onfocus="focused(202)" class="inl" name="in202" id="in202" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p203">
+    <input onclick="inone(203)" onchange="change(203)" onfocus="focused(203)" class="in" name="in203" id="in203" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p204">
+    <input onclick="intwo(204)" onchange="change(204)" onfocus="focused(204)" class="inl" name="in204" id="in204" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p205">
+    <input onclick="inone(205)" onchange="change(205)" onfocus="focused(205)" class="in" name="in205" id="in205" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p206">
+    <input onclick="intwo(206)" onchange="change(206)" onfocus="focused(206)" class="inl" name="in206" id="in206" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p207">
+    <input onclick="inone(207)" onchange="change(207)" onfocus="focused(207)" class="in" name="in207" id="in207" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p208">
+    <input onclick="intwo(208)" onchange="change(208)" onfocus="focused(208)" class="inl" name="in208" id="in208" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p209">
+    <input onclick="intwo(209)" onchange="change(209)" onfocus="focused(209)" class="inl" name="in209" id="in209" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p210">
+    <input onclick="inone(210)" onchange="change(210)" onfocus="focused(210)" class="in" name="in210" id="in210" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p211">
+    <input onclick="intwo(211)" onchange="change(211)" onfocus="focused(211)" class="inl" name="in211" id="in211" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p212">
+    <input onclick="inone(212)" onchange="change(212)" onfocus="focused(212)" class="in" name="in212" id="in212" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p213">
+    <input onclick="intwo(213)" onchange="change(213)" onfocus="focused(213)" class="inl" name="in213" id="in213" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p214">
+    <input onclick="inone(214)" onchange="change(214)" onfocus="focused(214)" class="in" name="in214" id="in214" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p215">
+    <input onclick="intwo(215)" onchange="change(215)" onfocus="focused(215)" class="inl" name="in215" id="in215" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p216">
+    <input onclick="inone(216)" onchange="change(216)" onfocus="focused(216)" class="in" name="in216" id="in216" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p217">
+    <input onclick="intwo(217)" onchange="change(217)" onfocus="focused(217)" class="inl" name="in217" id="in217" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p218">
+    <input onclick="inone(218)" onchange="change(218)" onfocus="focused(218)" class="in" name="in218" id="in218" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p219">
+    <input onclick="intwo(219)" onchange="change(219)" onfocus="focused(219)" class="inl" name="in219" id="in219" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p220">
+    <input onclick="inone(220)" onchange="change(220)" onfocus="focused(220)" class="in" name="in220" id="in220" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p221">
+    <input onclick="intwo(221)" onchange="change(221)" onfocus="focused(221)" class="inl" name="in221" id="in221" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p222">
+    <input onclick="inone(222)" onchange="change(222)" onfocus="focused(222)" class="in" name="in222" id="in222" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p223">
+    <input onclick="intwo(223)" onchange="change(223)" onfocus="focused(223)" class="inl" name="in223" id="in223" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p224">
+    <input onclick="inone(224)" onchange="change(224)" onfocus="focused(224)" class="in" name="in224" id="in224" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p225">
+    <input onclick="inone(225)" onchange="change(225)" onfocus="focused(225)" class="in" name="in225" id="in225" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p226">
+    <input onclick="intwo(226)" onchange="change(226)" onfocus="focused(226)" class="inl" name="in226" id="in226" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p227">
+    <input onclick="inone(227)" onchange="change(227)" onfocus="focused(227)" class="in" name="in227" id="in227" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p228">
+    <input onclick="intwo(228)" onchange="change(228)" onfocus="focused(228)" class="inl" name="in228" id="in228" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p229">
+    <input onclick="inone(229)" onchange="change(229)" onfocus="focused(229)" class="in" name="in229" id="in229" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p230">
+    <input onclick="intwo(230)" onchange="change(230)" onfocus="focused(230)" class="inl" name="in230" id="in230" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p231">
+    <input onclick="inone(231)" onchange="change(231)" onfocus="focused(231)" class="in" name="in231" id="in231" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p232">
+    <input onclick="intwo(232)" onchange="change(232)" onfocus="focused(232)" class="inl" name="in232" id="in232" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p233">
+    <input onclick="inone(233)" onchange="change(233)" onfocus="focused(233)" class="in" name="in233" id="in233" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p234">
+    <input onclick="intwo(234)" onchange="change(234)" onfocus="focused(234)" class="inl" name="in234" id="in234" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p235">
+    <input onclick="inone(235)" onchange="change(235)" onfocus="focused(235)" class="in" name="in235" id="in235" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p236">
+    <input onclick="intwo(236)" onchange="change(236)" onfocus="focused(236)" class="inl" name="in236" id="in236" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p237">
+    <input onclick="inone(237)" onchange="change(237)" onfocus="focused(237)" class="in" name="in237" id="in237" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p238">
+    <input onclick="intwo(238)" onchange="change(238)" onfocus="focused(238)" class="inl" name="in238" id="in238" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p239">
+    <input onclick="inone(239)" onchange="change(239)" onfocus="focused(239)" class="in" name="in239" id="in239" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p240">
+    <input onclick="intwo(240)" onchange="change(240)" onfocus="focused(240)" class="inl" name="in240" id="in240" type="text" maxlength="1">
+    </div></div><div class="row">
+    <div class="p" id="p241">
+    <input onclick="intwo(241)" onchange="change(241)" onfocus="focused(241)" class="inl" name="in241" id="in241" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p242">
+    <input onclick="inone(242)" onchange="change(242)" onfocus="focused(242)" class="in" name="in242" id="in242" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p243">
+    <input onclick="intwo(243)" onchange="change(243)" onfocus="focused(243)" class="inl" name="in243" id="in243" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p244">
+    <input onclick="inone(244)" onchange="change(244)" onfocus="focused(244)" class="in" name="in244" id="in244" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p245">
+    <input onclick="intwo(245)" onchange="change(245)" onfocus="focused(245)" class="inl" name="in245" id="in245" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p246">
+    <input onclick="inone(246)" onchange="change(246)" onfocus="focused(246)" class="in" name="in246" id="in246" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p247">
+    <input onclick="intwo(247)" onchange="change(247)" onfocus="focused(247)" class="inl" name="in247" id="in247" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p248">
+    <input onclick="inone(248)" onchange="change(248)" onfocus="focused(248)" class="in" name="in248" id="in248" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p249">
+    <input onclick="intwo(249)" onchange="change(249)" onfocus="focused(249)" class="inl" name="in249" id="in249" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p250">
+    <input onclick="inone(250)" onchange="change(250)" onfocus="focused(250)" class="in" name="in250" id="in250" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p251">
+    <input onclick="intwo(251)" onchange="change(251)" onfocus="focused(251)" class="inl" name="in251" id="in251" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p252">
+    <input onclick="inone(252)" onchange="change(252)" onfocus="focused(252)" class="in" name="in252" id="in252" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p253">
+    <input onclick="intwo(253)" onchange="change(253)" onfocus="focused(253)" class="inl" name="in253" id="in253" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p254">
+    <input onclick="inone(254)" onchange="change(254)" onfocus="focused(254)" class="in" name="in254" id="in254" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p255">
+    <input onclick="intwo(255)" onchange="change(255)" onfocus="focused(255)" class="inl" name="in255" id="in255" type="text" maxlength="1">
+    </div>
+    <div class="p" id="p256">
+    <input onclick="inone(256)" onchange="change(256)" onfocus="focused(256)" class="in" name="in256" id="in256" type="text" maxlength="1">
+    </div></div></form></div>
+    <br>
+    <div id="steps">
+    <span class="steps" id="sid0" onmouseover="thick('0')" onmouseout="thin('0')" onclick="goBackTo('0')">0</span></div>
+    <script type="text/javascript">
+    if(document.getElementById('innav'))
+        document.getElementById('innav').focus()
+    </script>
+    </div>
+                    
+    <div id="MENU_RIGHT"> 
+    <div id="timer" style="display: inline;">
+    <div id="czasstoper">
+    <div id="czas">Time: </div>
+    <span id="stoper">00:00:00</span>
+    </div>	
+    <div id="stoppause">
+    <div id="pause">
+    <img src="http://localhost/mostQ/images/play2.PNG" alt="" title="start" onclick="startStoper()">
+    </div>
+    <div id="stop">
+    <img src="http://localhost/mostQ/images/stop2.PNG" alt="" title="stop" onclick="stopStoper()">
+    </div>
+    </div>
+    </div>
+    <br><br>
+    <div id="noscript">
+    <noscript>
+    This page requires <i>JavaScript</i> to work properly.
+    Without it you won't be able to do anything with the board. <br />
+    Please turn JavaScript on, it's really worth :)
+    </noscript>
+    </div>
+    <div id="setPlay">
+    <button id="setB" onclick="setB()" style="display: inline;">Digits</button>
+    <button id="drawB" onclick="drawB()" style="display: inline; background: green;">Board</button>
+    <button id="playB" onclick="playB()" style="display: inline;">Play</button>
+    </div>
+    <br>
+    <br>
+    <div id="clearBoardButton" style="display: block;">
+    <button id="clearB" onmousedown="clearBoard('16')">Clear bridges</button>
+    </div>
+    <br>
+    <div id="clearInputsButton" style="display: block;">
+    <button id="clearI" onmousedown="clearInputs('16')">Clear board</button>
+    </div>
+    <div id="clearGraysButton">
+    <button id="clearG" onmousedown="clearGrays('16')">Clear grays</button>
+    </div>
+    <div id="rightDemoDescription" style="display: inline;">
+    <br>
+    
+    <br>
+    When Digits mode is active, click on an island and  change the digit inside it.
+    <br><br>When Board mode is active, click on an island to make it disappear, click on empty field to create an island.
+    <br><br>When Play mode is active, click on an empty field to make a bridge or destroy it. Click on an island to mark it with green color, so you know that it has all its bridges.
+    <br><br>
+    </div>
+    <div id="sampleButton" style="display: block;">
+    <button id="sampleB" onclick="sample('2NN4NN6N5N5NN2NNNNNNN1NNN1N2NNN35N3NNNNNNN4NNN4NN2N2N3NNN5NN3NN3NNNNNN3N3NNNNN4NNN1NN6N3N4N1NNNN3NNNNN2NNN3N4NN4N6N3NNN3N3N4NN2N2N2NN4NNNNNN3NN4N4N2NN3N2N1NNN2N3N3NNNNNNNNN1NNNN3N6N3N2N4N8NN5N4N3N3N6N3NNNNNNNN1N3N3N3N3NN1NN2NN1N1N1N3NN4NN1N4NN5N3N1N2NN4NN3','16')">Sample board</button>
+    </div>
+    <br>
+    <div id="sampleButtonSolve">
+    <button id="sampleBS" onclick="solve('9tt9ff9f9t9ff900i00i09h0h9h9fff99f9i0ih0hi9fff9ih9i909h0h9ff90h9hhii0h9t9h00i09hhh9i09f9t9t9i0hh9h0i0h9ttt9f90h9i9f90hi9t9f9i09h9h9tt9ih000h9tt9i9i90i9h9t9hi09i9h9h0ihhi00h90hih9h9f9h9i9f9ff9i9i9h9f9f9h0h00iih9i9i9f9t90h90i9h09i9i9t9ff9i09i9ff9f909t9tt9ff9','16')">Show solution</button>
+    </div>
+    <br>
+    <br><br>
+    <div class="imgB">
+    <div class="in">
+    </div>
+    </div>
+    <div id="demoInputsStateButton" style="display: inline;"><button class="butB" id="getIS" onclick="getInputs2('16')">Islands</button>
+    <div class="imgB">
+    <div class="in">8</div>
+    </div> 	
+    <button class="butB" id="setIS" onclick="setInputs2('16')">Set</button>
+    </div>
+    <div class="clearBoth" '=""></div>
+    <br>
+    <div class="imgB">
+    <div class="m1"></div>
+    </div>
+    <div id="demoBoardStateButton" style="display: inline;">
+    <button class="butB" id="getBS" onclick="getBoard2('16')">Bridges</button>
+    <div class="imgB">
+    <div class="m4"></div>
+    </div>
+    <button class="butB" id="setBS" onclick="setBoard2('16')">Set</button>
+    </div>
+    <div class="clearBoth" '=""></div>
+    <br>
+    <div id="demoAllStateButton" style="display: inline;">
+    <button class="butB" id="getAll" onclick="getAllOnBoard2('16')">Board</button>
+    <div class="imgB">
+    <div class="in">1</div>
+    </div>
+    <div class="imgB">
+    <div class="m3"></div>
+    </div>
+    <button class="butB" id="setAll" onclick="setAllOnBoard2('16')">Set</button>
+    </div>
+    </div>			
+    <div id="FOOTER">
+    <br>
+    Copyright © 2022 Jack Splinter
+    All rights reversed | 
+    
+    </div>
+    <div id="UNDER_FOOTER">
+    
+    </div>
+    </div>
+    
+    </body></html>
