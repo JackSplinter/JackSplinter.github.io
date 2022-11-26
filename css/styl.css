@@ -30,7 +30,7 @@ body {
 }
 
 #MENU_RIGHT {
-	background: black url(../images/vblackw.jpg) repeat-y;
+	background: black;
 	color: 	#C0C0C0;
 	height: 696px;
 	overflow: auto;
