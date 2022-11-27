@@ -581,7 +581,8 @@ function clearInputs(wymiar){
 	if (wymiar=='10')
 		setInputs('0n0n0n0n0nn0n0n0n0n00n0n0n0n0nn0n0n0n0n00n0n0n0n0nn0n0n0n0n00n0n0n0n0nn0n0n0n0n00n0n0n0n0nn0n0n0n0n0',wymiar);
 	if (wymiar=='16'){
-		var dwa='0n0n0n0n0n0n0n0nn0n0n0n0n0n0n0n0';
+		//var dwa='0n0n0n0n0n0n0n0nn0n0n0n0n0n0n0n0';
+		var dwa='nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn';
 		dwa8=dwa+dwa+dwa+dwa+dwa+dwa+dwa+dwa;
 		setInputs(dwa8,wymiar);
 	}
