@@ -318,7 +318,7 @@ step0();
 function startStoper(){
 	czas--;
 	document.getElementById('pause').innerHTML=
-		'<img src="images/pause2.PNG" onclick="pauseStoper()" alt="" title="pauza">'
+		'<img src="images/pause2.png" onclick="pauseStoper()" alt="" title="pauza">'
 	stoper();
 }
 
@@ -354,7 +354,7 @@ function stopStoper(){
 	clearTimeout(idTimeout);
 		document.getElementById('stoper').innerHTML='00:00:00'
 			document.getElementById('pause').innerHTML=
-				'<img src="images/play2.PNG" onclick="startStoper()" alt="" title="start">'
+				'<img src="images/play2.png" onclick="startStoper()" alt="" title="start">'
 			czas=0	
 }
 
@@ -362,7 +362,7 @@ function pauseStoper(){
 	//alert(idTimeout)
 	clearTimeout(idTimeout);
 	document.getElementById('pause').innerHTML=
-		'<img src="images/play2.PNG" onclick="startStoper()" alt="" title="start">'
+		'<img src="images/play2.png" onclick="startStoper()" alt="" title="start">'
 }
 
 
