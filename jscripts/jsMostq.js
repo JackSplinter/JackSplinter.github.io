@@ -29,7 +29,21 @@ var drawingBoard=true;
 var solvingBoard=false;
 
 function checkMSIE(){
-		
+	
+		var fire=new RegExp("Firefox");
+		if (fire.test(navigator.userAgent) || window.location.toString().substring(0,4)=="file")
+		{
+			// YOU CAN PLAY
+		}
+		else	// ALL BUTTON WILL BE DISABLED
+		{	
+			alert("Use Mozilla Firefox browser to play the game.");
+			var buttons = document.getElementsByTagName("button");
+			for (var i=0; i<buttons.length; i++) {
+				buttons[i].disabled=true;
+			}
+		}
+	
 		document.getElementById('sampleButton').style.display='block';
 		document.getElementById('clearBoardButton').style.display='block';
 		document.getElementById('clearInputsButton').style.display='block';
