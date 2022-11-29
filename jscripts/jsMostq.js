@@ -31,6 +31,8 @@ var solvingBoard=false;
 function checkMSIE(){
 	
 		
+		var wymiar=parseInt(document.getElementById('wymiar').innerHTML);
+		drawBoard(wymiar);
 	
 		document.getElementById('sampleButton').style.display='block';
 		document.getElementById('clearBoardButton').style.display='block';
@@ -50,6 +52,48 @@ function checkMSIE(){
 				
 }
 
+function drawBoard(wymiar){
+	
+	var str='<form name="forma" action="">';
+		//<input onclick="inone(1)" onchange="change(1)" onfocus="focused(1)" class="in" name="in1" id="in1" type="text" maxlength="1">
+    
+	for (i=1;i<=wymiar;i++){ //rows
+			str+='<div class="row">';
+		for (j=1;j<=wymiar;j++){ //columns
+			id=(i-1)*wymiar+j;
+			if(i%2==1 && j%2==1 || i%2==0 && j%2==0){
+				 str+='<div class="p" id="p'+id+'">'+
+						'<input '+ 
+							'onclick="inone('+id+')" '+
+							'onchange="change('+id+')" '+
+							'onfocus="focused('+id+')" '+
+							'class="in" '+
+							'name="in'+id+'" '+
+							'id="in'+id+'" '+
+							'type="text" '+
+							'maxlength="1"'+
+							'></div>'; 
+			}
+			else{
+				 str+='<div class="p" id="p'+id+'">'+
+						'<input '+
+							'onclick="intwo('+id+')" '+
+							'onchange="change('+id+')" '+
+							'onfocus="focused('+id+')" '+ 
+							'class="inl" '+
+							'name="in'+id+'" '+
+							'id="in'+id+'" '+
+							'type="text" '+
+							'maxlength="1"'+
+							'></div>'; 
+			}
+		} 
+		str+='</div>'; //end of row
+	}
+	str+='</form>';
+	
+	document.getElementById('mostq').innerHTML=str;
+}
 
 function setB(){
 
@@ -352,7 +396,7 @@ function stoper(){
 }
 
 function stopStoper(){
-	//alert(idTimeout)
+	
 	clearTimeout(idTimeout);
 		document.getElementById('stoper').innerHTML='00:00:00'
 			document.getElementById('pause').innerHTML=
@@ -361,7 +405,7 @@ function stopStoper(){
 }
 
 function pauseStoper(){
-	//alert(idTimeout)
+	
 	clearTimeout(idTimeout);
 	document.getElementById('pause').innerHTML=
 		'<img src="images/play2.png" onclick="startStoper()" alt="" title="start">'
@@ -463,7 +507,7 @@ function checkKeycode(e) {
 		if(document.getElementById('in'+focuss))
 			document.getElementById('in'+focuss).focus()
 	}
-//alert("keycode: " + keycode);
+
 }
 
 //up - 38
