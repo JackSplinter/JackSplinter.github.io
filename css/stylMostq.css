@@ -23,6 +23,10 @@
 	height: 28px;
 }
 
+input{
+	border: 0;
+}
+
 .in, .ing, .inl{
 	cursor: auto;
 	color: red;
