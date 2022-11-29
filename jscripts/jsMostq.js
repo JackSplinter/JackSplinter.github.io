@@ -30,19 +30,7 @@ var solvingBoard=false;
 
 function checkMSIE(){
 	
-		var fire=new RegExp("Firefox");
-		if (fire.test(navigator.userAgent) || window.location.toString().substring(0,4)=="file")
-		{
-			// YOU CAN PLAY
-		}
-		else	// ALL BUTTON WILL BE DISABLED
-		{	
-			alert("Use Mozilla Firefox browser to play the game.");
-			var buttons = document.getElementsByTagName("button");
-			for (var i=0; i<buttons.length; i++) {
-				buttons[i].disabled=true;
-			}
-		}
+		
 	
 		document.getElementById('sampleButton').style.display='block';
 		document.getElementById('clearBoardButton').style.display='block';
@@ -109,9 +97,9 @@ function changeInl2m0(){
 		for(var i=1;i<=wymiar*wymiar;i++){
 		p=document.getElementById('p'+i); // p1 p2 .. p100 
 		if (patt0.test(p.innerHTML)){
-			p.innerHTML='<div class="m0" id="m'+i+'" '+
-				'onmousedown="ones(\''+i+'\')" '+
-				'></div>';
+			p.innerHTML='<input class="m0" id="m'+i+'" '+
+				'oninput="cli('+i+')" onmousedown="ones(\''+i+'\')" '+
+				'>';
 		}
 	}
 }
@@ -206,9 +194,9 @@ function ones(id){
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<div class="m1" id="m'+id+'" '+
+			'<input class="m1" id="m'+id+'" '+
 			'onmousedown="two(\''+id+'\')" '+
-			'></div>';
+			'>';
 	}
 	step();
 }
@@ -235,9 +223,9 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<div class="m2" id="m'+id+'" '+
+			'<input class="m2" id="m'+id+'" '+
 			'onmousedown="three(\''+id+'\')" '+
-			'></div>';
+			'>';
 	}
 	step();
 }
@@ -264,9 +252,9 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<div class="m3" id="m'+id+'" '+
+			'<input class="m3" id="m'+id+'" '+
 			'onmousedown="four(\''+id+'\')" '+
-			'></div>';
+			'>';
 	}
 	step();
 }
@@ -293,9 +281,9 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<div class="m4" id="m'+id+'" '+
+			'<input class="m4" id="m'+id+'" '+
 			'onmousedown="five(\''+id+'\')" '+
-			'></div>';
+			'>';
 	}
 	step();
 }
@@ -321,9 +309,9 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<div class="m0" id="m'+id+'" '+
-			'onmousedown="ones(\''+id+'\')" '+
-			'></div>';
+			'<input class="m0" id="m'+id+'" '+
+			'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+			'>';
 	}
 	step();
 }
@@ -402,6 +390,11 @@ function change(inId){
 	
 }
 
+
+// clear Input field outside a circle (island)
+function cli(id){ 	
+	document.forms['forma'].elements['m'+id].value="";
+}
 
 function changeNav(){
 	el=document.forms['formNav'].elements['innav'];
@@ -573,9 +566,9 @@ function clearBoard(wymiar){
 		
 		if(digit=="N"){
 			p.innerHTML=
-				'<div class="m0" id="m'+id+'" '+
-				'onmousedown="ones(\''+id+'\')" '+
-				'></div>';
+				'<input class="m0" id="m'+id+'" '+
+				'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+				'>';
 		}
 		
 	}
@@ -757,33 +750,33 @@ function setAllOnBoard(board,wymiar){
 			break;
 		case "e":
 			p.innerHTML=
-				'<div class="m0" id="m'+id+'" '+
-				'onmousedown="ones(\''+id+'\')" '+
-				'></div>';
+				'<input class="m0" id="m'+id+'" '+
+				'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+				'>';
 			break;
 		case "i":
 			p.innerHTML=
-				'<div class="m1" id="m'+id+'" '+
+				'<input class="m1" id="m'+id+'" '+
 				'onmousedown="two(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		case "h":
 			p.innerHTML=
-				'<div class="m2" id="m'+id+'" '+
+				'<input class="m2" id="m'+id+'" '+
 				'onmousedown="three(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		case "t":
 			p.innerHTML=
-				'<div class="m3" id="m'+id+'" '+
+				'<input class="m3" id="m'+id+'" '+
 				'onmousedown="four(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		case "f":
 			p.innerHTML=
-				'<div class="m4" id="m'+id+'" '+
+				'<input class="m4" id="m'+id+'" '+
 				'onmousedown="five(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		default:
 			break;
@@ -877,33 +870,33 @@ function setBoard(board,wymiar){
 			break;
 		case "0":
 			p.innerHTML=
-				'<div class="m0" id="m'+id+'" '+
-				'onmousedown="ones(\''+id+'\')" '+
-				'></div>';
+				'<input class="m0" id="m'+id+'" '+
+				'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+				'>';
 			break;
 		case "i":
 			p.innerHTML=
-				'<div class="m1" id="m'+id+'" '+
+				'<input class="m1" id="m'+id+'" '+
 				'onmousedown="two(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		case "h":
 			p.innerHTML=
-				'<div class="m2" id="m'+id+'" '+
+				'<input class="m2" id="m'+id+'" '+
 				'onmousedown="three(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		case "t":
 			p.innerHTML=
-				'<div class="m3" id="m'+id+'" '+
+				'<input class="m3" id="m'+id+'" '+
 				'onmousedown="four(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		case "f":
 			p.innerHTML=
-				'<div class="m4" id="m'+id+'" '+
+				'<input class="m4" id="m'+id+'" '+
 				'onmousedown="five(\''+id+'\')" '+
-				'></div>';
+				'>';
 			break;
 		default:
 			break;
@@ -931,9 +924,9 @@ function setInputs(inputy,wymiar){
 		if(digit.toUpperCase()=="N" || digit==""){
 			
 			p.innerHTML=
-					'<div class="m0" id="m'+id+'" '+
-					'onmousedown="ones(\''+id+'\')" '+
-					'></div>';
+					'<input class="m0" id="m'+id+'" '+
+					'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+					'>';
 		}
 		else{
 			
