@@ -1,0 +1,499 @@
+
+body {
+	background: #800000 repeat fixed;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	color: 	#C0C0C0;
+}
+
+#PAGE {
+	width: 890px;
+	text-align: center;
+	background: black;
+	padding: 0px;
+	margin: 10px auto;
+	margin-top: 10px;
+	font-size: 13px;
+	color: 	#C0C0C0;
+}
+
+#CONTENT {
+	height: 696px;
+	overflow: auto;
+	font-size: 14px;
+	color: 	#C0C0C0;
+	width: 650px;
+	float: left;
+	background-color: black;
+	border: 4px solid black;
+}
+
+#MENU_RIGHT {
+	background: black;
+	color: 	#C0C0C0;
+	height: 696px;
+	overflow: auto;
+	width: 200px;
+	padding: 5px;
+	float: right;
+	text-align: left;
+	border: 4px solid white;
+	border-left: 4px solid black;
+}
+
+#MENU_LEFT {
+	color: 	#C0C0C0;
+	height: 706px;
+	overflow: hidden;
+	width: 0px;
+	float: left;
+	text-align: left;
+	/*padding: 5px;*/
+	font-size: 12px;
+	border: 4px solid white;
+	border-right: 4px solid black;
+	
+}
+
+#HEADER {
+	border: 0px;
+	padding: 0;
+	width: 100%;
+	height: 40px;
+	font-weight: bold;
+	font-size: 13px;
+	text-align: right;
+	background: black right url(../images/hmarow2.png) repeat-x;
+}
+
+#HEADER_LEFT {
+	width: 180px;
+	height: 20px;
+	padding-top:10px;
+	float: left;
+	overflow: hidden;
+	border: none;
+	padding-left: 20px;
+	text-align: left;
+}
+	
+#HEADER_RIGHT {
+	width: 500px;
+	height: 20px;
+	padding-top: 5px;
+	float: left;
+	text-align: left;
+	font-size: 16px;
+}
+
+
+#HEADER_LANG {
+	float: right;
+	text-align: right;
+	width: 50px;
+	color: red;
+	padding-top: 5px;
+	padding-right: 10px;
+	font-size: 10px;	
+}
+
+#HEADER_RIGHT a:active{
+	color: #33FFFF;
+	text-decoration: none;
+}
+
+
+#HEADER_RIGHT a:link {
+	color: #33FFFF;
+	text-decoration: none;
+}
+
+#HEADER_RIGHT a:visited {
+	color: #33FFFF;
+	text-decoration: none;
+}
+
+#HEADER_RIGHT a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+
+
+#FOOTER {
+	padding-top: 0px;
+	color: #F0E68C;
+	height: 40px;
+	clear: both;
+	width: 100%;
+	font-weight: bold;
+	font-size: 12px;
+	background: yellow url(../images/hwmaro2.png) repeat-x;
+}
+
+#UNDER_FOOTER{
+	clear: both;
+	width: 100%;
+	background: #800000;	
+}
+
+#FOOTER a:visited {
+	color: yellow;
+}
+
+#FOOTER a:link {
+	color: yellow;
+}
+
+#FOOTER a:active {
+	color: yellow;
+}
+
+#FOOTER a:hover {
+	color: #CCFF33;
+}
+
+
+a:link, a:active, a:visited{
+	text-decoration: none;
+	color: white;	
+} 
+
+a:hover{
+	color: red;	
+}
+
+
+.separator{
+	padding: 2px;
+	text-align: center;
+	color: #606060 ;
+}
+
+#comment {
+	width: 45px;
+	font-size: 10px;
+}
+
+.comments {
+	height: 280px;
+	overflow: auto;
+}
+
+.commentText {
+	text-align: left;
+	font-size: 12px; 
+	text-transform: lowercase;
+}
+
+.commentAuthor {
+	text-align: right;
+	font-style: italic;
+	font-size: 11px;
+	color: orange;
+}
+
+#kontakt{
+	margin: 50px;
+	text-align: left;
+	font-weight: normal;
+}
+
+#from {
+	text-align: right;
+	padding-right: 282px;
+}
+
+#send {
+	text-align: right;
+	padding-top: 6px;
+	padding-right: 282px;
+}
+
+#error{
+	color: red;
+	padding: 10px;
+}
+
+#sent{
+	color: #9ACD32; 
+	padding: 10px;
+}
+
+#welcome{
+	color: gray;
+	text-align: left;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 5px;
+}
+
+
+#autograph{
+	display: none;
+}
+
+#copyright{
+	background: black;
+	color: gray;
+	height: 470px;
+	overflow: auto;
+	padding: 5px;
+	font-family: monospace;
+	font-size: 13px;
+}
+
+ 
+#rightButtonDescription{
+	color: #FF3366;
+	display:none;	
+} 
+
+#rightButton{
+	text-align: center;
+	display: none;
+}
+
+#clearBoardButton, #clearInputsButton, #clearGraysButton{
+	text-align: center;
+	display: none;
+}
+
+#leftButton{
+	text-align: center;
+	display: none;
+}	
+
+#contentDescription{
+	color: yellow;
+	text-align: left;	
+}
+
+.contentDescription{
+	color: yellow;
+	text-align: left;	
+}
+
+#noscript{
+	color: #FF3366;
+	font-variant: small-caps;
+	padding: 20px;
+}	
+
+#rightDemoDescription{
+	display: none;
+}
+
+#latestVersion{
+	font-size: 12px;
+	color: yellow;
+}
+
+#earlierVersions{
+	font-size: 12px;
+	color: gray;
+}
+
+
+
+#earlierVersions a:link, #earlierVersions a:active {
+	color: 	#686868;
+}
+
+
+#earlierVersions a:visited{
+	color: 	#484848;
+}
+
+#earlierVersions a:hover {
+	color: #989898;
+}
+
+.menuDescription{
+	clear: both;
+	text-align: left;
+	padding: 5px;
+	padding-top: 5px;
+}
+
+.image{
+	float: left;
+	width:180px;
+}
+
+.imageDesc{
+	font-size: 12px;
+	float: left;
+	width: 380px;
+	padding-left: 5px;
+	padding-top: 5px;
+}	
+
+.mouseDescription{
+	font-size: 11px;
+	text-align: left;
+}	
+
+.digit{
+	float: left;
+	padding: 2px;
+}
+
+#description {
+	width: 580px;
+	text-align: justify;
+}
+
+.description {
+	width: 580px;
+	text-align: justify;
+}
+
+
+.descriptionHalf {
+	width: 270px;
+	float: left;
+	color: yellow;
+}
+
+#oranging{
+	color: orange;
+}
+
+#mainDescription{
+	text-align: justify;	
+}
+
+.none{
+	display: none;
+}
+
+
+#sampleButtonDescription{
+	color: maroon;
+	display:none;	
+} 
+
+#sampleButton{
+	text-align: left;
+}
+
+#sampleB{
+	color: maroon;
+}	
+
+#sampleButtonSolve{
+	text-align: center;
+	display: none;
+	
+}
+
+#sampleBS{
+	color: green;
+}	
+
+#stop{
+	float: left;
+	padding-top: 5px;
+}
+
+#stoppause{
+	float: right;
+}
+#czasstoper{
+	float: left;
+	width: 140px;
+}
+
+#pause{
+	float: left;
+	padding-top: 5px;
+}
+
+#czas{
+	float: left;
+	font-size: 20px;
+	height: 20px;
+	padding-top: 3px;
+}
+
+#stoper{
+	float: right;
+	color: yellow;
+	font-size: 22px;
+	padding-left: 5px;
+	padding-top: 1px;
+}
+
+.wrong{
+	color:red;
+}
+
+#setB, #playB, #drawB{
+	display: none;
+	background: black;
+	color: white;
+	padding: 2px;
+	border-top: 0px solid black;
+	border-bottom: 10px solid green;
+	border-left: 0px solid black;
+	border-right: 0px solid black;
+	
+}
+
+.size2{
+	font-size: 30px;
+	color: white;
+	background: black;
+	padding: 0px;
+	border-top: 0px solid black;
+	border-bottom: 10px solid green;
+	border-left: 0px solid black;
+	border-right: 0px solid black;
+	
+}
+
+#setPlay{
+	text-align: center;
+	
+}
+
+
+#sizes:hover #tooltipSizes{
+	visibility: visible;
+}
+
+#tooltipSizes{
+	position: absolute;
+	visibility: hidden;
+	font-size: 14px;
+	padding-top: 2px ;
+	width: fit-content;
+	padding: 2px;
+	background-color: green;
+}
+#setPlay:hover #tooltipDigits{
+ 	visibility: visible;
+	 position: absolute;
+}
+
+#setPlay #tooltipDigits{
+	visibility: hidden;
+	position: absolute;
+}
+
+
+#clearButtons{
+	text-align: center;
+}
+#clearB, #clearI{
+	
+	text-align: center;
+	padding-left: 10px;
+	width: 63px;
+	height: 43px;
+}
+#clearB:hover, #clearI:hover{
+	background-color: green;
+}

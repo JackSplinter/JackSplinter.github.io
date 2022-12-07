@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Homepage of BridgeQ - build your own bridges">
+    <meta name="keywords" content=" Hashiwokakero, Hashi, Ai-Ki-Ai, Chopsticks, Bridges, build bridges">
+    <meta name="robots" content="NOINDEX, NOFOLLOW">
+    <link rel="stylesheet" type="text/css" href="css/styl.css">
+    <link rel="stylesheet" type="text/css" href="css/stylBridgeq.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/dj.ico">
+    <script src="jscripts/jsBridgeq.js"></script>
+    <script src="jscripts/jsSamples.js"></script>
+    <title>BridgeQ - build your own bridges and connect all islands</title>
+  </head>
+  <body onload="onLoud()">
+
+    <div id="autograph">
+      ...191135
+      ..64.....71
+      ..31........57561528..36.......3145.79....91.31231518.51282771.611912
+      ...414916...15.....66.77........19..153...84....75....635......31...71
+      ........56..15411847. 66........86..53.14.53....96....412744...83451
+      .929.....41.47........81........15..65..3218....51....72.......39...34
+      ..86....15..59........28........79..29...673....62....114......35....16
+      ...27335....77........7313841..5631.59....44....38....41465716.11.....984
+      ..........................................................................
+      .03072731010914314330552909110607123637425919075855323637514204324546.061.
+      .Made.by.Jack.Splinter.2022.12.03.........................................
+    </div>
+    
+        
+       <div id="PAGE">
+        <div id="HEADER"></div>
+        <div id="MENU_LEFT">
+          <br>
+        </div>
+        <div id="CONTENT">
+          <div id="contentDescription">
+            <!-- Solve you own board or try sample board <span id="wymiarz">16</span>x16. <br>
+        The game is to connect all of the islands (circles) with each other 
+        using bridges (lines). 
+        Each one of the bridges connect precisely two islands and they can't cross, between two islands can be 
+        two bridges at most. 
+        Digit placed on the island means how many bridges connect this island with others. 
+        Every island must have got at least one bridge connecting it to other island, 
+        so it is possible to reach each island from any other.
+        -->
+            <br>
+          </div>
+          <form name="formNav">
+            <div id="navigation">
+              <span id="nav0" onclick="goBackTo('0')">0</span>
+              <span id="navLeft">
+                <span id="navL">&lt;</span>
+              </span>
+              <span id="navA">
+                <input type="text" id="innav" name="inputNav" onchange="changeNav()" value="0" maxlength="5">
+              </span>
+              <span id="navRight">
+                <span id="navR">&gt;</span>
+              </span>
+              <span id="navZ">
+                <span>0</span>
+              </span>
+            </div>
+          </form>
+          <br>
+          <div id="mostq"></div>
+          <div id="steps" style="visibility: hidden;">
+            <span class="steps" id="sid0" onmouseover="thick('0')" onmouseout="thin('0')" onclick="goBackTo('0')">0</span>
+          </div>
+        </div>
+        <div id="MENU_RIGHT">
+          <div id="timer" style="display: inline;">
+            <div id="czasstoper">
+              <div id="czas">Time: <span id="stoper">00:00:00</span>
+              </div>
+            </div>
+            <div id="stoppause">
+              <div id="pause">
+                <img src="images/play2.png" alt="" title="start" onclick="startStoper()">
+              </div>
+              <div id="stop">
+                <img src="images/stop2.png" alt="" title="stop" onclick="stopStoper()">
+              </div>
+            </div>
+          </div>
+          <div id="noscript">
+            <noscript> This page requires <i>JavaScript</i> to work properly. Without it you won't be able to do anything with the board. <br> Please turn JavaScript on, it's really worth it :) </noscript>
+          </div>
+          <div id="sizes">
+            <div>Choose board size: </div>
+            <span id="wymiar" style="visibility: hidden;">16</span>
+            <span id="size16" onclick="changeSize(16)" style="background: green;" class="size2">16</span>
+            <span id="size25" onclick="changeSize(25)" class="size2">25</span>
+            <span id="size36" onclick="changeSize(36)" class="size2">36</span>
+            <br>
+            <br>
+            <button id="unlockSize1" onclick="unlockSize(1)">Lock 1</button>
+            <button id="unlockSize2" onclick="unlockSize(2)">Lock 2</button>
+            <button id="unlockSize3" onclick="unlockSize(3)">Lock 3</button>
+            <br>
+            <br>
+            <div id="tooltipSizes">Unlock 3 locks to change size</div>
+          </div>
+          <br>
+          <br>
+          <div id="setPlay">
+            <button id="setB" onclick="setB()" style="display: inline;">Digits</button>
+            <button id="drawB" onclick="drawB()" style="display: inline; background: green;">Islands</button>
+            <button id="playB" onclick="playB()" style="display: inline;">Play</button>
+            <br>
+            <div id="tooltipDigits"> Digits - set the number of bridges <br> Islands - set the islands <br> Play - set the bridges <bR>
+            </div>
+          </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <div id="clearButtons">
+            <button id="clearB" onmousedown="clearBoard()">Clean <br> bridges </button>
+            <button id="clearI" onmousedown="clearInputs()">Clean <br> board </button>
+          </div>
+          <div id="rightDemoDescription" style="display: inline;">
+            <br>
+            <Br>
+          </div>
+          <div id="samples" style="display: block;">
+            <button id="sample1" onclick="sample(1)">Sample 1</button>
+            <button id="solution1" style="visibility: hidden;" onclick="solve(1)">Solve</button>
+            <br>
+            <button id="sample2" onclick="sample(2)">Sample 2</button>
+            <button id="solution2" style="visibility: hidden;" onclick="solve(2)">Solve</button>
+            <br>
+            <button id="sample3" onclick="sample(3)">Sample 3</button>
+            <button id="solution3" style="visibility: hidden;" onclick="solve(3)">Solve</button>
+          </div>
+          <br>
+          <div class="imgB">
+            <div class="in"></div>
+          </div>
+          <div id="demoInputsStateButton" style="display: inline;">
+            <button class="butB" id="getIS" onclick="getInputs2()">Islands</button>
+            <div class="imgB">
+              <div class="in">8</div>
+            </div>
+            <button class="butB" id="setIS" onclick="setInputs2()">Set</button>
+          </div>
+          <div class="clearBoth"></div>
+          <br>
+          <div class="imgB">
+            <div class="m1"></div>
+          </div>
+          <div id="demoBoardStateButton" style="display: inline;">
+            <button class="butB" id="getBS" onclick="getBoard2()">Bridges</button>
+            <div class="imgB">
+              <div class="m4"></div>
+            </div>
+            <button class="butB" id="setBS" onclick="setBoard2()">Set</button>
+          </div>
+          <div class="clearBoth"></div>
+          <br>
+          <div id="demoAllStateButton" style="display: inline;">
+            <button class="butB" id="getAll" onclick="getAllOnBoard2()">Board</button>
+            <div class="imgB">
+              <div class="in">1</div>
+            </div>
+            <div class="imgB">
+              <div class="m3"></div>
+            </div>
+            <button class="butB" id="setAll" onclick="setAllOnBoard2()">Set</button>
+          </div>
+        </div>
+        <div id="FOOTER">
+          <br> Copyright © 2022 Jack Splinter All rights reversed |
+        </div>
+        <div id="UNDER_FOOTER"></div>
+      </div>
+      </body>
+      </html>
