@@ -715,7 +715,7 @@ function navigate(){
 		
 	navRight.innerHTML='<span  id="navR" onmousedown="goBackTo(\''+(pointedStep+1)+'\')">&gt;</span>';
 
-	document.getElementById('innav').focus();
+	//document.getElementById('innav').focus();
 	
 }
 
