@@ -1201,10 +1201,7 @@ function setStartEndH(id){
 }
 
 function stretchH(id,type,dir){ // 4 - horizontal 5- vertical
-	pola2='';
-	board=getAllOnBoard();
-	setStartEndH(id);
-	
+		setStartEndH(id);
 	setWhereIJ(id);
 	if (whereJ==wymiar && /[tf]/.test(type)){
 		return 0;
@@ -1214,39 +1211,62 @@ function stretchH(id,type,dir){ // 4 - horizontal 5- vertical
 	}
 
 
-	
-
 	if(!startH ){
 		return 0;
 	}
 
-	whereamI=0;
-		for (i=1;i<=wymiar;i++){ //rows
-			for (j=1;j<=wymiar;j++){ //columns
-				if(whereI==i && ( j<=startH || j>=endH)){
-					pola2+=pola[whereamI];
-				}else if(whereI==i && ( j>startH && j<endH)){
-					pola2+=type;
-				}else{
-					pola2+=pola[whereamI];
-				}
-				whereamI++;
+		if(startH>0 && endH>0){
+			ajdiStart=(whereI-1)*wymiar+startH+1;
+			ajdiEnd=ajdiStart+endH-startH-2;			
+			
+			for(i=ajdiStart;i<=ajdiEnd;i++){
+				p=document.getElementById('p'+i); // m1 m2 m3 m50 ... in1 in2
+				id=i;
+			switch (type.toLowerCase()){
+				case "9":
+					break;
+				case "e":
+					p.innerHTML=
+						'<input class="m0" id="m'+id+'" '+
+						'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "i":
+					p.innerHTML=
+						'<input class="m1" id="m'+id+'" '+
+						'onmousedown="two(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "h":
+					p.innerHTML=
+						'<input class="m2" id="m'+id+'" '+
+						'onmousedown="three(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "t":
+					p.innerHTML=
+						'<input class="m3" id="m'+id+'" '+
+						'onmousedown="four(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "f":
+					p.innerHTML=
+						'<input class="m4" id="m'+id+'" '+
+						'onmousedown="five(\''+id+'\')" '+
+						'></div>';
+					break;
+				default:
+					break;
 				
 				}
-			}
-		
-	setAllOnBoard(pola2);
 
+			}
+		}
 }
 
 
 function stretchV(id,type,dir){ // 4 - horizontal 5- vertical
-	pola2='';
-	whereamI=0;
-	board=getAllOnBoard();
-	setStartEndV(id);
-	
-	
+		setStartEndV(id);
 	setWhereIJ(id);
 
 	if (whereI==wymiar && /[ih]]/.test(type)){
@@ -1255,33 +1275,53 @@ function stretchV(id,type,dir){ // 4 - horizontal 5- vertical
 	if (whereI==1 && /[ih]/.test(type)){
 		return 0;
 	}
-	
-	whereamI=0;
+	if(startv>0 && endv>0){
+		ajdiStart=(startv-1)*wymiar+wymiar+whereJ;
+		ajdiEnd=ajdiStart+wymiar*(endv-startv-2);
 
-		pola3='';
-		whereamI=0;
-		if(1==1){
-		for (i=1;i<=wymiar;i++){ //rows
-			for (j=1;j<=wymiar;j++){ //columns
-			
-				if(whereJ==j && ( i<=startv || i>=endv)){
-					pola3+=pola[whereamI];
-				}else
-				if(whereJ==j && i>startv && i<endv && startv>0) {
-					pola3+=type;
-				}
-				else{
-					pola3+=pola[whereamI];
-				}
-				whereamI++;
-				}
+		for(i=ajdiStart;i<=ajdiEnd;i+=wymiar){
+			p=document.getElementById('p'+i); // m1 m2 m3 m50 ... in1 in2
+			id=i;
+			switch (type.toLowerCase()){
+				case "9":
+					break;
+				case "e":
+					p.innerHTML=
+						'<input class="m0" id="m'+id+'" '+
+						'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "i":
+					p.innerHTML=
+						'<input class="m1" id="m'+id+'" '+
+						'onmousedown="two(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "h":
+					p.innerHTML=
+						'<input class="m2" id="m'+id+'" '+
+						'onmousedown="three(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "t":
+					p.innerHTML=
+						'<input class="m3" id="m'+id+'" '+
+						'onmousedown="four(\''+id+'\')" '+
+						'></div>';
+					break;
+				case "f":
+					p.innerHTML=
+						'<input class="m4" id="m'+id+'" '+
+						'onmousedown="five(\''+id+'\')" '+
+						'></div>';
+					break;
+				default:
+					break;
+				
 			}
-		}
-		pola2=pola3;
-		
-	
 
-	setAllOnBoard(pola2);
+		}
+	}
 
 }
 function clearGreens(){
