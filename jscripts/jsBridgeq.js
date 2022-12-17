@@ -177,9 +177,9 @@ function changeSize(size){
 			
 			document.getElementById('PAGE').style.width="1290px";
 			document.getElementById('CONTENT').style.width="1040px";
-			document.getElementById('CONTENT').style.height="1090px";
-			document.getElementById('MENU_RIGHT').style.height="1090px";
-			document.getElementById('MENU_LEFT').style.height="1100px";
+			document.getElementById('CONTENT').style.height="1100px";
+			document.getElementById('MENU_RIGHT').style.height="1100px";
+			document.getElementById('MENU_LEFT').style.height="1110px";
 			document.getElementById('mostq').style.width="1010px";
 			document.getElementById('mostq').style.height="1010px";
 			
