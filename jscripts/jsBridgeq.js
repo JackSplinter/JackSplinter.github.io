@@ -1112,7 +1112,7 @@ function setStartEndV(id){
 			polak=pola[(whereJ-1)+wymiar*(k-1)];
 			if(/[tfK-R1-9]/.test(polak)) { // only if island on the down !
 				if(!isEndv){
-					if(/[tf]/.test(polak)) {
+					if(/[tfK-R]/.test(polak)) {
 						endv=0;
 					}
 					else{
@@ -1126,7 +1126,7 @@ function setStartEndV(id){
 			polak=pola[(whereJ-1)+wymiar*(k)];
 			if(/[tfK-R1-9]/.test(polak)) { // only if island on the up
 				if(!isStartv){
-					if(/[tf]/.test(polak)) {
+					if(/[tfK-R]/.test(polak)) {
 						startv=0;
 					}
 					else{
@@ -1170,7 +1170,7 @@ function setStartEndH(id){
 			polak=pola[(whereI-1)*wymiar+k-1];
 			if(/[ihK-R1-9]/.test(polak)) { // only if island on the right !
 				if(!isEndH){
-					if(/[ih]/.test(polak)) {
+					if(/[ihK-R]/.test(polak)) {
 						endH=0;
 					}
 					else{
@@ -1186,7 +1186,7 @@ function setStartEndH(id){
 			if(/[ihK-R1-9]/.test(polak)) { // only if island on the left
 				if(!isStartH){
 					
-					if(/[ih]/.test(polak)) {
+					if(/[ihK-R]/.test(polak)) {
 						startH=0;
 					}
 					else{
