@@ -21,7 +21,7 @@ var znakKroku=',';
 var focuss=1;
 
 var stateBoard='';
-
+var pola='';
 var czas=0;
 var idTimeout=0;
 
@@ -34,18 +34,18 @@ var unlocked=false;
 var unlocked1=false;
 var unlocked2=false;
 var unlocked3=false;
-
-
+var startv=0;
+var endv=0;
+var endH=0;
+var startH=0;
+var whereI=0;
+var whereJ=0;
+var dontStep=false;
 function onLoud(){
 
 	
-	//document.getElementById('wymiar').innerHTML='ee';
-	
 		wymiar=parseInt(document.getElementById('wymiar').innerHTML);
 		drawBoard();
-		//document.getElementById('navigation').style.visibility="hidden";
-		//document.getElementById('navigation').style.height="0px";
-		//alert(window.location.href)
 		
 		document.getElementById('rightDemoDescription').style.display="inline";
 		document.getElementById('demoBoardStateButton').style.display="inline";
@@ -58,7 +58,8 @@ function onLoud(){
 		document.getElementById('playB').style.display="inline";
 
 		document.getElementById('drawB').style.background="green";
-				
+		unlocked=true;		
+		changeSize(16)
 }
 
 function lock(){
@@ -135,11 +136,12 @@ function changeSize(size){
 
 			document.getElementById('PAGE').style.width="890px";
 			document.getElementById('CONTENT').style.width="650px";
-			document.getElementById('CONTENT').style.height="696px";
-			document.getElementById('MENU_RIGHT').style.height="696px";
-			document.getElementById('MENU_LEFT').style.height="706px";
+			document.getElementById('CONTENT').style.height="586px";
+			document.getElementById('MENU_RIGHT').style.height="586px";
+			document.getElementById('MENU_LEFT').style.height="596px";
 			document.getElementById('mostq').style.width="453px";
 			document.getElementById('mostq').style.height="453px";
+
 			
 	drawBoard(size);
 	rows = Array.from(document.getElementsByClassName('row'));
@@ -154,12 +156,14 @@ function changeSize(size){
 			
 			document.getElementById('PAGE').style.width="980px";
 			document.getElementById('CONTENT').style.width="740px";
-			document.getElementById('CONTENT').style.height="846px";
-			document.getElementById('MENU_RIGHT').style.height="846px";
-			document.getElementById('MENU_LEFT').style.height="856px";
+			document.getElementById('CONTENT').style.height="786px";
+			document.getElementById('MENU_RIGHT').style.height="786px";
+			document.getElementById('MENU_LEFT').style.height="796px";
 			document.getElementById('mostq').style.width="700px";
 			document.getElementById('mostq').style.height="700px";
 			
+
+
 	drawBoard(size);
 	rows = Array.from(document.getElementsByClassName('row'));
 			rows.forEach(row => {
@@ -173,9 +177,9 @@ function changeSize(size){
 			
 			document.getElementById('PAGE').style.width="1290px";
 			document.getElementById('CONTENT').style.width="1040px";
-			document.getElementById('CONTENT').style.height="1160px";
-			document.getElementById('MENU_RIGHT').style.height="1160px";
-			document.getElementById('MENU_LEFT').style.height="1170px";
+			document.getElementById('CONTENT').style.height="1090px";
+			document.getElementById('MENU_RIGHT').style.height="1090px";
+			document.getElementById('MENU_LEFT').style.height="1100px";
 			document.getElementById('mostq').style.width="1010px";
 			document.getElementById('mostq').style.height="1010px";
 			
@@ -193,7 +197,6 @@ function changeSize(size){
 
 function drawBoard(){
 	var str='<form name="forma" action="">';
-		//<input onclick="inone(1)" onchange="change(1)" onfocus="focused(1)" class="in" name="in1" id="in1" type="text" maxlength="1">
     
 	for (i=1;i<=wymiar;i++){ //rows
 			str+='<div class="row">';
@@ -357,6 +360,20 @@ function intwo(id){
 
 
 function ones(id){
+
+	if(solvingBoard==true){
+		setStartEndV(id);
+		if (startv==0 || endv==0){ // endh
+			three(id);
+			return 0;
+		}
+
+		if ((whereI==wymiar || whereI==1) ){
+			three(id);
+			return 0;
+		}
+		stretchV(id,'i',5);
+	}
 	step0();
 	
 	p=document.getElementById('p'+id); // m1 m2 m3 m50 ...
@@ -381,11 +398,17 @@ function ones(id){
 			'></div>';
 	}
 	step();
+	//stretchH(id,'t',4);
+
 }
 
 
 
 function two(id){
+	
+	if(solvingBoard==true){
+	stretchV(id,'h',5);
+	}
 step0();
 	
 	p=document.getElementById('p'+id); // m1 m2 m3 m50 ...
@@ -410,11 +433,29 @@ step0();
 			'></div>';
 	}
 	step();
+
 }
 
 
 
 function three(id){
+	
+	if(solvingBoard==true){
+		setStartEndH(id);
+		stretchV(id,'E',5);
+
+		if (startH==0 || endH==0){ // endh
+			five(id);
+			return 0;
+		}
+
+		if ((whereJ==wymiar || whereJ==1) &&(whereI!=1 && whereI!=wymiar) ){
+			
+			five(id);
+			return 0;
+		}
+		stretchH(id,'t',4);
+	}
 step0();
 	
 	p=document.getElementById('p'+id); // m1 m2 m3 m50 ...
@@ -439,11 +480,16 @@ step0();
 			'></div>';
 	}
 	step();
+
 }
 
 
 
 function four(id){
+	
+	if(solvingBoard==true){
+		stretchH(id,'f',4);
+	}
 step0();
 	
 	p=document.getElementById('p'+id); // m1 m2 m3 m50 ...
@@ -468,12 +514,18 @@ step0();
 			'></div>';
 	}
 	step();
+
 }
 
 
 function five(id){
-step0();
 	
+	if(solvingBoard==true){
+		stretchH(id,'E',4);
+	}
+	
+
+	step0();		
 	p=document.getElementById('p'+id); // m1 m2 m3 m50 ...
 
 	if(drawingBoard==true){
@@ -495,7 +547,11 @@ step0();
 			'oninput="cli('+id+')" onmousedown="ones(\''+id+'\')" '+
 			'></div>';
 	}
-	step();
+	
+
+		step();
+	
+	
 }
 
 
@@ -534,7 +590,6 @@ function stoper(){
 }
 
 function stopStoper(){
-	//alert(idTimeout)
 	clearTimeout(idTimeout);
 		document.getElementById('stoper').innerHTML='00:00:00'
 			document.getElementById('pause').innerHTML=
@@ -543,7 +598,6 @@ function stopStoper(){
 }
 
 function pauseStoper(){
-	//alert(idTimeout)
 	clearTimeout(idTimeout);
 	document.getElementById('pause').innerHTML=
 		'<img src="images/play2.png" onclick="startStoper()" alt="" title="start">'
@@ -670,20 +724,10 @@ function step0(){
 	
 function step(){
 	if(solvingBoard==true){
-	
-	
-	
-		lock();
+	lock();
 	krok++;
 	
 	stepsy[krok]=getAllOnBoard();
-	/*
-	var steps=document.getElementById('steps');
-	kroki=steps.innerHTML;
-	kroki+='<span class="steps" id="sid'+krok+'" onmouseover="thick(\''+krok+'\')" '+
-	'onmouseout="thin(\''+krok+'\')" onclick="klik(\''+krok+'\')">'+znakKroku+'</span>';
-	steps.innerHTML=kroki;
-	*/
 	pointedStep=krok;
 	navigate();
 	}
@@ -715,7 +759,7 @@ function navigate(){
 		
 	navRight.innerHTML='<span  id="navR" onmousedown="goBackTo(\''+(pointedStep+1)+'\')">&gt;</span>';
 
-	//document.getElementById('innav').focus();
+//document.getElementById('innav').focus();
 	
 }
 
@@ -781,28 +825,8 @@ function clearInputs(){
 	for(var i=0;i<wymiar*wymiar;i++){
 		dwa+='n';
 	}
-	//alert(dwa.length);
 
 	setInputs(dwa);
-/*
-	if (wymiar=='10')
-		setInputs('0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n0n');
-	if (wymiar=='16'){
-		//var dwa='0n0n0n0n0n0n0n0nn0n0n0n0n0n0n0n0';
-		var dwa='nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn';
-		dwa8=dwa+dwa+dwa+dwa+dwa+dwa+dwa+dwa;
-		setInputs(dwa8);
-	}
-	if (wymiar=='20'){
-		var dwa='0n0n0n0n0n0n0n0n0n0nn0n0n0n0n0n0n0n0n0n0';
-		dwa0=dwa+dwa+dwa+dwa+dwa+dwa+dwa+dwa+dwa+dwa;
-		setInputs(dwa0);
-	}
-	if (wymiar=='25'){
-		var dwa='nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn';
-		dwa0=dwa+dwa+dwa+dwa+dwa+dwa;
-		setInputs(dwa0);
-	}*/
 }
 
 
@@ -837,13 +861,13 @@ function sample(id){
 function solve(id){
 	
 	if(wymiar==16){
-		setBoard(solution16[id]);
+		setAllOnBoard(solution16[id]);
 	}
 	else if(wymiar==25){
-		setBoard(solution25[id]);
+		setAllOnBoard(solution25[id]);
 	}
 	else if(wymiar==36){
-		setBoard(solution36[id]);
+		setAllOnBoard(solution36[id]);
 	}
 
 	document.getElementById('solution'+id).style.visibility='hidden';
@@ -904,6 +928,8 @@ function getAllOnBoard(){
 
 	return pola;
 }
+
+
 
 function setAllOnBoard(board){
 	
@@ -1000,7 +1026,7 @@ function setAllOnBoard(board){
 				'<input class="m2" id="m'+id+'" '+
 				'onmousedown="three(\''+id+'\')" '+
 				'></div>';
-			break;
+				break;
 		case "t":
 			p.innerHTML=
 				'<input class="m3" id="m'+id+'" '+
@@ -1027,8 +1053,6 @@ function setAllOnBoard(board){
 function getBoard(){
 	changeInl2m0();
 	
-	//kod=input.charCodeAt(0); //A-65 ... Z-90       0-48 ... 9 -57
-	//	val=String.fromCharCode(parseInt(val)+55);
 	
 	pola='';
 	for(var i=1;i<=wymiar*wymiar;i++){ //od 1 do wymiar^2
@@ -1067,12 +1091,211 @@ function getBoard(){
 		}
 	
 	}
-
 	return pola;
 }
 
 function getAllOnBoard2(){
 	prompt('Actual board state',getAllOnBoard())
+}
+
+function setStartEndV(id){
+	startv=0;
+	endv=0;
+	isStartv=false;
+	isEndv=false;
+	setWhereIJ(id);
+
+
+	// -------------------------------------------vertical
+	if (whereI!=1 & whereI!=wymiar){
+		for(k=whereI+1;k<=wymiar;k++){
+			polak=pola[(whereJ-1)+wymiar*(k-1)];
+			if(/[tfK-R1-9]/.test(polak)) { // only if island on the down !
+				if(!isEndv){
+					if(/[tf]/.test(polak)) {
+						endv=0;
+					}
+					else{
+						endv=k;
+					}
+					isEndv=true;
+				}
+			}
+		}
+		for(k=whereI-1;k>=0;k--){
+			polak=pola[(whereJ-1)+wymiar*(k)];
+			if(/[tfK-R1-9]/.test(polak)) { // only if island on the up
+				if(!isStartv){
+					if(/[tf]/.test(polak)) {
+						startv=0;
+					}
+					else{
+						startv=k+1;
+						}
+					isStartv=true;
+				}
+			}
+			
+		}
+	}
+}
+
+function setWhereIJ(id){
+	
+	whereamI=0;
+	whereI=0;
+	whereJ=0;
+	for (i=1;i<=wymiar;i++){ //rows
+		for (j=1;j<=wymiar;j++){ //columns
+			whereamI++;
+			if (whereamI==id){
+				//alert(i+" - "+j);
+				whereI=i;
+				whereJ=j;
+			}	
+		}
+	}
+}
+
+function setStartEndH(id){
+	isStartH=false;
+	isEndH=false;
+	startH=0;
+	endH=0;
+	setWhereIJ(id);
+	
+
+	if (whereJ!=1 & whereJ!=wymiar){
+		for(k=whereJ+1;k<=wymiar;k++){
+			polak=pola[(whereI-1)*wymiar+k-1];
+			if(/[ihK-R1-9]/.test(polak)) { // only if island on the right !
+				if(!isEndH){
+					if(/[ih]/.test(polak)) {
+						endH=0;
+					}
+					else{
+						endH=k;
+					}
+					isEndH=true;
+				}
+			}
+		}
+		//todo: if green island then do nothing KLMNOPQR !!! 
+		for(k=whereJ-1;k>=1;k--){
+			polak=pola[(whereI-1)*wymiar+k-1];
+			if(/[ihK-R1-9]/.test(polak)) { // only if island on the left
+				if(!isStartH){
+					
+					if(/[ih]/.test(polak)) {
+						startH=0;
+					}
+					else{
+						startH=k;
+					}
+					isStartH=true;
+				}
+
+			}
+		}
+}
+}
+
+function stretchH(id,type,dir){ // 4 - horizontal 5- vertical
+	pola2='';
+	board=getAllOnBoard();
+	setStartEndH(id);
+	
+	setWhereIJ(id);
+	if (whereJ==wymiar && /[tf]/.test(type)){
+		return 0;
+	}
+	if (whereJ==1 && /[tf]/.test(type)){
+		return 0;
+	}
+
+
+	
+
+	if(!startH ){
+		return 0;
+	}
+
+	whereamI=0;
+		for (i=1;i<=wymiar;i++){ //rows
+			for (j=1;j<=wymiar;j++){ //columns
+				if(whereI==i && ( j<=startH || j>=endH)){
+					pola2+=pola[whereamI];
+				}else if(whereI==i && ( j>startH && j<endH)){
+					pola2+=type;
+				}else{
+					pola2+=pola[whereamI];
+				}
+				whereamI++;
+				
+				}
+			}
+		
+	setAllOnBoard(pola2);
+
+}
+
+
+function stretchV(id,type,dir){ // 4 - horizontal 5- vertical
+	pola2='';
+	whereamI=0;
+	board=getAllOnBoard();
+	setStartEndV(id);
+	
+	
+	setWhereIJ(id);
+
+	if (whereI==wymiar && /[ih]]/.test(type)){
+		return 0;
+	}
+	if (whereI==1 && /[ih]/.test(type)){
+		return 0;
+	}
+	
+	whereamI=0;
+
+		pola3='';
+		whereamI=0;
+		if(1==1){
+		for (i=1;i<=wymiar;i++){ //rows
+			for (j=1;j<=wymiar;j++){ //columns
+			
+				if(whereJ==j && ( i<=startv || i>=endv)){
+					pola3+=pola[whereamI];
+				}else
+				if(whereJ==j && i>startv && i<endv && startv>0) {
+					pola3+=type;
+				}
+				else{
+					pola3+=pola[whereamI];
+				}
+				whereamI++;
+				}
+			}
+		}
+		pola2=pola3;
+		
+	
+
+	setAllOnBoard(pola2);
+
+}
+function clearGreens(){
+	board=getAllOnBoard();
+	board=board.replaceAll('K',1);
+	board=board.replaceAll('L',2);
+	board=board.replaceAll('M',3);
+	board=board.replaceAll('N',4);
+	board=board.replaceAll('O',5);
+	board=board.replaceAll('P',6);
+	board=board.replaceAll('Q',7);
+	board=board.replaceAll('R',8);
+	setAllOnBoard(board);
+	
 }
 
 function setAllOnBoard2(){
