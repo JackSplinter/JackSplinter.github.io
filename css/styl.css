@@ -487,13 +487,40 @@ a:hover{
 #clearButtons{
 	text-align: center;
 }
-#clearB, #clearI{
+#clearB, #clearI, #clearG{
 	
 	text-align: center;
 	padding-left: 10px;
 	width: 63px;
 	height: 43px;
+	border-radius: 12px;
 }
 #clearB:hover, #clearI:hover{
 	background-color: green;
+	border-color: green;
+}
+
+#clearG:hover{
+	background-color: lightgreen;
+}
+#clearG{
+	background-color: green;
+	border-color: green;
+}
+
+#unlockSize1,#unlockSize2,#unlockSize3{
+	border-color: green;
+	border-radius: 7px;
+}
+
+#sample1,#sample2,#sample3{
+	border-color: green;
+	border-radius: 7px;
+
+}
+#solution1,#solution2,#solution3{
+	border-color: green;
+	border-radius: 7px;
+	background-color: lightgreen;
+
 }
