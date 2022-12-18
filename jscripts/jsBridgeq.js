@@ -40,7 +40,10 @@ var endH=0;
 var startH=0;
 var whereI=0;
 var whereJ=0;
-var dontStep=false;
+
+var colorING=1;
+var colorDIG='black';
+
 function onLoud(){
 
 	
@@ -48,7 +51,7 @@ function onLoud(){
 		drawBoard();
 		
 		document.getElementById('rightDemoDescription').style.display="inline";
-		document.getElementById('demoBoardStateButton').style.display="inline";
+	//	document.getElementById('demoBoardStateButton').style.display="inline";
 		document.getElementById('demoInputsStateButton').style.display="inline";
 		document.getElementById('demoAllStateButton').style.display="inline";
 		document.getElementById('timer').style.display="inline";
@@ -58,8 +61,66 @@ function onLoud(){
 		document.getElementById('playB').style.display="inline";
 
 		document.getElementById('drawB').style.background="green";
-		unlocked=true;		
-		changeSize(16)
+	//	solve(3);
+		//drawingBoard=false;
+	//	solvingBoard=true;
+		//unlocked=true;		
+		//changeSize(36)
+}
+
+function colorBackground(color){
+	document.getElementById('mostq').style.backgroundColor=color;
+	document.getElementById('mostq').style.border=color+' solid 10px';
+
+	
+}
+
+function colorBack(color){
+	document.body.style.backgroundColor=color;
+	
+
+	
+}
+
+function colorIsland(colorID){
+	ings=Array.from(document.getElementsByClassName('ing'+colorING));
+	ings.forEach(ing => {
+		//ing.style.background='white url(./images/circle'+color+'.png)';	
+		//ing.style.color='white';
+	
+		ing.className='ing'+colorID;
+		colorING=colorID;
+});
+	
+	
+}
+
+function colorDigits(color){
+	
+	old=' colorDIG'+colorDIG;
+	patt0=new RegExp(old);
+	
+	nevv=' colorDIG'+color;
+
+	ings=Array.from(document.getElementsByClassName('ing'+colorING));
+	ings.forEach(ing => {
+		nevv='ing'+colorING+' colorDIG'+color;
+		ing.className=nevv;
+});
+	ings=Array.from(document.getElementsByClassName('in'));
+	ings.forEach(inn => {
+		
+		nevv='in colorDIG'+color;
+		inn.className=nevv;
+});
+	ings=Array.from(document.getElementsByClassName('inl'));
+	ings.forEach(inl => {
+		
+		nevv='inl colorDIG'+color;
+		inl.className=nevv;
+});
+	
+	
 }
 
 function lock(){
@@ -323,7 +384,7 @@ function inone(id){
 				'onclick="intwo('+id+')" '+ 
 				'onchange="change('+id+')" '+ 
 				'onfocus="focused('+id+')" '+  
-				'class="ing" '+
+				'class="ing'+colorING+'" '+
 				'name="in'+id+'" '+ 
 				'id="in'+id+'" '+ 
 				'type="text" '+
@@ -445,12 +506,13 @@ function three(id){
 		stretchV(id,'E',5);
 
 		if (startH==0 || endH==0){ // endh
+			//alert('b')
 			five(id);
 			return 0;
 		}
 
 		if ((whereJ==wymiar || whereJ==1) &&(whereI!=1 && whereI!=wymiar) ){
-			
+		//	alert('a')
 			five(id);
 			return 0;
 		}
@@ -804,6 +866,7 @@ function clearBoard(){
 		
 	}
 	
+
 }
 
 
@@ -827,6 +890,7 @@ function clearInputs(){
 	}
 
 	setInputs(dwa);
+	drawB();
 }
 
 
@@ -956,7 +1020,7 @@ function setAllOnBoard(board){
 				'onclick="intwo('+id+')" '+ 
 				'onchange="change('+id+')" '+ 
 				'onfocus="focused('+id+')" '+  
-				'class="ing" '+
+				'class="ing'+colorING+'" '+
 				'name="in'+id+'" '+ 
 				'id="in'+id+'" '+ 
 				'type="text" '+
@@ -1002,7 +1066,7 @@ function setAllOnBoard(board){
 			'onclick="intwo('+id+')" '+ 
 			'onchange="change('+id+')" '+ 
 			'onfocus="focused('+id+')" '+  
-			'class="ing" '+
+			'class="ing'+colorING+'" '+
 			'name="in'+id+'" '+ 
 			'id="in'+id+'" '+ 
 			'type="text" '+
@@ -1048,7 +1112,7 @@ function setAllOnBoard(board){
 		
 	}
 	
-}
+}+
 
 function getBoard(){
 	changeInl2m0();
@@ -1143,18 +1207,11 @@ function setStartEndV(id){
 function setWhereIJ(id){
 	
 	whereamI=0;
-	whereI=0;
-	whereJ=0;
-	for (i=1;i<=wymiar;i++){ //rows
-		for (j=1;j<=wymiar;j++){ //columns
-			whereamI++;
-			if (whereamI==id){
-				//alert(i+" - "+j);
-				whereI=i;
-				whereJ=j;
-			}	
-		}
-	}
+	id--;
+	whereI=(id-id%wymiar)/wymiar+1;
+	whereJ=id%wymiar+1;
+
+
 }
 
 function setStartEndH(id){
@@ -1180,7 +1237,6 @@ function setStartEndH(id){
 				}
 			}
 		}
-		//todo: if green island then do nothing KLMNOPQR !!! 
 		for(k=whereJ-1;k>=1;k--){
 			polak=pola[(whereI-1)*wymiar+k-1];
 			if(/[ihK-R1-9]/.test(polak)) { // only if island on the left
@@ -1201,7 +1257,7 @@ function setStartEndH(id){
 }
 
 function stretchH(id,type,dir){ // 4 - horizontal 5- vertical
-		setStartEndH(id);
+	setStartEndH(id);
 	setWhereIJ(id);
 	if (whereJ==wymiar && /[tf]/.test(type)){
 		return 0;
@@ -1262,11 +1318,12 @@ function stretchH(id,type,dir){ // 4 - horizontal 5- vertical
 
 			}
 		}
+
 }
 
 
 function stretchV(id,type,dir){ // 4 - horizontal 5- vertical
-		setStartEndV(id);
+	setStartEndV(id);
 	setWhereIJ(id);
 
 	if (whereI==wymiar && /[ih]]/.test(type)){
@@ -1322,7 +1379,6 @@ function stretchV(id,type,dir){ // 4 - horizontal 5- vertical
 
 		}
 	}
-
 }
 function clearGreens(){
 	board=getAllOnBoard();
@@ -1485,8 +1541,3 @@ function getInputs(){
 function getInputs2(){
 	prompt('Actual islands state',getInputs());
 }
-
-
-
-
-
