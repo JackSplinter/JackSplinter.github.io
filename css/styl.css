@@ -1,6 +1,6 @@
 
 body {
-	background: #800000 repeat fixed;
+	background: maroon repeat fixed; 
 	text-align: center;
 	padding: 0;
 	margin: 0;
@@ -63,7 +63,7 @@ body {
 	height: 40px;
 	font-weight: bold;
 	font-size: 13px;
-	text-align: right;
+	text-align: left; 
 	background: black right url(../images/hmarow2.png) repeat-x;
 }
 
@@ -123,12 +123,12 @@ body {
 
 #FOOTER {
 	padding-top: 0px;
-	color: #F0E68C;
+	color: white; 
 	height: 40px;
 	clear: both;
 	width: 100%;
 	font-weight: bold;
-	font-size: 12px;
+	font-size: 14px; 
 	background: yellow url(../images/hwmaro2.png) repeat-x;
 }
 
@@ -522,5 +522,144 @@ a:hover{
 	border-color: green;
 	border-radius: 7px;
 	background-color: lightgreen;
+
+}
+
+
+
+#islandRed, #islandBlue, #islandBlack, #islandGreen, #islandBrown, #islandGray, #islandPurple{
+
+	color: white;
+	font-size: 14px;
+	border-radius: 20px;
+	width: 22px;
+}
+
+#islandColor{
+	padding-right: 20px;
+	
+}
+
+#digiRed, #digiBlue, #digiBlack, #digiGreen, #digiBrown, #digiGray, #digiPurple{
+	width: 22px;
+	border-radius: 20px;
+	font-size: 14px;
+	color: white;
+}
+
+#digiColor{
+	padding-left: 20px;
+}
+
+#islandRed, #digiRed{
+	background-color: red;
+	border-color: lightcoral;
+}
+#islandBlue, #digiBlue{
+	background-color: blue;
+	border-color: lightblue;
+	color: white;
+}
+#islandBlack, #digiBlack{
+	background-color: black;
+	color: white;
+	border-color: silver;
+}
+
+#islandGreen, #digiGreen{
+
+	background-color: green;
+	border-color: lightgreen;
+}
+
+#islandBrown, #digiBrown{
+
+	background-color: Brown;
+	border-color: orange;
+}
+#digiGray, #islandGray{
+
+	background-color: gray;
+	border-color: lightgray;
+}
+#digiPurple, #islandPurple {
+	background-color: purple;
+	border-color: violet;
+}
+
+#bgColor{
+	
+	text-align: left;
+}
+
+#backColor{
+	padding-left: 20px;
+	text-align: left;
+}
+
+#bgColorWhite, #backColorWhite{
+
+	margin-top: 10px;
+	background-color: white;
+	border-color: lightgray;
+	color:black;
+
+}
+
+#bgColorGray{
+
+	background-color: gray;
+	border-color: lightgray;
+	color:white;
+}
+
+#bgColorSkyblue{
+	background-color: skyblue;
+	border-color: lightblue;
+	color:white;
+}
+#bgColorGoldenrod{
+	background-color: goldenrod;
+	border-color: gold;
+	color:white;
+}
+
+#bgColorLightSeaGreen{
+	background-color: LightSeaGreen;
+	border-color: greenyellow;
+	color:white;
+}
+#bgColorTan{
+	background-color: tan;
+	border-color: gold;
+	color:white;
+}
+
+#bgColorGray, #bgColorWhite, #bgColorGoldenrod, #bgColorSkyblue, 
+#bgColorLightSeaGreen, #bgColorTan, #backColorWhite, #backColorBlack, #backColorMaroon, #backColorMidnightBlue{
+	width: 30px;
+	border-radius: 20px;
+	font-size: 16px;
+}
+
+#backColorBlack{
+
+	background-color: black;
+	border-color: lightgray;
+	color:white;
+
+}
+#backColorMaroon{
+
+	background-color: maroon;
+	border-color: red;
+	color:white;
+
+}
+#backColorMidnightBlue{
+	
+	background-color: midnightblue;
+	border-color: blue;
+	color:white;
 
 }
