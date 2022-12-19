@@ -52,8 +52,7 @@ body {
 	/*padding: 5px;*/
 	font-size: 12px;
 	border: 4px solid white;
-	border-right: 4px solid black;
-	
+	border-right: 4px solid black;	
 }
 
 #HEADER {
@@ -118,8 +117,6 @@ body {
 	color: white;
 	text-decoration: none;
 }
-
-
 
 #FOOTER {
 	padding-top: 0px;
@@ -295,8 +292,6 @@ a:hover{
 	color: gray;
 }
 
-
-
 #earlierVersions a:link, #earlierVersions a:active {
 	color: 	#686868;
 }
@@ -450,13 +445,11 @@ a:hover{
 	border-top: 0px solid black;
 	border-bottom: 10px solid green;
 	border-left: 0px solid black;
-	border-right: 0px solid black;
-	
+	border-right: 0px solid black;	
 }
 
 #setPlay{
-	text-align: center;
-	
+	text-align: center;	
 }
 
 
@@ -527,7 +520,6 @@ a:hover{
 
 #bridgeRed, #bridgeBlue, #bridgeBlack, #bridgeGreen, #bridgeBrown, #bridgeGray, #bridgePurple,
 #themeRed, #themeBlue, #themeBlack, #themeGreen, #themeBrown, #themeGray{
-
 	color: white;
 	font-size: 14px;
 	border-radius: 6px;
@@ -535,7 +527,6 @@ a:hover{
 }
 
 #islandRed, #islandBlue, #islandBlack, #islandGreen, #islandBrown, #islandGray, #islandPurple{
-
 	color: white;
 	font-size: 16px;
 	border-radius: 15px;
@@ -683,12 +674,10 @@ a:hover{
 }
 
 #bgColorWhite, #bodyColorWhite{
-
 	margin-top: 10px;
 	background-color: white;
 	border-color: lightgray;
 	color:black;
-
 }
 
 #bgColorGray{
@@ -727,23 +716,17 @@ a:hover{
 }
 
 #bodyColorBlack{
-
 	background-color: black;
 	border-color: lightgray;
 	color:white;
-
 }
 #bodyColorMaroon{
-
 	background-color: maroon;
 	border-color: red;
 	color:white;
-
 }
 #bodyColorMidnightBlue{
-	
 	background-color: midnightblue;
 	border-color: blue;
 	color:white;
-
 }
