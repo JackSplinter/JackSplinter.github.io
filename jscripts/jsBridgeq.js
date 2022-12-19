@@ -41,8 +41,10 @@ var startH=0;
 var whereI=0;
 var whereJ=0;
 
-var colorING=1;
-var colorDIG='black';
+var colorING='red';
+var colorDIG='red';
+var colorBRIDGE='red';
+var colorCIRCLE='red';
 
 function onLoud(){
 
@@ -51,7 +53,7 @@ function onLoud(){
 		drawBoard();
 		
 		document.getElementById('rightDemoDescription').style.display="inline";
-	//	document.getElementById('demoBoardStateButton').style.display="inline";
+	
 		document.getElementById('demoInputsStateButton').style.display="inline";
 		document.getElementById('demoAllStateButton').style.display="inline";
 		document.getElementById('timer').style.display="inline";
@@ -61,65 +63,96 @@ function onLoud(){
 		document.getElementById('playB').style.display="inline";
 
 		document.getElementById('drawB').style.background="green";
-	//	solve(3);
-		//drawingBoard=false;
-	//	solvingBoard=true;
-		//unlocked=true;		
-		//changeSize(36)
+		solve(0);
+		
+		colorTheme('red');
+}
+
+function colorBridge(color){
+
+	for(i=1;i<=4;i++){
+		ings=Array.from(document.getElementsByClassName('m'+i+colorBRIDGE));
+		ings.forEach(inn => {
+			if(inn)
+			inn.className='m'+i+color;
+		});
+	}
+
+	colorBRIDGE=color;	
+
+}
+
+function colorTheme(color){
+	if(color=='black'){
+		colorBackground('white');
+	}
+	else{
+		colorBackground('black');
+	}
+	colorBridge(color);
+	colorCircle(color);
+	colorIsland(color);
+	colorDigits(color);
+}
+
+function colorCircle(color){
+	ings=Array.from(document.getElementsByClassName('in'+colorCIRCLE));
+
+	ings.forEach(inn => {
+		nevv='in'+color+' colorDIG'+colorDIG;
+		inn.className=nevv;
+	});
+	colorCIRCLE=color;
 }
 
 function colorBackground(color){
 	document.getElementById('mostq').style.backgroundColor=color;
 	document.getElementById('mostq').style.border=color+' solid 10px';
 
-	
+
 }
 
-function colorBack(color){
+function colorBody(color){
 	document.body.style.backgroundColor=color;
 	
 
 	
 }
 
-function colorIsland(colorID){
+function colorIsland(color){
+
+	
 	ings=Array.from(document.getElementsByClassName('ing'+colorING));
 	ings.forEach(ing => {
-		//ing.style.background='white url(./images/circle'+color+'.png)';	
-		//ing.style.color='white';
 	
-		ing.className='ing'+colorID;
-		colorING=colorID;
+		ing.className='ing'+color;
+		colorING=color;
 });
 	
 	
 }
 
 function colorDigits(color){
-	
-	old=' colorDIG'+colorDIG;
-	patt0=new RegExp(old);
-	
-	nevv=' colorDIG'+color;
 
 	ings=Array.from(document.getElementsByClassName('ing'+colorING));
 	ings.forEach(ing => {
 		nevv='ing'+colorING+' colorDIG'+color;
 		ing.className=nevv;
-});
-	ings=Array.from(document.getElementsByClassName('in'));
+	});
+	ings=Array.from(document.getElementsByClassName('in'+colorCIRCLE));
 	ings.forEach(inn => {
-		
-		nevv='in colorDIG'+color;
+		nevv='in'+colorCIRCLE+' colorDIG'+color;
 		inn.className=nevv;
-});
+	});
 	ings=Array.from(document.getElementsByClassName('inl'));
 	ings.forEach(inl => {
 		
 		nevv='inl colorDIG'+color;
 		inl.className=nevv;
-});
+
 	
+});
+	colorDIG=color;
 	
 }
 
@@ -269,7 +302,7 @@ function drawBoard(){
 							'onclick="inone('+id+')" '+
 							'onchange="change('+id+')" '+
 							'onfocus="focused('+id+')" '+
-							'class="in" '+
+							'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 							'name="in'+id+'" '+
 							'id="in'+id+'" '+
 							'type="text" '+
@@ -409,7 +442,7 @@ function intwo(id){
 			'onclick="inone('+id+')" '+ 
 			'onchange="change('+id+')" '+ 
 			'onfocus="focused('+id+')" '+  
-			'class="in" '+
+			'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 			'name="in'+id+'" '+ 
 			'id="in'+id+'" '+ 
 			'type="text" '+
@@ -445,7 +478,7 @@ function ones(id){
 		'onclick="inone('+id+')" '+ 
 		'onchange="change('+id+')" '+ 
 		'onfocus="focused('+id+')" '+  
-		'class="in" '+
+		'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 		'name="in'+id+'" '+ 
 		'id="in'+id+'" '+ 
 		'type="text" '+
@@ -454,7 +487,7 @@ function ones(id){
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<input class="m1" id="m'+id+'" '+
+			'<input class="m1'+colorBRIDGE+'" id="m'+id+'" '+
 			'onmousedown="two(\''+id+'\')" '+
 			'></div>';
 	}
@@ -480,7 +513,7 @@ step0();
 		'onclick="inone('+id+')" '+ 
 		'onchange="change('+id+')" '+ 
 		'onfocus="focused('+id+')" '+  
-		'class="in" '+
+		'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 		'name="in'+id+'" '+ 
 		'id="in'+id+'" '+ 
 		'type="text" '+
@@ -489,7 +522,7 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<input class="m2" id="m'+id+'" '+
+			'<input class="m2'+colorBRIDGE+'" id="m'+id+'" '+
 			'onmousedown="three(\''+id+'\')" '+
 			'></div>';
 	}
@@ -528,7 +561,7 @@ step0();
 		'onclick="inone('+id+')" '+ 
 		'onchange="change('+id+')" '+ 
 		'onfocus="focused('+id+')" '+  
-		'class="in" '+
+		'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 		'name="in'+id+'" '+ 
 		'id="in'+id+'" '+ 
 		'type="text" '+
@@ -537,7 +570,7 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<input class="m3" id="m'+id+'" '+
+			'<input class="m3'+colorBRIDGE+'" id="m'+id+'" '+
 			'onmousedown="four(\''+id+'\')" '+
 			'></div>';
 	}
@@ -562,7 +595,7 @@ step0();
 		'onclick="inone('+id+')" '+ 
 		'onchange="change('+id+')" '+ 
 		'onfocus="focused('+id+')" '+  
-		'class="in" '+
+		'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 		'name="in'+id+'" '+ 
 		'id="in'+id+'" '+ 
 		'type="text" '+
@@ -571,7 +604,7 @@ step0();
 	}
 	else if(solvingBoard==true){
 	p.innerHTML=
-			'<input class="m4" id="m'+id+'" '+
+			'<input class="m4'+colorBRIDGE+'" id="m'+id+'" '+
 			'onmousedown="five(\''+id+'\')" '+
 			'></div>';
 	}
@@ -596,7 +629,7 @@ function five(id){
 		'onclick="inone('+id+')" '+ 
 		'onchange="change('+id+')" '+ 
 		'onfocus="focused('+id+')" '+  
-		'class="in" '+
+		'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 		'name="in'+id+'" '+ 
 		'id="in'+id+'" '+ 
 		'type="text" '+
@@ -698,15 +731,17 @@ function cli(id){
 
 
 function changeNav(){
-	el=document.forms['formNav'].elements['innav'];
+	
+	el=document.getElementById('innav');
 	val=el.value;
+	
 	val=parseInt(val);
 	if (val>=0 && val<=krok){
 		el.value=val;
-		goBackTo(val);
+		goBackTo(val);		
 	}
 	else{
-		el.value=krok;
+		el.value=krok;		
 	}
 }
 
@@ -909,7 +944,7 @@ function sample(id){
 	else if(wymiar==36){
 		setInputs(sample36[id]);
 	}
-	for(i=1;i<=3;i++){
+	for(i=1;i<=4;i++){
 		if(i==id){
 			document.getElementById('solution'+i).style.visibility='visible';
 			document.getElementById('sample'+i).style.background='green';
@@ -933,7 +968,7 @@ function solve(id){
 	else if(wymiar==36){
 		setAllOnBoard(solution36[id]);
 	}
-
+	if(id>0)	
 	document.getElementById('solution'+id).style.visibility='hidden';
 }
 
@@ -1040,7 +1075,7 @@ function setAllOnBoard(board){
 				'onclick="inone('+id+')" '+ 
 				'onchange="change('+id+')" '+ 
 				'onfocus="focused('+id+')" '+  
-				'class="in" '+
+				'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 				'name="in'+id+'" '+ 
 				'id="in'+id+'" '+ 
 				'type="text" '+
@@ -1053,7 +1088,7 @@ function setAllOnBoard(board){
 			'onclick="inone('+id+')" '+ 
 			'onchange="change('+id+')" '+ 
 			'onfocus="focused('+id+')" '+  
-			'class="in" '+
+			'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 			'name="in'+id+'" '+ 
 			'id="in'+id+'" '+ 
 			'type="text" '+
@@ -1081,25 +1116,25 @@ function setAllOnBoard(board){
 			break;
 		case "i":
 			p.innerHTML=
-				'<input class="m1" id="m'+id+'" '+
+				'<input class="m1'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="two(\''+id+'\')" '+
 				'></div>';
 			break;
 		case "h":
 			p.innerHTML=
-				'<input class="m2" id="m'+id+'" '+
+				'<input class="m2'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="three(\''+id+'\')" '+
 				'></div>';
 				break;
 		case "t":
 			p.innerHTML=
-				'<input class="m3" id="m'+id+'" '+
+				'<input class="m3'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="four(\''+id+'\')" '+
 				'></div>';
 			break;
 		case "f":
 			p.innerHTML=
-				'<input class="m4" id="m'+id+'" '+
+				'<input class="m4'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="five(\''+id+'\')" '+
 				'></div>';
 			break;
@@ -1289,25 +1324,25 @@ function stretchH(id,type,dir){ // 4 - horizontal 5- vertical
 					break;
 				case "i":
 					p.innerHTML=
-						'<input class="m1" id="m'+id+'" '+
+						'<input class="m1'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="two(\''+id+'\')" '+
 						'></div>';
 					break;
 				case "h":
 					p.innerHTML=
-						'<input class="m2" id="m'+id+'" '+
+						'<input class="m2'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="three(\''+id+'\')" '+
 						'></div>';
 					break;
 				case "t":
 					p.innerHTML=
-						'<input class="m3" id="m'+id+'" '+
+						'<input class="m3'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="four(\''+id+'\')" '+
 						'></div>';
 					break;
 				case "f":
 					p.innerHTML=
-						'<input class="m4" id="m'+id+'" '+
+						'<input class="m4'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="five(\''+id+'\')" '+
 						'></div>';
 					break;
@@ -1350,25 +1385,25 @@ function stretchV(id,type,dir){ // 4 - horizontal 5- vertical
 					break;
 				case "i":
 					p.innerHTML=
-						'<input class="m1" id="m'+id+'" '+
+						'<input class="m1'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="two(\''+id+'\')" '+
 						'></div>';
 					break;
 				case "h":
 					p.innerHTML=
-						'<input class="m2" id="m'+id+'" '+
+						'<input class="m2'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="three(\''+id+'\')" '+
 						'></div>';
 					break;
 				case "t":
 					p.innerHTML=
-						'<input class="m3" id="m'+id+'" '+
+						'<input class="m3'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="four(\''+id+'\')" '+
 						'></div>';
 					break;
 				case "f":
 					p.innerHTML=
-						'<input class="m4" id="m'+id+'" '+
+						'<input class="m4'+colorBRIDGE+'" id="m'+id+'" '+
 						'onmousedown="five(\''+id+'\')" '+
 						'></div>';
 					break;
@@ -1438,25 +1473,25 @@ function setBoard(board){
 			break;
 		case "i":
 			p.innerHTML=
-				'<input class="m1" id="m'+id+'" '+
+				'<input class="m1'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="two(\''+id+'\')" '+
 				'></div>';
 			break;
 		case "h":
 			p.innerHTML=
-				'<input class="m2" id="m'+id+'" '+
+				'<input class="m2'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="three(\''+id+'\')" '+
 				'></div>';
 			break;
 		case "t":
 			p.innerHTML=
-				'<input class="m3" id="m'+id+'" '+
+				'<input class="m3'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="four(\''+id+'\')" '+
 				'></div>';
 			break;
 		case "f":
 			p.innerHTML=
-				'<input class="m4" id="m'+id+'" '+
+				'<input class="m4'+colorBRIDGE+'" id="m'+id+'" '+
 				'onmousedown="five(\''+id+'\')" '+
 				'></div>';
 			break;
@@ -1505,7 +1540,7 @@ function setInputs(inputy){
 				'onclick="inone('+id+')" '+ 
 				'onchange="change('+id+')" '+ 
 				'onfocus="focused('+id+')" '+  
-				'class="in" '+
+				'class="in'+colorCIRCLE+' colorDIG'+colorDIG+'" '+
 				'name="in'+id+'" '+ 
 				'id="in'+id+'" '+ 
 				'type="text" '+
@@ -1541,3 +1576,8 @@ function getInputs(){
 function getInputs2(){
 	prompt('Actual islands state',getInputs());
 }
+
+
+
+
+
