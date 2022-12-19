@@ -221,9 +221,6 @@ input{
 }
 
 
-/*    colored bridges    */
-
-
 .m1black, .m2black, .m3black, .m4black{
 	width: 28px;
 	height: 28px;
@@ -409,7 +406,6 @@ input{
 	background-size: 28px 28px;
 	cursor: pointer;
 }
-/*   colored bridges    */
 
 
 
@@ -493,10 +489,6 @@ input{
 	height: 30px;
 }
 
-
-/*
- MINI
-*/
 .clearBoth{
 	clear: both;
 }
