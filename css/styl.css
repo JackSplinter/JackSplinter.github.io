@@ -710,8 +710,8 @@ a:hover{
 
 #bgColorGray, #bgColorWhite, #bgColorGoldenrod, #bgColorSkyblue, 
 #bgColorLightSeaGreen, #bgColorBlack, #bodyColorWhite, #bodyColorBlack, #bodyColorMaroon, #bodyColorMidnightBlue{
-	width: 20px;
-	border-radius: 3px;
+	width: 24px;
+	border-radius: 6px;
 	font-size: 16px;
 }
 
