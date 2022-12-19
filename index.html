@@ -31,22 +31,53 @@
         
        <div id="PAGE">
         <div id="HEADER">
-          <span id="backColor">
-            <button id="backColorWhite" onmousedown="colorBack('white')">B  </button>
-            <button id="backColorBlack" onmousedown="colorBack('black')">A  </button>
-            <button id="backColorMaroon" onmousedown="colorBack('maroon')">C  </button>
-            <button id="backColorMidnightBlue" onmousedown="colorBack('midnightblue')">K   </button>
+          <span id="bodyColor">
+            <button id="bodyColorWhite" onmousedown="colorBody('white')">B  </button>
+            <button id="bodyColorBlack" onmousedown="colorBody('black')">A  </button>
+            <button id="bodyColorMaroon" onmousedown="colorBody('maroon')">C  </button>
+            <button id="bodyColorMidnightBlue" onmousedown="colorBody('midnightblue')">K  </button>
           </span>
           <span id="bgColor">
-            <button id="bgColorWhite" onmousedown="colorBackground('white')">G  </button>
-            <button id="bgColorGray" onmousedown="colorBackground('gray')">R  </button>
-            <button id="bgColorGoldenrod" onmousedown="colorBackground('goldenrod')">O  </button>
-            <button id="bgColorSkyblue" onmousedown="colorBackground('skyblue')">U   </button>
-            <button id="bgColorLightSeaGreen" onmousedown="colorBackground('lightseagreen')">N  </button>
-            <button id="bgColorTan" onmousedown="colorBackground('tan')">D   </button>
+            <button id="bgColorWhite" onmousedown="colorBackground('white')">G</button>
+            <button id="bgColorGray" onmousedown="colorBackground('gray')">R</button>
+            <button id="bgColorGoldenrod" onmousedown="colorBackground('goldenrod')">O</button>
+            <button id="bgColorSkyblue" onmousedown="colorBackground('skyblue')">U</button>
+            <button id="bgColorLightSeaGreen" onmousedown="colorBackground('lightseagreen')">N</button>
+            <button id="bgColorBlack" onmousedown="colorBackground('black')">D</button>
           </span>
 
+          <span id="islandColor">
+          <button id="islandRed" onmousedown="colorIsland('red')">I  </button>
+          <button id="islandBlue" onmousedown="colorIsland('blue')">S   </button>
+          <button id="islandBlack" onmousedown="colorIsland('black')">L   </button>
+          <button id="islandGreen" onmousedown="colorIsland('green')">A  </button>
+          <button id="islandBrown" onmousedown="colorIsland('brown')">N   </button>
+          <button id="islandGray" onmousedown="colorIsland('gray')">D </button>
+          <button id="islandPurple" onmousedown="colorIsland('purple')">S </button>
+          
+        </span>
 
+        
+        <span id="circleColor">
+          <button id="circleRed" onmousedown="colorCircle('red')">C  </button>
+          <button id="circleBlue" onmousedown="colorCircle('blue')">I   </button>
+          <button id="circleBlack" onmousedown="colorCircle('black')">R   </button>
+          <button id="circleGreen" onmousedown="colorCircle('green')">C  </button>
+          <button id="circleBrown" onmousedown="colorCircle('brown')">L   </button>
+          <button id="circleGray" onmousedown="colorCircle('gray')">E </button>
+          <button id="circlePurple" onmousedown="colorCircle('purple')">S </button>
+          
+        </span>
+        <span id="themeColor">
+        <button id="themeRed" onmousedown="colorTheme('red')">T  </button>
+        <button id="themeBlue" onmousedown="colorTheme('blue')">H   </button>
+        <button id="themeBlack" onmousedown="colorTheme('black')">E   </button>
+        <button id="themeGreen" onmousedown="colorTheme('green')">M  </button>
+        <button id="themeBrown" onmousedown="colorTheme('brown')">E   </button>
+        <button id="themeGray" onmousedown="colorTheme('gray')">S </button>
+        
+        
+      </span>
         </div>
         <div id="MENU_LEFT">
           <br>
@@ -67,15 +98,14 @@
        
             <div id="navigation">
              
-               <span id="islandColor">
-                  <button id="islandRed" onmousedown="colorIsland('1')">I  </button>
-                  <button id="islandBlue" onmousedown="colorIsland('2')">S   </button>
-                <button id="islandBlack" onmousedown="colorIsland('3')">L   </button>
-                <button id="islandGreen" onmousedown="colorIsland('4')">A  </button>
-                <button id="islandBrown" onmousedown="colorIsland('5')">N   </button>
-                <button id="islandGray" onmousedown="colorIsland('6')">D </button>
-                <button id="islandPurple" onmousedown="colorIsland('7')">s </button>
-                
+              <span id="bridgeColor">
+               <button id="bridgeRed" onmousedown="colorBridge('red')">B  </button>
+               <button id="bridgeBlue" onmousedown="colorBridge('blue')">R   </button>
+               <button id="bridgeBlack" onmousedown="colorBridge('black')">I  </button>
+               <button id="bridgeGreen" onmousedown="colorBridge('green')">D  </button>
+               <button id="bridgeBrown" onmousedown="colorBridge('brown')">G   </button>
+               <button id="bridgeGray" onmousedown="colorBridge('gray')">E </button>
+               <button id="bridgePurple" onmousedown="colorBridge('purple')">S </button>
               </span>
               <span id="nav0" onclick="goBackTo('0')">0</span>
               <span id="navLeft">
@@ -91,13 +121,7 @@
                 <span>0</span>
               </span>
               <span id="digiColor">
-                <button id="digiRed" onmousedown="colorDigits('red')">B</button>
-                <button id="digiBlue" onmousedown="colorDigits('blue')">R   </button>
-                <button id="digiBlack" onmousedown="colorDigits('black')">I   </button>
-                <button id="digiGreen" onmousedown="colorDigits('green')">D  </button>
-                <button id="digiBrown" onmousedown="colorDigits('brown')">G   </button>
-                <button id="digiGray" onmousedown="colorDigits('gray')">E  </button>
-                <button id="digiPurple" onmousedown="colorDigits('purple')">S  </button>
+                <button id="digiRed" onmousedown="colorDigits('red')">N</button><button id="digiBlue" onmousedown="colorDigits('blue')">U   </button><button id="digiGreen" onmousedown="colorDigits('green')">M</button><button id="digiBlack" onmousedown="colorDigits('black')">B</button><button id="digiBrown" onmousedown="colorDigits('brown')">E</button><button id="digiGray" onmousedown="colorDigits('gray')">R</button><button id="digiPurple" onmousedown="colorDigits('purple')">S</button>
             </span>
             </div>
           
@@ -173,6 +197,9 @@
             <br>
             <button id="sample3" onclick="sample(3)">Sample 3</button>
             <button id="solution3" style="visibility: hidden;" onclick="solve(3)">Solve</button>
+            <br>
+            <button id="sample4" onclick="sample(4)">Sample 4</button>
+            <button id="solution4" style="visibility: hidden;" onclick="solve(4)">Solve</button>
           </div>
           <br>
           <div class="imgB">
