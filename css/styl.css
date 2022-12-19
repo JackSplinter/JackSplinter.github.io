@@ -129,7 +129,7 @@ body {
 	width: 100%;
 	font-weight: bold;
 	font-size: 14px; 
-	background: yellow url(../images/hwmaro2.png) repeat-x;
+	background: maroon url(../images/hwmaro2.png) repeat-x;
 }
 
 #UNDER_FOOTER{
@@ -513,91 +513,176 @@ a:hover{
 	border-radius: 7px;
 }
 
-#sample1,#sample2,#sample3{
+#sample1,#sample2,#sample3, #sample4{
 	border-color: green;
 	border-radius: 7px;
 
 }
-#solution1,#solution2,#solution3{
+#solution1,#solution2,#solution3, #solution4{
 	border-color: green;
 	border-radius: 7px;
 	background-color: lightgreen;
 
 }
 
+#bridgeRed, #bridgeBlue, #bridgeBlack, #bridgeGreen, #bridgeBrown, #bridgeGray, #bridgePurple,
+#themeRed, #themeBlue, #themeBlack, #themeGreen, #themeBrown, #themeGray{
 
+	color: white;
+	font-size: 14px;
+	border-radius: 6px;
+	width: 22px;
+}
 
 #islandRed, #islandBlue, #islandBlack, #islandGreen, #islandBrown, #islandGray, #islandPurple{
 
 	color: white;
-	font-size: 14px;
-	border-radius: 20px;
-	width: 22px;
+	font-size: 16px;
+	border-radius: 15px;
+	width: 26px;
 }
 
 #islandColor{
+	padding-left: 50px;
+	margin: 0px;
+	font-size: 0px;
+}
+
+
+#bridgeColor{
 	padding-right: 20px;
-	
+	font-size: 0px;
 }
 
 #digiRed, #digiBlue, #digiBlack, #digiGreen, #digiBrown, #digiGray, #digiPurple{
-	width: 22px;
+	width: 28px;
 	border-radius: 20px;
-	font-size: 14px;
+	font-size: 18px;
 	color: white;
+	border-color: gray;
 }
 
-#digiColor{
+#digiColor, #circleColor, #themeColor{
 	padding-left: 20px;
+	
+	font-size: 0px;
+}
+#digiRed{
+	color:red;
+	background: black;
 }
 
-#islandRed, #digiRed{
+#digiBlue{
+	color:blue;
+	background: black;
+}
+#digiGreen{
+	color:Green;
+	background: black;
+}
+#digiBrown{
+	color:Brown;
+	background: black;
+}
+#digiGray{
+	color:Gray;
+	background: black;
+}
+#digiPurple{
+	color:Purple;
+	background: black;
+}
+#digiBlack{
+	color:black;
+	background: rgb(48, 47, 47);
+}
+
+
+#islandRed,#bridgeRed, #themeRed{
 	background-color: red;
 	border-color: lightcoral;
 }
-#islandBlue, #digiBlue{
+#bridgeBlue,#islandBlue,#themeBlue{
 	background-color: blue;
 	border-color: lightblue;
 	color: white;
 }
-#islandBlack, #digiBlack{
+#bridgeBlack,#islandBlack,#themeBlack{
 	background-color: black;
 	color: white;
 	border-color: silver;
 }
 
-#islandGreen, #digiGreen{
+#bridgeGreen,#islandGreen,#themeGreen{
 
 	background-color: green;
 	border-color: lightgreen;
 }
 
-#islandBrown, #digiBrown{
+#bridgeBrown,#islandBrown,#themeBrown{
 
 	background-color: Brown;
 	border-color: orange;
 }
-#digiGray, #islandGray{
+#bridgeGray, #islandGray,#themeGray{
 
 	background-color: gray;
 	border-color: lightgray;
 }
-#digiPurple, #islandPurple {
+#bridgePurple, #islandPurple {
 	background-color: purple;
 	border-color: violet;
 }
 
-#bgColor{
-	
-	text-align: left;
+
+#circleRed, #circleBlue, #circleBlack, #circleBrown, #circleGreen, #circleGray, #circlePurple{
+	width: 30px;
+	border-radius: 20px;
+	font-size: 20px;
+}
+#circlePurple{
+	border-color: purple;
+	color:purple;
+}
+#circleGreen{
+	border-color: green;
+	color:green;
 }
 
-#backColor{
+#circleBlue{
+	border-color: Blue;
+	color:Blue;
+}
+#circleRed{
+	border-color: Red;
+	color:Red;
+}
+#circleBlack{
+	border-color: Black;
+	color:Black;
+}
+#circleBrown{
+	border-color: Brown;
+	color:Brown;
+}
+
+#circleGray{
+	border-color: gray;
+	color:gray;
+}
+#bgColor{
+	padding-left: 5px;
+	text-align: left;
+	font-size: 0px;
+}
+
+#bodyColor{
 	padding-left: 20px;
 	text-align: left;
+	font-size: 0px;
 }
 
-#bgColorWhite, #backColorWhite{
+#bgColorWhite, #bodyColorWhite{
 
 	margin-top: 10px;
 	background-color: white;
@@ -607,7 +692,6 @@ a:hover{
 }
 
 #bgColorGray{
-
 	background-color: gray;
 	border-color: lightgray;
 	color:white;
@@ -629,34 +713,34 @@ a:hover{
 	border-color: greenyellow;
 	color:white;
 }
-#bgColorTan{
-	background-color: tan;
-	border-color: gold;
+#bgColorBlack{
+	background-color: black;
+	border-color: gray;
 	color:white;
 }
 
 #bgColorGray, #bgColorWhite, #bgColorGoldenrod, #bgColorSkyblue, 
-#bgColorLightSeaGreen, #bgColorTan, #backColorWhite, #backColorBlack, #backColorMaroon, #backColorMidnightBlue{
-	width: 30px;
-	border-radius: 20px;
+#bgColorLightSeaGreen, #bgColorBlack, #bodyColorWhite, #bodyColorBlack, #bodyColorMaroon, #bodyColorMidnightBlue{
+	width: 20px;
+	border-radius: 3px;
 	font-size: 16px;
 }
 
-#backColorBlack{
+#bodyColorBlack{
 
 	background-color: black;
 	border-color: lightgray;
 	color:white;
 
 }
-#backColorMaroon{
+#bodyColorMaroon{
 
 	background-color: maroon;
 	border-color: red;
 	color:white;
 
 }
-#backColorMidnightBlue{
+#bodyColorMidnightBlue{
 	
 	background-color: midnightblue;
 	border-color: blue;
