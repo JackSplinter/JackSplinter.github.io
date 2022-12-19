@@ -52,16 +52,13 @@ function onLoud(){
 		wymiar=parseInt(document.getElementById('wymiar').innerHTML);
 		drawBoard();
 		
-		document.getElementById('rightDemoDescription').style.display="inline";
-	
+		document.getElementById('rightDemoDescription').style.display="inline";	
 		document.getElementById('demoInputsStateButton').style.display="inline";
 		document.getElementById('demoAllStateButton').style.display="inline";
 		document.getElementById('timer').style.display="inline";
-
 		document.getElementById('setB').style.display="inline";
 		document.getElementById('drawB').style.display="inline";
 		document.getElementById('playB').style.display="inline";
-
 		document.getElementById('drawB').style.background="green";
 		solve(0);
 		
