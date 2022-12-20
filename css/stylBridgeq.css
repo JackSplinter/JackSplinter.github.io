@@ -4,8 +4,8 @@
 
 #mostq{
 	background: white;
-	margin-left: 10px;
-	border: white solid 10px;
+	margin-left: 0px;
+	border: white solid 0px;
 	height:  453px;
 	width: 453px;
 }
@@ -65,10 +65,10 @@
 .inl:hover{
 	background:  url(../images/circley.svg);
 }	
-
-.in:hover{
+/*
+.in:hover, .inblack:hover, .inred:hover, .inblue:hover, .inbrown:hover, .ingray:hover, .inpurple:hover, .ingreen:hover{
 	background:  url(../images/circler.svg);
-}	
+}*/	
 
 
 .ingblue{
@@ -187,6 +187,7 @@ input{
 /* bigger circles */
 
 .in, .ingred, .inl, .ingblue, .ingblack, .inggreen, .ingbrown, .inggray, .ingpurple, .inl:hover, .in:hover{
+	
 	background-size: 28px 28px;
 	background-position: center;
 	background-repeat: no-repeat;
