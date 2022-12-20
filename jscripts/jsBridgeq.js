@@ -48,8 +48,8 @@ var colorCIRCLE='red';
 
 function onLoud(){
 
-	
 		wymiar=parseInt(document.getElementById('wymiar').innerHTML);
+		
 		drawBoard();
 		
 		document.getElementById('rightDemoDescription').style.display="inline";	
@@ -61,8 +61,13 @@ function onLoud(){
 		document.getElementById('playB').style.display="inline";
 		document.getElementById('drawB').style.background="green";
 		solve(0);
+		colorBody('black');
+		colorTheme('green');
+		//unlocked=true;
+		//changeSize(25);
+		//solve(1);
 		
-		colorTheme('red');
+		
 }
 
 function colorBridge(color){
@@ -105,7 +110,6 @@ function colorCircle(color){
 function colorBackground(color){
 	document.getElementById('mostq').style.backgroundColor=color;
 	document.getElementById('mostq').style.border=color+' solid 10px';
-
 
 }
 
@@ -226,19 +230,18 @@ function changeSize(size){
 			document.getElementById('size36').style.backgroundColor='black';
 
 			document.getElementById('PAGE').style.width="890px";
-			document.getElementById('CONTENT').style.width="650px";
-			document.getElementById('CONTENT').style.height="586px";
+			document.getElementById('CONTENT').style.width="473px"; 
+			document.getElementById('CONTENT').style.height="473px";
 			document.getElementById('MENU_RIGHT').style.height="586px";
 			document.getElementById('MENU_LEFT').style.height="596px";
 			document.getElementById('mostq').style.width="453px";
 			document.getElementById('mostq').style.height="453px";
-
-			
-	drawBoard(size);
-	rows = Array.from(document.getElementsByClassName('row'));
+		
+			drawBoard(size);
+			rows = Array.from(document.getElementsByClassName('row'));
 			rows.forEach(row => {
 				row.style.width="453px";
-			  });
+			});
 			break;
 		case 25:
 			document.getElementById('size16').style.background='black';
@@ -246,17 +249,15 @@ function changeSize(size){
 			document.getElementById('size36').style.background='black';
 			
 			document.getElementById('PAGE').style.width="980px";
-			document.getElementById('CONTENT').style.width="740px";
-			document.getElementById('CONTENT').style.height="786px";
+			document.getElementById('CONTENT').style.width="720px";
+			document.getElementById('CONTENT').style.height="720px";
 			document.getElementById('MENU_RIGHT').style.height="786px";
 			document.getElementById('MENU_LEFT').style.height="796px";
 			document.getElementById('mostq').style.width="700px";
 			document.getElementById('mostq').style.height="700px";
 			
-
-
-	drawBoard(size);
-	rows = Array.from(document.getElementsByClassName('row'));
+			drawBoard(size);
+			rows = Array.from(document.getElementsByClassName('row'));
 			rows.forEach(row => {
 				row.style.width="700px";
 			  });
@@ -267,23 +268,24 @@ function changeSize(size){
 			document.getElementById('size36').style.background='green';
 			
 			document.getElementById('PAGE').style.width="1290px";
-			document.getElementById('CONTENT').style.width="1040px";
-			document.getElementById('CONTENT').style.height="1100px";
+			document.getElementById('CONTENT').style.width="1030px";
+			document.getElementById('CONTENT').style.height="1030px";
 			document.getElementById('MENU_RIGHT').style.height="1100px";
 			document.getElementById('MENU_LEFT').style.height="1110px";
 			document.getElementById('mostq').style.width="1010px";
 			document.getElementById('mostq').style.height="1010px";
 			
-	drawBoard(size);
-	rows = Array.from(document.getElementsByClassName('row'));
+			drawBoard(size);
+			rows = Array.from(document.getElementsByClassName('row'));
 			rows.forEach(row => {
 				row.style.width="1010px";
-			  });
+			 });
 			break;
 			
 		default: break;
 
-		}	}
+		}
+	}
 }
 
 function drawBoard(){
@@ -1422,6 +1424,7 @@ function clearGreens(){
 	board=board.replaceAll('P',6);
 	board=board.replaceAll('Q',7);
 	board=board.replaceAll('R',8);
+	board=board.replaceAll('S',9);
 	setAllOnBoard(board);
 	
 }
@@ -1573,8 +1576,3 @@ function getInputs(){
 function getInputs2(){
 	prompt('Actual islands state',getInputs());
 }
-
-
-
-
-
