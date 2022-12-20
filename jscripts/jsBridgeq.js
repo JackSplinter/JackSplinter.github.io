@@ -70,6 +70,99 @@ function onLoud(){
 		
 }
 
+
+function fillDigits(){
+
+	board=getAllOnBoard();
+	var arra = [];
+	for (i=0;i<wymiar*wymiar;i++) {
+  		arra.push(0);
+	}
+
+	for(i=0;i<wymiar*wymiar;i++){
+		right=0;
+		left=0;
+		down=0;
+		ip=0;
+		field=board[i];
+		if(i<(wymiar*wymiar-1))
+			right=board[i+1];
+		if(i<wymiar*(wymiar-1))
+			down=board[i+wymiar];
+		if(i>0)
+			left=board[i-1];
+		if(i>wymiar)
+			up=board[i-wymiar];
+		
+		if(i!=(wymiar-1)*(i+1) && i<wymiar*wymiar-1){
+			if(/[1-9]/.test(field)){				
+				if(right=='t'){
+					arra[i]+=1;
+				}
+				else if(right=='f'){
+					arra[i]+=2;
+				}
+			}
+		}
+		if(i<wymiar*(wymiar-1)){
+			if(/[1-9]/.test(field)){				
+				if(down=='i'){
+					arra[i]+=1;
+				}
+				else if(down=='h'){
+					arra[i]+=2;
+				}
+			}
+	
+		}
+
+		if(i>wymiar){
+			if(/[1-9]/.test(field)){				
+				if(up=='i'){
+					arra[i]+=1;
+				}
+				else if(up=='h'){
+					arra[i]+=2;
+				}
+			}
+		}
+		
+		if(i!=(wymiar*i)){
+			if(/[1-9]/.test(field)){				
+				if(left=='t'){
+					arra[i]+=1;
+				}
+				else if(left=='f'){
+					arra[i]+=2;
+				}
+			}
+		}
+
+	}
+	
+	board2='';
+	for(i=0;i<wymiar*wymiar;i++){
+		if(arra[i]>0){
+			board2+=arra[i];
+		}
+		else{
+			board2+=board[i]
+		}
+	}
+	setAllOnBoard(board2);	
+}
+
+function clearDigits(){
+	
+	clearGreens();
+
+	board=getAllOnBoard();
+	for(i=1;i<9;i++){
+		board=board.replaceAll(i,9);
+	}
+	setAllOnBoard(board);	
+}
+
 function colorBridge(color){
 
 	for(i=1;i<=4;i++){
@@ -121,7 +214,6 @@ function colorBody(color){
 }
 
 function colorIsland(color){
-
 	
 	ings=Array.from(document.getElementsByClassName('ing'+colorING));
 	ings.forEach(ing => {
