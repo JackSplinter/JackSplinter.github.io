@@ -121,7 +121,7 @@ body {
 	opacity: 20%;
 	padding-top: 0px;
 	color: white; 
-	height: 40px;
+	height: 10px;
 	clear: both;
 	width: 100%;
 	font-weight: bold;
@@ -475,7 +475,7 @@ a:hover{
 #clearButtons{
 	text-align: center;
 }
-#clearB, #clearI, #clearG{
+#clearB, #clearI{
 	
 	text-align: center;
 	padding-left: 10px;
@@ -483,7 +483,16 @@ a:hover{
 	height: 43px;
 	border-radius: 12px;
 }
-#clearB:hover, #clearI:hover{
+#clearD,#fillD, #clearG{
+	margin-top: 5px;
+	text-align: center;
+	padding-left: 10px;
+	width: 55px;
+	height: 55px;
+	border-radius: 42px;
+}
+
+#clearB:hover, #clearI:hover,#clearD:hover,#fillD:hover{
 	background-color: green;
 	border-color: green;
 }
