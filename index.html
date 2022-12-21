@@ -10,6 +10,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/dj.ico">
     <script src="jscripts/jsBridgeq.js"></script>
     <script src="jscripts/jsSamples.js"></script>
+    <script src="jscripts/jsHelpSolve.js"></script>
     <title>BridgeQ - build your own bridges and connect all islands</title>
   </head>
   <body onload="onLoud()">
@@ -185,8 +186,10 @@
           <br>
           <br>
           <div id="clearButtons">
+            <button id="helpSolve" onmousedown="helpSolve()">Help me </button><br>
             <button id="clearB" onmousedown="clearBoard()">Clean <br> bridges </button>
             <button id="clearI" onmousedown="clearInputs()">Clean <br> board </button>
+            
             <br>
             <button id="clearG" onmousedown="clearGreens()">Clean <br> ticked </button>
             <button id="clearD" onmousedown="clearDigits()">Clean <br> digits </button>
