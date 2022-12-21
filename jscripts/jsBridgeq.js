@@ -959,6 +959,9 @@ function thin(sid) {
 
 function clearBoard() {
     if (drawingBoard) {
+     
+        step0();
+        step();
         inputy = getInputs();
 
         var digit = '';
