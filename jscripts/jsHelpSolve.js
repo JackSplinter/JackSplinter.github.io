@@ -513,51 +513,51 @@ function helpSolve() {
                 break;
             case '5':
                 if (whatsUp(i) == '') {
-                    arra[i - 1] = 't';
-                    arra[i + 1] = 't';
-                    arra[i + wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (whatsDown(i) == '') {
-                    arra[i - 1] = 't';
-                    arra[i + 1] = 't';
-                    arra[i - wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (whatsRight(i) == '') {
-                    arra[i - 1] = 't';
-                    arra[i - wymiar] = 'i';
-                    arra[i + wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (whatsLeft(i) == '') {
-                    arra[i - wymiar] = 'i';
-                    arra[i + 1] = 't';
-                    arra[i + wymiar] = 'i';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
-                    arra[i - wymiar] = 'i';
-                    arra[i + 1] = 't';
-                    arra[i + wymiar] = 'i';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't'
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
-                    arra[i - wymiar] = 'i';
-                    arra[i - 1] = 't';
-                    arra[i + wymiar] = 'i';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
-                    arra[i - 1] = 't';
-                    arra[i + 1] = 't';
-                    arra[i + wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
-                    arra[i - wymiar] = 'i';
-                    arra[i - 1] = 't';
-                    arra[i + 1] = 't';
+                    if(board[i - wymiar]!='h' && arra[i - wymiar]!='h' ) arra[i - wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
                     helpedAlready[i] = '1';
                     break;
                 }
@@ -620,56 +620,56 @@ function helpSolve() {
                 break;
             case '3':
                 if (whatsUp(i) == '' && whatsLeft(i) == '') { //left up corner
-                    arra[i + 1] = 't';
-                    arra[i + wymiar] = 'i';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (whatsUp(i) == '' && whatsRight(i) == '') { //righ up corner
-                    arra[i - 1] = 't';
-                    arra[i + wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (whatsDown(i) == '' && whatsLeft(i) == '') { //left down corner
-                    arra[i + 1] = 't';
-                    arra[i - wymiar] = 'i';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (whatsUp(i) == '' && whatsLeft(i) == '') { //right down corner
-                    arra[i - 1] = 't';
-                    arra[i - wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } // left and up side are taken by K-R or Empty or I II --
                 else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
-                    arra[i + 1] = 't';
-                    arra[i + wymiar] = 'i';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
-                    arra[i - 1] = 't';
-                    arra[i + wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
-                    arra[i + 1] = 't';
-                    arra[i - wymiar] = 'i';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
-                    arra[i - 1] = 't';
-                    arra[i - wymiar] = 'i';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } // left and right taken
                 else if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
-                    arra[i + wymiar] = 'i';
-                    arra[i - wymiar] = 'i';
+                    if(board[i+wymiar]!='h' && arra[i+wymiar]!='h') arra[i + wymiar] = 'i';
+                   if(board[i - wymiar]!='h' && arra[i - wymiar]!='h') arra[i - wymiar] = 'i';
                     helpedAlready[i] = '1';
                     break;
                 } // down and up
                 else if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
-                    arra[i + 1] = 't';
-                    arra[i - 1] = 't';
+                    if(board[i+1]!='f' && arra[i+1]!='f') arra[i + 1] = 't';
+                    if(board[i-1]!='f' && arra[i-1]!='f') arra[i - 1] = 't';
                     helpedAlready[i] = '1';
                     break;
                 }
@@ -691,46 +691,55 @@ function helpSolve() {
                     arra[i - wymiar] = 'h';
                     arra[i] = 'L';
                     break;
-                } // if 1 on one left side and nothing on 2 other sides
-                else if (/^[Et]*[1K][2-8]*/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
+                } // if 1 or 2 on one left side and nothing on 2 other sides - so on the other side there will be at least 1 bridge
+                // maybe should check if there is not a II or =  on that side so wouldnt make I bridge from II
+                // maybe other letters LMNOPQ should check in arra if there is no II I - =
+                // old version: // else if (/^[Et]*[12K][2-8]*/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
+                // have to eliminate ELSE and BREAK so it will check further down
+                if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
                     arra[i + 1] = 't';
-                    break;
-                } else if (/^[Et]*[1K][2-8]*/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
+                   
+                } if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
                     arra[i + wymiar] = 'i';
-                    break;
-                } else if (/^[Et]*[1K][2-8]*/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
+                   
+                } if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
                     arra[i - wymiar] = 'i';
-                    break;
+                   
                 } // 1 on the upside
-                else if (/^[Ei]*[1K][2-8]*/.test(whatsUp(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
+                if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsUp(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
                     arra[i + 1] = 't';
-                    break;
-                } else if (/^[Ei]*[1K][2-8]*/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
+                   
+                } if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
                     arra[i - 1] = 't';
-                    break;
-                } else if (/^[Ei]*[1K][2-8]*/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
+                   
+                } if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
                     arra[i + wymiar] = 'i';
-                    break;
+                   
                 } // 1 on the right 
-                else if (/^[Et]*[1K][2-8]*/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
+                if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
                     arra[i - 1] = 't';
-                    break;
-                } else if (/^[Et]*[1K][2-8]*/.test(whatsRight(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
+                   
+                } if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsRight(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
                     arra[i - wymiar] = 'i';
-                    break;
-                } else if (/^[Et]*[1K][2-8]*/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
+                   
+                } if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsRight(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))) {
                     arra[i + wymiar] = 'i';
-                    break;
+                   
                 } // 1 on the down 
-                else if (/^[Ei]*[1K][2-8]*/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
+                if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
                     arra[i - wymiar] = 'i';
-                    break;
-                } else if (/^[Ei]*[1K][2-8]*/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
+                   
+                } if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
                     arra[i + 1] = 't';
-                    break;
-                } else if (/^[Ei]*[1K][2-8]*/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
+                   
+                } if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
                     arra[i - 1] = 't';
-                    break;
+                   
+                }// 2 has only possible 2 side and on 1 side there is 2, so there have to be 1 bridge on the other side
+                // 2 _ |     -->   so puts up 1 bridge
+                if (/^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
+                    arra[i - 1] = 't';
+                   
                 }
                 break;
             case '1': //
