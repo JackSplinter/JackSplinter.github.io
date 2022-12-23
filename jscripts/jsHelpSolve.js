@@ -330,7 +330,56 @@ function countBridgesOfIsland(id) {
     return sum;
 }
 
+function countMissingBridgesOfIsland(id) {
 
+    board = stepsy[stepsy.length - 1];
+    missing = 0;
+    numberOfIsland = parseInt(board[id]);
+
+    missing = numberOfIsland - countBridgesOfIsland(id);
+
+    if (missing > 0) {
+        return missing;
+    }
+
+
+    return 0;
+
+}
+
+function findIdOfClosestNotTickedIsland(id0, str, direction) {
+    // str is  whatsLeft(id) ..Right ..Up or ..Down ...
+    // this island should have at least 1 missing bridge
+
+    minIndex = str.length - 1; // minimal position in the string
+    idS = -1; // position in the string 
+
+
+    for (var i = 1; i <= 7; i++) { // looking for 1,2,3,4,5,6,7 island in the string
+        idS = str.indexOf(i);
+
+        if (idS >= 0 && idS < minIndex) {
+            minIndex = idS; // finding minimal position  - closest to id0
+        }
+
+    }
+    // if found an island in str
+    if (minIndex >= 0) {
+        switch (direction) {
+            case 'left':
+                return id0 - minIndex;
+            case 'right':
+                return id0 + minIndex;
+            case 'up': 
+                return id0 - (minIndex + 1) * wymiar;            
+            case 'down':
+                return id0 + (minIndex + 1) * wymiar;
+            default:
+                break;
+        }
+    }
+    return -1;
+}
 
 function helpSolveBridges() {
 
@@ -775,7 +824,7 @@ function helpSolve() {
             case '4':
                 // if 1. side is TICKED with 1 bridge /^[t]+[K-Q]+/ - 1 bridge connected with K-Q
                 // and 2. side can not be accessed -    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/  - this way CAN NOT GO
-                // so side 3 and 4 will have got 4 bridges 
+                // so side 3 and 4 will have got at least 1 bridge 
                 //- /^[Eft]+[1-8]+|^[ft]+[K-R]+/ - side with bridge K-R to actual island or ready to connect 1-8
 
                 //       /^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/  
@@ -831,6 +880,8 @@ function helpSolve() {
                 } else
                 if (/^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsDown(i)) && /^[Eft]+[K-R]+|^E*$|^[E]*[hiK-R]+/.test(whatsLeft(i)) && /^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsUp(i)) && board[i + 1] == 'E' && countBridgesOfIsland(i) == 2) {
                     arra[i + 1] = 'f';
+                    board[i + 1] = 'f';
+
                     arra[i] = 'N';
                     break;
                 } else
@@ -936,6 +987,303 @@ function helpSolve() {
                 }
                 break;
             case '3':
+
+
+                // 1-3--2 // if that TICKED ONE is with 1 and one of 2 ways is 2, so there can be only 1 bridge between 2 and 3        //
+                //if there is a '3' island with 1 bridge to TICKED island and and with 2 ways to go, check if 1 of them have only 1 missing bridge, so the other one will have at least 1 bridge
+
+                // /^[Ehi]*[hiK-R]+[1-8]*|^E*$/ - if left or right then CAN NO  GO  = CAN NOT BRIDGE BE THERE
+                // /^[E]+[1-8]/ - up or down THERE IS with no BRIDGES to actual so can go there
+
+                //LR 
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && // CAN NOT GO THERE
+                    /^[t]+[K]/.test(whatsRight(i)) // TICKED island 1 (K) connected with 1 bridge ONE (K) ISLAND with 1
+                    ||
+                    /^[t]+[K]/.test(whatsLeft(i)) && // / TICKED island 1(K) connected with 1 bridge to ME
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) // CAN NOT GO THERE
+                ) {
+                    if (/^[Ei]*[2]/.test(whatsUp(i))) // if UP is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
+                    }
+                    if (/^[Ei]*[2]/.test(whatsDown(i))) // if DOWN is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                    }
+
+
+                }
+                //UD
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && // CAN NOT GO THERE
+                    /^[i]+[K]/.test(whatsDown(i)) // TICKED island connected with 1 bridge to ME
+                    ||
+                    /^[i]+[K]/.test(whatsUp(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) // CAN NOT GO THERE
+                ) {
+                    if (/^[Et]*[2]/.test(whatsLeft(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i + 1] != 'f') arra[i + 1] = 't';
+                    }
+                    if (/^[Et]*[2]/.test(whatsRight(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i - 1] != 'f') arra[i - 1] = 't';
+                    }
+
+                }
+                //UL
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && // CAN NOT GO THERE
+                    /^[i]+[K]/.test(whatsUp(i)) // TICKED island connected with 1 bridge to ME
+                    ||
+                    /^[t]+[K]/.test(whatsLeft(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) // CAN NOT GO THERE
+                ) {
+
+                    if (/^[Ei]*[2]/.test(whatsDown(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i + 1] != 'f') arra[i + 1] = 't';
+                    }
+                    if (/^[Et]*[2]/.test(whatsRight(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
+                    }
+
+                }
+                //UR
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && // CAN NOT GO THERE
+                    /^[t]+[K]/.test(whatsRight(i)) // TICKED island connected with 1 bridge to ME
+                    ||
+                    /^[i]+[K]/.test(whatsUp(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) // CAN NOT GO THERE
+                ) {
+
+                    if (/^[Ei]*[2]/.test(whatsDown(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i - 1] != 'f') arra[i - 1] = 't';
+                    }
+                    if (/^[Et]*[2]/.test(whatsLeft(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
+                    }
+
+                }
+                //DR
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && // CAN NOT GO THERE
+                    /^[t]+[K]/.test(whatsRight(i)) // TICKED island connected with 1 bridge to ME
+                    ||
+                    /^[i]+[K]/.test(whatsDown(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) // CAN NOT GO THERE
+                ) {
+                    if (/^[Ei]*[2]/.test(whatsUp(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i - 1] != 'f') arra[i - 1] = 't';
+                    }
+                    if (/^[Et]*[2]/.test(whatsLeft(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                    }
+                }
+                //DL
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && // CAN NOT GO THERE
+                    /^[i]+[K]/.test(whatsDown(i)) // TICKED island connected with 1 bridge to ME
+                    ||
+                    /^[t]+[K]/.test(whatsLeft(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) // CAN NOT GO THERE
+                ) {
+                    if (/^[Ei]*[2]/.test(whatsUp(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i + 1] != 'f') arra[i + 1] = 't';
+                    }
+                    if (/^[Et]*[2]/.test(whatsRight(i))) // if is ISLAND 2 with or without bridge then connect to other island 1 bridge
+                    {
+                        if (arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                    }
+                }
+
+
+
+                //if there is a '3' island with 1 bridge to TICKED island and and with 2 ways to go, check if 1 of them have only 1 missing bridge, so the other one will have at least 1 bridge
+
+                // /^[Ehi]*[hiK-R]+[1-8]*|^E*$/ - if left or right then CAN NO  GO  = CAN NOT BRIDGE BE THERE
+                // /^[E]+[1-8]/ - up or down THERE IS with no BRIDGES to actual so can go there
+
+                //LR 
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && // CAN NOT GO THERE
+                    /^[t]+[K-R]/.test(whatsRight(i)) && // TICKED island connected with 1 bridge to ME
+                    /^[E]+[1-8]/.test(whatsUp(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsDown(i)) // CAN GO
+                    ||
+                    /^[t]+[K-R]/.test(whatsLeft(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && // CAN NOT GO THERE
+                    /^[E]+[1-8]/.test(whatsUp(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsDown(i)) // CAN GO
+                ) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsUp(i), 'up');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i + wymiar] = 'i';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsDown(i), 'down');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i - wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //UD
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && // CAN NOT GO THERE
+                    /^[i]+[K-R]/.test(whatsDown(i)) && // TICKED island connected with 1 bridge to ME
+                    /^[E]+[1-8]/.test(whatsLeft(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsRight(i)) // CAN GO
+                    ||
+                    /^[i]+[K-R]/.test(whatsUp(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && // CAN NOT GO THERE
+                    /^[E]+[1-8]/.test(whatsLeft(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsRight(i)) // CAN GO
+                ) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsLeft(i), 'left');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i + 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsRight(i), 'right');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i - 1] = 't';
+                        break;
+                    }
+
+                }
+                //UL
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && // CAN NOT GO THERE
+                    /^[i]+[K-R]/.test(whatsUp(i)) && // TICKED island connected with 1 bridge to ME
+                    /^[E]+[1-8]/.test(whatsRight(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsDown(i)) // CAN GO
+                    ||
+                    /^[t]+[K-R]/.test(whatsLeft(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && // CAN NOT GO THERE
+                    /^[E]+[1-8]/.test(whatsRight(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsDown(i)) // CAN GO
+                ) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsDown(i), 'down');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i + 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsRight(i), 'right');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i + wymiar] = 'i';
+                        break;
+                    }
+
+                }
+                //UR
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && // CAN NOT GO THERE
+                    /^[t]+[K-R]/.test(whatsRight(i)) && // TICKED island connected with 1 bridge to ME
+                    /^[E]+[1-8]/.test(whatsLeft(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsDown(i)) // CAN GO
+                    ||
+                    /^[i]+[K-R]/.test(whatsUp(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && // CAN NOT GO THERE
+                    /^[E]+[1-8]/.test(whatsLeft(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsDown(i)) // CAN GO
+                ) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsDown(i), 'down');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i - 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsLeft(i), 'left');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i + wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //DR
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && // CAN NOT GO THERE
+                    /^[t]+[K-R]/.test(whatsRight(i)) && // TICKED island connected with 1 bridge to ME
+                    /^[E]+[1-8]/.test(whatsUp(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsLeft(i)) // CAN GO
+                    ||
+                    /^[i]+[K-R]/.test(whatsDown(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) && // CAN NOT GO THERE
+                    /^[E]+[1-8]/.test(whatsUp(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsLeft(i)) // CAN GO
+                ) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsUp(i), 'up');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i - 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsLeft(i), 'left');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i - wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //DL
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && // CAN NOT GO THERE
+                    /^[i]+[K-R]/.test(whatsDown(i)) && // TICKED island connected with 1 bridge to ME
+                    /^[E]+[1-8]/.test(whatsUp(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsRight(i)) // CAN GO
+                    ||
+                    /^[t]+[K-R]/.test(whatsLeft(i)) && // / TICKED island connected with 1 bridge to ME
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && // CAN NOT GO THERE
+                    /^[E]+[1-8]/.test(whatsUp(i)) && // CAN GO
+                    /^[E]+[1-8]/.test(whatsRight(i)) // CAN GO
+                ) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsUp(i), 'up');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i + 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsRight(i), 'right');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        arra[i - wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
                 // the same as with '5' case 
                 //       /^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/  - there is only 1 way left .
                 // - on edge or EmptEE or "EE I II " or TICKED island with at least 1 bridge to actual island
@@ -1115,7 +1463,157 @@ function helpSolve() {
                     break;
                 }
                 break;
-            case '2': //
+            case '2': //if there is a '2' island with no bridges and with 2 ways to go, check if 1 of them have only 1 missing bridge, so the other one will have at least 1 bridge
+                // /^[Ehi]*[hiK-R]+[1-8]*|^E*$/ - if left or right then CAN NO  GO  = CAN NOT BRIDGE BE THERE
+                // /^[E]+[1-8]/ - up or down THERE IS with no BRIDGES to actual so can go there
+
+                //LR 
+                if (/^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) &&
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
+                    /^[E]+[1-8]/.test(whatsUp(i)) &&
+                    /^[E]+[1-8]/.test(whatsDown(i))) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsUp(i), 'up');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsDown(i), 'down');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //UD
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) &&
+                    /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) &&
+                    /^[E]+[1-8]/.test(whatsLeft(i)) &&
+                    /^[E]+[1-8]/.test(whatsRight(i))) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsLeft(i), 'left');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i + 1] != 'f') arra[i + 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsRight(i), 'right');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i - 1] != 'f') arra[i - 1] = 't';
+                        break;
+                    }
+
+
+                }
+                //UL
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) &&
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) &&
+                    /^[E]+[1-8]/.test(whatsDown(i)) &&
+                    /^[E]+[1-8]/.test(whatsRight(i))) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsDown(i), 'down');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i + 1] != 'f') arra[i + 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsRight(i), 'right');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //UR
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) &&
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
+                    /^[E]+[1-8]/.test(whatsLeft(i)) &&
+                    /^[E]+[1-8]/.test(whatsDown(i))) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsDown(i), 'down');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i - 1] != 'f') arra[i - 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsLeft(i), 'left');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //DR
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) &&
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
+                    /^[E]+[1-8]/.test(whatsLeft(i)) &&
+                    /^[E]+[1-8]/.test(whatsUp(i))) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsUp(i), 'up');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i - 1] != 'f') arra[i - 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsLeft(i), 'left');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+                //DL
+                if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) &&
+                    /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) &&
+                    /^[E]+[1-8]/.test(whatsRight(i)) &&
+                    /^[E]+[1-8]/.test(whatsUp(i))) {
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsUp(i), 'up');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i + 1] != 'f') arra[i + 1] = 't';
+                        break;
+                    }
+                    idC = -1;
+                    idC = findIdOfClosestNotTickedIsland(i, whatsRight(i), 'right');
+                    missingC = 0;
+                    missingC = countMissingBridgesOfIsland(idC);
+                    if (idC >= 0 && missingC == 1) {
+                        if (arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                        break;
+                    }
+
+
+                }
+
+
+
                 if (/^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
                     arra[i + wymiar] = 'h';
                     arra[i] = 'L';
@@ -1134,9 +1632,7 @@ function helpSolve() {
                     break;
                 } // if 1 or 2 on one left side and nothing on 2 other sides - so on the other side there will be at least 1 bridge
 
-                // maybe other letters LMNOPQ should check in arra if there is no II I - =
-                // old version: // else if (/^[Et]*[12K][2-8]*/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
-                // have to eliminate ELSE and BREAK so it will check further down
+
                 if (/^[Et]*[12KLMNOPQ][2-8]*/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
                     if (board[i + 1] != 'f' && arra[i + 1] != 'f') arra[i + 1] = 't';
 
