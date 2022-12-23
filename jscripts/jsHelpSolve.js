@@ -204,6 +204,7 @@ function helpSolveIslandsComplete() {
                 if (bridge7 == 7) {
                     arrb[i] = 'Q';
                 }
+
                 break;
             case '6':
                 if (countBridgesOfIsland(i) == 6) arrb[i] = 'P';
@@ -224,6 +225,7 @@ function helpSolveIslandsComplete() {
 
                 break;
             case '4':
+
                 bridge4 = 0;
                 if (left == 't') bridge4++;
                 if (left == 'f') bridge4 += 2;
@@ -308,27 +310,81 @@ function countBridgesOfIsland(id) {
     left = 0;
     down = 0;
     up = 0;
-    field = board[id];
-    if (id % wymiar < wymiar - 1)
-        right = board[id + 1];
-    if (id < wymiar * (wymiar - 1))
-        down = board[id + wymiar];
-    if (id % wymiar > 0)
-        left = board[id - 1];
-    if (id >= wymiar)
-        up = board[id - wymiar];
+    right = whatsRight(id)
+    down = whatsDown(id)
+    left = whatsLeft(id)
+    up = whatsUp(id)
+    if (/^[Etf]*[f]+[Etf]*[1-8K-R]/.test(left)) sum += 2; // 2 bridges  - must be f before ISLAND
+    if (/^[Etf]*[f]+[Etf]*[1-8K-R]/.test(right)) sum += 2;
+    if (/^[Ehi]*[h]+[Ehi]*[1-8K-R]/.test(up)) sum += 2;
+    if (/^[Ehi]*[h]+[Ehi]*[1-8K-R]/.test(down)) sum += 2;
 
-    if (left == 't') sum++;
-    if (left == 'f') sum += 2;
-    if (right == 't') sum++;
-    if (right == 'f') sum += 2;
-    if (up == 'i') sum++;
-    if (up == 'h') sum += 2;
-    if (down == 'i') sum++;
-    if (down == 'h') sum += 2;
+    if (/^[Et]*[t]+[Et]*[1-8K-R]/.test(left)) sum++; // 1 bridges  - must be only t before ISLAND
+    if (/^[Et]*[t]+[Et]*[1-8K-R]/.test(right)) sum++;
+    if (/^[Ei]*[i]+[Ei]*[1-8K-R]/.test(up)) sum++;
+    if (/^[Ei]*[i]+[Ei]*[1-8K-R]/.test(down)) sum++;
 
     return sum;
 }
+
+function KRto18(str) {
+    if (/^[K-R]$/.test(str))
+        return str.charCodeAt(0) - 74;
+    if (/^[1-8]$/.test(str))
+        return parseInt(str);
+    return -1;
+}
+
+function checkIfNotMoreBridgesThanShouldBe() {
+
+    console.clear();
+    foundONE = false;
+    board = stepsy[stepsy.length - 1];
+    counted = 0;
+    for (i = 0; i < wymiar * wymiar; i++) {
+        if (/[1-8K-R]/.test(board[i])) {
+            counted = countBridgesOfIsland(i);
+
+            shouldHave = KRto18(board[i]);
+
+            if (counted > shouldHave) {
+                console.log('ISLAND ID=' + i + ' ((' + shouldHave + ')) HAS TOO MANY BRIDGES =' + counted);
+                foundONE = true;
+            }
+        }
+
+    }
+    if (!foundONE) {
+        console.log('ISLANDs HAVEN\'T TOO MANY BRIDGES')
+    }
+
+
+}
+
+function checkIfNotLessBridgesThanShouldBe() {
+
+    console.clear();
+    foundONE = false;
+    board = stepsy[stepsy.length - 1];
+    counted = 0;
+    for (i = 0; i < wymiar * wymiar; i++) {
+        if (/[1-8K-R]/.test(board[i])) {
+            counted = countBridgesOfIsland(i);
+            shouldHave = KRto18(board[i]);
+            if (counted < shouldHave) {
+                console.log('ISLAND ID=' + i + ' ((' + shouldHave + ')) HAS NOT ENOUGH BRIDGES =' + counted);
+                foundONE = true;
+            }
+        }
+
+    }
+    if (!foundONE) {
+        console.log('ISLANDs HAVEN\'T GOT TOO LITTLE BRIDGES')
+    }
+
+
+}
+
 
 function countMissingBridgesOfIsland(id) {
 
@@ -370,8 +426,8 @@ function findIdOfClosestNotTickedIsland(id0, str, direction) {
                 return id0 - minIndex;
             case 'right':
                 return id0 + minIndex;
-            case 'up': 
-                return id0 - (minIndex + 1) * wymiar;            
+            case 'up':
+                return id0 - (minIndex + 1) * wymiar;
             case 'down':
                 return id0 + (minIndex + 1) * wymiar;
             default:
@@ -540,7 +596,7 @@ function helpSolve() {
                     }
                 } //LD
                 if (/^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsDown(i)) && /^[Eft]+[K-R]+|^E*$|^[E]*[hiK-R]+/.test(whatsLeft(i))) {
-                    if (board[i - 1] == 't' && board[i + wymiar] == 'h' || board[i - 1] == 'f' && board[i + wymiar] == 'h') {
+                    if (board[i - 1] == 't' && board[i + wymiar] == 'h' || board[i - 1] == 'f' && board[i + wymiar] == 'i') {
                         arra[i + 1] = 'f';
                         arra[i - wymiar] = 'h';
                         arra[i] = 'Q';
@@ -834,17 +890,19 @@ function helpSolve() {
                     if (board[i + wymiar] != 'h' && arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
                     if (board[i - wymiar] != 'h' && arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
 
-
+                    break;
                 } //UD
                 if (/^[i]+[K-Q]+/.test(whatsUp(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
                     if (board[i + 1] != 'f' && arra[i + 1] != 'f') arra[i + 1] = 't';
                     if (board[i - 1] != 'f' && arra[i - 1] != 'f') arra[i - 1] = 't';
+                    break;
 
 
                 } //LD
                 if (/^[t]+[K-Q]+/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))) {
                     if (board[i + 1] != 'f' && arra[i + 1] != 'f') arra[i + 1] = 't';
                     if (board[i - wymiar] != 'h' && arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
+                    break;
 
 
                 } //DR
@@ -853,26 +911,32 @@ function helpSolve() {
                     if (board[i - wymiar] != 'h' && arra[i - wymiar] != 'h') arra[i - wymiar] = 'i';
 
 
+                    break;
                 } //RU
                 if (/^[i]+[K-Q]+/.test(whatsUp(i)) && /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))) {
                     if (board[i - 1] != 'f' && arra[i - 1] != 'f') arra[i - 1] = 't';
                     if (board[i + wymiar] != 'h' && arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
 
 
+                    break;
                 } //LU
                 if (/^[t]+[K-Q]+/.test(whatsLeft(i)) && /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))) {
                     if (board[i + 1] != 'f' && arra[i + 1] != 'f') arra[i + 1] = 't';
                     if (board[i + wymiar] != 'h' && arra[i + wymiar] != 'h') arra[i + wymiar] = 'i';
 
+
+                    break;
                 }
                 //        /^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/  
                 // - on edge or EmptEE or "EE I II " or TICKED island with at least 1 bridge to actual island
                 if (/^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsDown(i)) && /^[Eft]+[K-R]+|^E*$|^[E]*[hiK-R]+/.test(whatsLeft(i)) && /^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsUp(i)) && board[i + 1] == 'E' && countBridgesOfIsland(i) == 3) {
                     arra[i + 1] = 't';
                     arra[i] = 'N';
+
                     break;
                 } else
                 if (/^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsDown(i)) && /^[Eft]+[K-R]+|^E*$|^[E]*[hiK-R]+/.test(whatsLeft(i)) && /^[Ehi]+[K-R]+|^E*$|^[E]*[ftK-R]+/.test(whatsUp(i)) && board[i + 1] == 't' && countBridgesOfIsland(i) == 3) {
+
 
                     arra[i + 1] = 'f';
                     arra[i] = 'N';
@@ -1776,8 +1840,6 @@ function helpSolve() {
                 break;
 
         }
-
-
     }
 
 
