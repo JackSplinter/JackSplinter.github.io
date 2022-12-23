@@ -981,6 +981,7 @@ function clearBoard() {
             }
 
         }
+     step();
     }
 
 }
