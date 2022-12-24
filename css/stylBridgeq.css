@@ -1,109 +1,139 @@
-.row{	
-	width: 453px;
+.row {
+  width: 453px;
 }
 
-#mostq{
-	background: white;
-	margin-left: 0px;
-	border: white solid 0px;
-	height:  453px;
-	width: 453px;
+#mostq {
+  background: white;
+  margin-left: 0px;
+  border: white solid 0px;
+  height: 453px;
+  width: 453px;
 }
 
-.row{	
-	height: 28px;
+.row {
+  height: 28px;
 }
 
-.p{
-	float: left;
+.p {
+  float: left;
 }
 
+.p,
+.m0,
+.m1,
+.m2,
+.m3,
+.m4,
+.in,
+.ing,
+.inl,
+.ingred,
+.ingblue,
+.ingblack,
+.inggreen,
+.ingbrown,
+.inggray,
+.ingpurple {
+  width: 28px;
+  height: 28px;
 
-.p, .m0, .m1, .m2, .m3, .m4, .in, .ing, .inl, .ingred, .ingblue, .ingblack, .inggreen, .ingbrown, .inggray, .ingpurple{
-	width: 28px;
-	height: 28px;
-	
-	cursor: pointer;
-}
-.m0{
-	background-color: transparent;
-}
-
-.in, .ing, .inl, .ingred, .ingblue, .ingblack, .inggreen, .ingbrown, .inggray, .ingpurple, .inred, .inblue, .inblack, .ingreen, .inbrown, .ingray, .inpurple{
-	cursor: pointer;
-	font-weight: bolder;
-	padding: 0px;
-	border: 0px;
-	text-align: center;
-	font-size: 23px;
-	cursor: pointer;
-}
-
-.colorDIGred{
-	color: red;
-}
-.colorDIGblue{
-	color: blue;
-}
-.colorDIGblack{
-	color: black;
-}
-.colorDIGgreen{
-	color: green;
-}
-.colorDIGbrown{
-	color: brown;
-}
-.colorDIGgray{
-	color: gray;
-}
-.colorDIGpurple{
-	color: purple;
+  cursor: pointer;
 }
 
-
-.inl:hover{
-	background:  url(../images/circley.svg);
-}	
-/*
-.in:hover, .inblack:hover, .inred:hover, .inblue:hover, .inbrown:hover, .ingray:hover, .inpurple:hover, .ingreen:hover{
-	background:  url(../images/circler.svg);
-}*/	
-
-
-.ingblue{
-	background:  url(../images/circleblue.svg);
-	color:skyblue;
+.m0 {
+  background-color: transparent;
 }
 
-.ingblack{
-	background:  url(../images/circleblack.svg);
-	color:white;
+.in,
+.ing,
+.inl,
+.ingred,
+.ingblue,
+.ingblack,
+.inggreen,
+.ingbrown,
+.inggray,
+.ingpurple,
+.inred,
+.inblue,
+.inblack,
+.ingreen,
+.inbrown,
+.ingray,
+.inpurple {
+  cursor: pointer;
+  font-weight: bolder;
+  padding: 0px;
+  border: 0px;
+  text-align: center;
+  font-size: 23px;
+  cursor: pointer;
 }
 
-.inggreen{
-	background:  url(../images/circlegreen.svg);
-	color:black;
+.colorDIGred {
+  color: red;
 }
 
-.ingbrown{
-	background:  url(../images/circlebrown.svg);
-	color:white;
+.colorDIGblue {
+  color: blue;
 }
 
-.inggray{
-	background:  url(../images/circlegray.svg);
-	color:black;
+.colorDIGblack {
+  color: black;
 }
 
-.ingpurple{
-	background:  url(../images/circlepurple.svg);
-	color:white;
+.colorDIGgreen {
+  color: green;
 }
 
+.colorDIGbrown {
+  color: brown;
+}
 
-.inl{
-	background:  url(../images/circlel.svg);
+.colorDIGgray {
+  color: gray;
+}
+
+.colorDIGpurple {
+  color: purple;
+}
+
+.inl:hover {
+  background: url(../images/circley.svg);
+}
+
+.ingblue {
+  background: url(../images/circleblue.svg);
+  color: skyblue;
+}
+
+.ingblack {
+  background: url(../images/circleblack.svg);
+  color: white;
+}
+
+.inggreen {
+  background: url(../images/circlegreen.svg);
+  color: black;
+}
+
+.ingbrown {
+  background: url(../images/circlebrown.svg);
+  color: white;
+}
+
+.inggray {
+  background: url(../images/circlegray.svg);
+  color: black;
+}
+
+.ingpurple {
+  background: url(../images/circlepurple.svg);
+  color: white;
+}
+
+.inl {
+  background: url(../images/circlel.svg);
 }
 
 /*
@@ -112,384 +142,474 @@
 
 }*/
 
-.p{
-	cursor: pointer;
-	overflow: visible;
+.p {
+  cursor: pointer;
+  overflow: visible;
 }
+
 /*
 .m0,.m1,.m2,.m3,.m4{
 	color: pink;
 }
 */
-input{
-	border: 0;
-	padding: 0px;
+input {
+  border: 0;
+  padding: 0px;
 }
 
-.m0{
-	overflow: hidden;
-	padding: 0px;
+.m0 {
+  overflow: hidden;
+  padding: 0px;
 }
 
-
-.ingred{
-	background:  url(../images/circlered.svg);
-	color: white;
+.ingred {
+  background: url(../images/circlered.svg);
+  color: white;
 }
 
-
-.in{
-	background:  url(../images/circle.svg);
-	
+.in {
+  background: url(../images/circle.svg);
 }
 
-.inred{
-	background:  url(../images/circleinred.svg);
-}
-.inblue{
-	background:  url(../images/circleinblue.svg);
-}
-.inblack{
-	background:  url(../images/circleinblack.svg);
-}
-.ingreen{
-	background:  url(../images/circleingreen.svg);
-}
-.inbrown{
-	background:  url(../images/circleinbrown.svg);
-}
-.ingray{
-	background:  url(../images/circleingray.svg);
-}
-.inpurple{
-	background:  url(../images/circleinpurple.svg);
+.inred {
+  background: url(../images/circleinred.svg);
 }
 
-.inred, .inblue, .inblack, .ingreen, .inbrown, .ingray, .inpurple{
-	background-size: 28px 28px;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: 105%;
-	height: 105%;
-
+.inblue {
+  background: url(../images/circleinblue.svg);
 }
 
+.inblack {
+  background: url(../images/circleinblack.svg);
+}
 
-.inred:hover, .inblue:hover, .inblack:hover, .ingreen:hover, .inbrown:hover, .ingray:hover, .inpurple:hover{
-	background:  url(../images/circlel.svg);
-	background-size: 28px 28px;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: 105%;
-	height: 105%;
-}	
+.ingreen {
+  background: url(../images/circleingreen.svg);
+}
+
+.inbrown {
+  background: url(../images/circleinbrown.svg);
+}
+
+.ingray {
+  background: url(../images/circleingray.svg);
+}
+
+.inpurple {
+  background: url(../images/circleinpurple.svg);
+}
+
+.inred,
+.inblue,
+.inblack,
+.ingreen,
+.inbrown,
+.ingray,
+.inpurple {
+  background-size: 28px 28px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 105%;
+  height: 105%;
+}
+
+.inred:hover,
+.inblue:hover,
+.inblack:hover,
+.ingreen:hover,
+.inbrown:hover,
+.ingray:hover,
+.inpurple:hover {
+  background: url(../images/circlel.svg);
+  background-size: 28px 28px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 105%;
+  height: 105%;
+}
 
 /* bigger circles */
 
-.in, .ingred, .inl, .ingblue, .ingblack, .inggreen, .ingbrown, .inggray, .ingpurple, .inl:hover, .in:hover{
-	
-	background-size: 28px 28px;
-	background-position: center;
-	background-repeat: no-repeat;
-	width: 105%;
-	height: 105%;
+.in,
+.ingred,
+.inl,
+.ingblue,
+.ingblack,
+.inggreen,
+.ingbrown,
+.inggray,
+.ingpurple,
+.inl:hover,
+.in:hover {
+  background-size: 28px 28px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 105%;
+  height: 105%;
 }
 
-.m1{
-	background:  url(../images/h1.svg);
-	height: 110%;
+.m1 {
+  background: url(../images/h1.svg);
+  height: 110%;
 }
 
-
-.m2{
-	background:  url(../images/h2.svg);	
-	height: 110%;
+.m2 {
+  background: url(../images/h2.svg);
+  height: 110%;
 }
 
-.m3{
-	background:  url(../images/v1.svg);
-	width: 110%;
+.m3 {
+  background: url(../images/v1.svg);
+  width: 110%;
 }
 
-.m4{
-	background:  url(../images/v2.svg);
-	width: 110%;
- 
+.m4 {
+  background: url(../images/v2.svg);
+  width: 110%;
 }
 
-.m1,.m2,.m3,.m4{
-	background-size: 28px 28px;
+.m1,
+.m2,
+.m3,
+.m4 {
+  background-size: 28px 28px;
 }
 
-
-.m1black, .m2black, .m3black, .m4black{
-	width: 28px;
-	height: 28px;
+.m1black,
+.m2black,
+.m3black,
+.m4black {
+  width: 28px;
+  height: 28px;
 }
 
-.m1black{	
-	background:  url(../images/h1.svg);
-	height: 110%;
-}
-.m2black{	
-	background:  url(../images/h2.svg);
-	height: 110%;
-}
-.m3black{	
-	background:  url(../images/v1.svg);
-	width: 110%;
-}
-.m4black{	
-	background:  url(../images/v2.svg);
-	width: 110%;
-}
-.m1black, .m2black, .m3black, .m4black{
-
-	background-size: 28px 28px;
-	cursor: pointer;
+.m1black {
+  background: url(../images/h1.svg);
+  height: 110%;
 }
 
-
-.m1red, .m2red, .m3red, .m4red{
-	width: 28px;
-	height: 28px;
+.m2black {
+  background: url(../images/h2.svg);
+  height: 110%;
 }
 
-
-.m1red{	
-	background:  url(../images/h1red.svg);
-	height: 110%;
-}
-.m2red{	
-	background:  url(../images/h2red.svg);
-	height: 110%;
-}
-.m3red{	
-	background:  url(../images/v1red.svg);
-	width: 110%;
-}
-.m4red{	
-	background:  url(../images/v2red.svg);
-	width: 110%;
-}
-.m1red, .m2red, .m3red, .m4red{
-
-	background-size: 28px 28px;
-	cursor: pointer;
+.m3black {
+  background: url(../images/v1.svg);
+  width: 110%;
 }
 
-
-.m1blue, .m2blue, .m3blue, .m4blue{
-	width: 28px;
-	height: 28px;
+.m4black {
+  background: url(../images/v2.svg);
+  width: 110%;
 }
 
-.m1blue{	
-	background:  url(../images/h1blue.svg);
-	height: 110%;
-}
-.m2blue{	
-	background:  url(../images/h2blue.svg);
-	height: 110%;
-}
-.m3blue{	
-	background:  url(../images/v1blue.svg);
-	width: 110%;
-}
-.m4blue{	
-	background:  url(../images/v2blue.svg);
-	width: 110%;
-}
-.m1blue, .m2blue, .m3blue, .m4blue{
-	background-size: 28px 28px;
-	cursor: pointer;
+.m1black,
+.m2black,
+.m3black,
+.m4black {
+  background-size: 28px 28px;
+  cursor: pointer;
 }
 
-.m1green, .m2green, .m3green, .m4green{
-	width: 28px;
-	height: 28px;
-}
-	
-
-.m1green{	
-	background:  url(../images/h1green.svg);
-	height: 110%;
-}
-.m2green{	
-	background:  url(../images/h2green.svg);
-	height: 110%;
-}
-.m3green{	
-	background:  url(../images/v1green.svg);
-	width: 110%;
-}
-.m4green{	
-	background:  url(../images/v2green.svg);
-	width: 110%;
-}
-.m1green, .m2green, .m3green, .m4green{
-	background-size: 28px 28px;
-	cursor: pointer;
+.m1red,
+.m2red,
+.m3red,
+.m4red {
+  width: 28px;
+  height: 28px;
 }
 
-.m1brown, .m2brown, .m3brown, .m4brown{
-	width: 28px;
-	height: 28px;
-}
-.m1brown{	
-	background:  url(../images/h1brown.svg);
-	height: 110%;
-}
-.m2brown{	
-	background:  url(../images/h2brown.svg);
-	height: 110%;
-}
-.m3brown{	
-	background:  url(../images/v1brown.svg);
-	width: 110%;
-}
-.m4brown{	
-	background:  url(../images/v2brown.svg);
-	width: 110%;
-}
-.m1brown, .m2brown, .m3brown, .m4brown{
-	background-size: 28px 28px;
-	cursor: pointer;
+.m1red {
+  background: url(../images/h1red.svg);
+  height: 110%;
 }
 
-.m1gray, .m2gray, .m3gray, .m4gray{
-	width: 28px;
-	height: 28px;
-}
-.m1gray{	
-	background:  url(../images/h1gray.svg);
-	height: 110%;
-}
-.m2gray{	
-	background:  url(../images/h2gray.svg);
-	height: 110%;
-}
-.m3gray{	
-	background:  url(../images/v1gray.svg);
-	width: 110%;
-}
-.m4gray{	
-	background:  url(../images/v2gray.svg);
-	width: 110%;
-}
-.m1gray, .m2gray, .m3gray, .m4gray{
-	background-size: 28px 28px;
-	cursor: pointer;
+.m2red {
+  background: url(../images/h2red.svg);
+  height: 110%;
 }
 
-
-.m1purple, .m2purple, .m3purple, .m4purple{
-	width: 28px;
-	height: 28px;
-}
-.m1purple{	
-	background:  url(../images/h1purple.svg);
-	height: 110%;
-}
-.m2purple{	
-	background:  url(../images/h2purple.svg);
-	height: 110%;
-}
-.m3purple{	
-	background:  url(../images/v1purple.svg);
-	width: 110%;
-}
-.m4purple{	
-	background:  url(../images/v2purple.svg);
-	width: 110%;
-}
-.m1purple, .m2purple, .m3purple, .m4purple{
-	background-size: 28px 28px;
-	cursor: pointer;
+.m3red {
+  background: url(../images/v1red.svg);
+  width: 110%;
 }
 
-
-
-.steps{
-	cursor: pointer;
-	font-size: 20px;
-	color: silver;
-	background: black;
-	color: silver;
+.m4red {
+  background: url(../images/v2red.svg);
+  width: 110%;
 }
 
-#steps{
-	width: 600px;
-	height: 45px;
-	background: black;
-	text-align: left;
-	overflow: auto; 
+.m1red,
+.m2red,
+.m3red,
+.m4red {
+  background-size: 28px 28px;
+  cursor: pointer;
 }
 
-#navLeft, #navRight{	
-	cursor: pointer;
-	font-size: 14px; 
-	
-	color: yellow;
-	padding: 0px 5px; 
+.m1blue,
+.m2blue,
+.m3blue,
+.m4blue {
+  width: 28px;
+  height: 28px;
 }
 
-#navL, #navR{
-	background: green; 
-	border: 2px solid lightgreen; 
-	cursor: pointer;
-	border-radius: 12px; 
-	color: yellow;
-	font-weight: bolder;
-	padding: 2px 10px;
+.m1blue {
+  background: url(../images/h1blue.svg);
+  height: 110%;
 }
 
-#navA, #navZ, #nav0{
-	cursor: pointer;
-	font-size: 20px;
-	color: white;
+.m2blue {
+  background: url(../images/h2blue.svg);
+  height: 110%;
 }
 
-
-#innav{
-	background: black;
-	color: #33CCFF;
-	font-weight: bolder;
-	text-align: center;
-	border: 0px;
-	border-bottom: 2px ridge blue;
-	padding: 0px;
-	width: 60px; 
-	font-size: 16px; 
+.m3blue {
+  background: url(../images/v1blue.svg);
+  width: 110%;
 }
 
-
-#timer{
-	display:none;
+.m4blue {
+  background: url(../images/v2blue.svg);
+  width: 110%;
 }
 
-
-#demoBoardStateButton, #demoInputsStateButton, #demoAllStateButton{
-	display: none;
-	padding: 0px;	
-	color: black;
-	float: left;
+.m1blue,
+.m2blue,
+.m3blue,
+.m4blue {
+  background-size: 28px 28px;
+  cursor: pointer;
 }
 
-.imgB{
-	width: 28px;
-	height: 28px;
-	border: 1px solid white;
-	float: left;
-	background-color: white;
+.m1green,
+.m2green,
+.m3green,
+.m4green {
+  width: 28px;
+  height: 28px;
 }
 
-.butB{
-	padding: 2px;
-	float: left;
-	height: 30px;
+.m1green {
+  background: url(../images/h1green.svg);
+  height: 110%;
 }
 
-.clearBoth{
-	clear: both;
+.m2green {
+  background: url(../images/h2green.svg);
+  height: 110%;
+}
+
+.m3green {
+  background: url(../images/v1green.svg);
+  width: 110%;
+}
+
+.m4green {
+  background: url(../images/v2green.svg);
+  width: 110%;
+}
+
+.m1green,
+.m2green,
+.m3green,
+.m4green {
+  background-size: 28px 28px;
+  cursor: pointer;
+}
+
+.m1brown,
+.m2brown,
+.m3brown,
+.m4brown {
+  width: 28px;
+  height: 28px;
+}
+
+.m1brown {
+  background: url(../images/h1brown.svg);
+  height: 110%;
+}
+
+.m2brown {
+  background: url(../images/h2brown.svg);
+  height: 110%;
+}
+
+.m3brown {
+  background: url(../images/v1brown.svg);
+  width: 110%;
+}
+
+.m4brown {
+  background: url(../images/v2brown.svg);
+  width: 110%;
+}
+
+.m1brown,
+.m2brown,
+.m3brown,
+.m4brown {
+  background-size: 28px 28px;
+  cursor: pointer;
+}
+
+.m1gray,
+.m2gray,
+.m3gray,
+.m4gray {
+  width: 28px;
+  height: 28px;
+}
+
+.m1gray {
+  background: url(../images/h1gray.svg);
+  height: 110%;
+}
+
+.m2gray {
+  background: url(../images/h2gray.svg);
+  height: 110%;
+}
+
+.m3gray {
+  background: url(../images/v1gray.svg);
+  width: 110%;
+}
+
+.m4gray {
+  background: url(../images/v2gray.svg);
+  width: 110%;
+}
+
+.m1gray,
+.m2gray,
+.m3gray,
+.m4gray {
+  background-size: 28px 28px;
+  cursor: pointer;
+}
+
+.m1purple,
+.m2purple,
+.m3purple,
+.m4purple {
+  width: 28px;
+  height: 28px;
+}
+
+.m1purple {
+  background: url(../images/h1purple.svg);
+  height: 110%;
+}
+
+.m2purple {
+  background: url(../images/h2purple.svg);
+  height: 110%;
+}
+
+.m3purple {
+  background: url(../images/v1purple.svg);
+  width: 110%;
+}
+
+.m4purple {
+  background: url(../images/v2purple.svg);
+  width: 110%;
+}
+
+.m1purple,
+.m2purple,
+.m3purple,
+.m4purple {
+  background-size: 28px 28px;
+  cursor: pointer;
+}
+
+.steps {
+  cursor: pointer;
+  font-size: 20px;
+  color: silver;
+  background: black;
+  color: silver;
+}
+
+#steps {
+  width: 600px;
+  height: 45px;
+  background: black;
+  text-align: left;
+  overflow: auto;
+}
+
+#navLeft,
+#navRight {
+  cursor: pointer;
+  font-size: 14px;
+
+  color: yellow;
+  padding: 0px 5px;
+}
+
+#navL,
+#navR {
+  background: green;
+  border: 2px solid lightgreen;
+  cursor: pointer;
+  border-radius: 12px;
+  color: yellow;
+  font-weight: bolder;
+  padding: 2px 10px;
+}
+
+#navA,
+#navZ,
+#nav0 {
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+}
+
+#innav {
+  background: black;
+  color: #33ccff;
+  font-weight: bolder;
+  text-align: center;
+  border: 0px;
+  border-bottom: 2px ridge blue;
+  padding: 0px;
+  width: 60px;
+  font-size: 16px;
+}
+
+#timer {
+  display: none;
+}
+
+#demoBoardStateButton,
+#demoInputsStateButton,
+#demoAllStateButton {
+  display: none;
+  padding: 0px;
+  color: black;
+  float: left;
+}
+
+.imgB {
+  width: 28px;
+  height: 28px;
+  border: 1px solid white;
+  float: left;
+  background-color: white;
+}
+
+.butB {
+  padding: 2px;
+  float: left;
+  height: 30px;
+}
+
+.clearBoth {
+  clear: both;
 }
