@@ -1,758 +1,899 @@
 @media print {
-   
-        #bgColor,#bodyColor,#islandColor,#cirleColor,#themeColor,#bridgeColor,#navigation{
-			display: none;
-		   }
-		   #MENU_RIGHT,#HEADER,#FOOTER,#HEADER_LEFT,#HEADER_RIGHT,#UNDER_FOOTER,#MENU_LEFT,#contentDescription{
-			display: none;
-		   }
-		
+  #bgColor,
+  #bodyColor,
+  #islandColor,
+  #cirleColor,
+  #themeColor,
+  #bridgeColor,
+  #navigation {
+    display: none;
+  }
+
+  #MENU_RIGHT,
+  #HEADER,
+  #FOOTER,
+  #HEADER_LEFT,
+  #HEADER_RIGHT,
+  #UNDER_FOOTER,
+  #MENU_LEFT,
+  #contentDescription {
+    display: none;
+  }
 }
+
 body {
-	text-align: center;
-	padding: 0;
-	margin: 0;
-	color: 	#C0C0C0;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  color: #c0c0c0;
 }
 
 #PAGE {
-	width: 890px;
-	text-align: center;
-	padding: 0px;
-	margin: 10px auto;
-	margin-top: 10px;
-	font-size: 13px;
-	color: 	#C0C0C0;
+  width: 890px;
+  text-align: center;
+  padding: 0px;
+  margin: 10px auto;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #c0c0c0;
 }
 
 #CONTENT {
-	height: 473px; 
-	overflow: auto;
-	font-size: 14px;
-	color: 	#C0C0C0;
-	width: 473px; 
-	float: left;
-	border: 2px solid black; 
+  height: 473px;
+  overflow: auto;
+  font-size: 14px;
+  color: #c0c0c0;
+  width: 473px;
+  float: left;
+  border: 2px solid black;
 }
 
 #MENU_RIGHT {
-	color: 	#606060;
-	height: 596px;
-	overflow: auto;
-	width: 200px;
-	padding: 5px;
-	float: right;
-	text-align: left;
+  color: #606060;
+  height: 596px;
+  overflow: auto;
+  width: 200px;
+  padding: 5px;
+  float: right;
+  text-align: center;
 }
 
 #MENU_LEFT {
-	color: 	#606060;
-	height: 606px;
-	overflow: hidden;
-	width: 0px;
-	float: left;
-	text-align: left;
-	font-size: 12px;
+  color: #606060;
+  height: 606px;
+  overflow: hidden;
+  width: 0px;
+  float: left;
+  text-align: left;
+  font-size: 12px;
 }
 
 #HEADER {
-	border: 0px;
-	padding: 0;
-	width: 100%;
-	height: 120px;
-	font-weight: bold;
-	font-size: 13px;
-	text-align: left; 
+  border: 0px;
+  padding: 0;
+  width: 100%;
+  height: 120px;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: left;
 }
 
 #HEADER_LEFT {
-	width: 180px;
-	height: 20px;
-	padding-top:10px;
-	float: left;
-	overflow: hidden;
-	border: none;
-	padding-left: 20px;
-	text-align: left;
-}
-	
-#HEADER_RIGHT {
-	width: 500px;
-	height: 20px;
-	padding-top: 5px;
-	float: left;
-	text-align: left;
-	font-size: 16px;
+  width: 180px;
+  height: 20px;
+  padding-top: 10px;
+  float: left;
+  overflow: hidden;
+  border: none;
+  padding-left: 20px;
+  text-align: left;
 }
 
+#HEADER_RIGHT {
+  width: 500px;
+  height: 20px;
+  padding-top: 5px;
+  float: left;
+  text-align: left;
+  font-size: 16px;
+}
 
 #HEADER_LANG {
-	float: right;
-	text-align: right;
-	width: 50px;
-	color: red;
-	padding-top: 5px;
-	padding-right: 10px;
-	font-size: 10px;	
+  float: right;
+  text-align: right;
+  width: 50px;
+  color: red;
+  padding-top: 5px;
+  padding-right: 10px;
+  font-size: 10px;
 }
 
-#HEADER_RIGHT a:active{
-	color: #33FFFF;
-	text-decoration: none;
+#HEADER_RIGHT a:active {
+  color: #33ffff;
+  text-decoration: none;
 }
-
 
 #HEADER_RIGHT a:link {
-	color: #33FFFF;
-	text-decoration: none;
+  color: #33ffff;
+  text-decoration: none;
 }
 
 #HEADER_RIGHT a:visited {
-	color: #33FFFF;
-	text-decoration: none;
+  color: #33ffff;
+  text-decoration: none;
 }
 
-#HEADER_RIGHT a:hover{
-	color: white;
-	text-decoration: none;
+#HEADER_RIGHT a:hover {
+  color: white;
+  text-decoration: none;
 }
 
 #FOOTER {
-	opacity: 20%;
-	padding-top: 0px;
-	color: white; 
-	height: 10px;
-	clear: both;
-	width: 100%;
-	font-weight: bold;
-	font-size: 14px; 
+  opacity: 20%;
+  padding-top: 0px;
+  color: white;
+  height: 10px;
+  clear: both;
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
 }
 
-#UNDER_FOOTER{
-	clear: both;
-	width: 100%;
-	background: #800000;	
+#UNDER_FOOTER {
+  clear: both;
+  width: 100%;
+  background: #800000;
 }
 
 #FOOTER a:visited {
-	color: yellow;
+  color: yellow;
 }
 
 #FOOTER a:link {
-	color: yellow;
+  color: yellow;
 }
 
 #FOOTER a:active {
-	color: yellow;
+  color: yellow;
 }
 
 #FOOTER a:hover {
-	color: #CCFF33;
+  color: #ccff33;
 }
 
-
-a:link, a:active, a:visited{
-	text-decoration: none;
-	color: white;	
-} 
-
-a:hover{
-	color: red;	
+a:link,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: white;
 }
 
+a:hover {
+  color: red;
+}
 
-.separator{
-	padding: 2px;
-	text-align: center;
-	color: #606060 ;
+.separator {
+  padding: 2px;
+  text-align: center;
+  color: #606060;
 }
 
 #comment {
-	width: 45px;
-	font-size: 10px;
+  width: 45px;
+  font-size: 10px;
 }
 
 .comments {
-	height: 280px;
-	overflow: auto;
+  height: 280px;
+  overflow: auto;
 }
 
 .commentText {
-	text-align: left;
-	font-size: 12px; 
-	text-transform: lowercase;
+  text-align: left;
+  font-size: 12px;
+  text-transform: lowercase;
 }
 
 .commentAuthor {
-	text-align: right;
-	font-style: italic;
-	font-size: 11px;
-	color: orange;
+  text-align: right;
+  font-style: italic;
+  font-size: 11px;
+  color: orange;
 }
 
-#kontakt{
-	margin: 50px;
-	text-align: left;
-	font-weight: normal;
+#kontakt {
+  margin: 50px;
+  text-align: left;
+  font-weight: normal;
 }
 
 #from {
-	text-align: right;
-	padding-right: 282px;
+  text-align: right;
+  padding-right: 282px;
 }
 
 #send {
-	text-align: right;
-	padding-top: 6px;
-	padding-right: 282px;
+  text-align: right;
+  padding-top: 6px;
+  padding-right: 282px;
 }
 
-#error{
-	color: red;
-	padding: 10px;
+#error {
+  color: red;
+  padding: 10px;
 }
 
-#sent{
-	color: #9ACD32; 
-	padding: 10px;
+#sent {
+  color: #9acd32;
+  padding: 10px;
 }
 
-#welcome{
-	color: gray;
-	text-align: left;
-	font-size: 12px;
-	font-weight: normal;
-	padding: 5px;
+#welcome {
+  color: gray;
+  text-align: left;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 5px;
 }
 
-
-#autograph{
-	display: none;
+#autograph {
+  display: none;
 }
 
-#copyright{
-	background: black;
-	color: gray ;
-	height: 470px;
-	overflow: auto;
-	padding: 5px;
-	font-family: monospace;
-	font-size: 13px;
+#copyright {
+  background: black;
+  color: gray;
+  height: 470px;
+  overflow: auto;
+  padding: 5px;
+  font-family: monospace;
+  font-size: 13px;
 }
 
- 
-#rightButtonDescription{
-	color: #FF3366;
-	display:none;	
-} 
-
-#rightButton{
-	text-align: center;
-	display: none;
+#rightButtonDescription {
+  color: #ff3366;
+  display: none;
 }
 
-#clearBoardButton, #clearInputsButton, #clearGraysButton{
-	text-align: center;
-	display: none;
+#rightButton {
+  text-align: center;
+  display: none;
 }
 
-#leftButton{
-	text-align: center;
-	display: none;
-}	
-
-#contentDescription{
-	color: yellow;
-	text-align: left;	
+#clearBoardButton,
+#clearInputsButton,
+#clearGraysButton {
+  text-align: center;
+  display: none;
 }
 
-
-#noscript{
-	color: #FF3366;
-	font-variant: small-caps;
-	padding: 20px;
-}	
-
-#rightDemoDescription{
-	display: none;
+#leftButton {
+  text-align: center;
+  display: none;
 }
 
-#latestVersion{
-	font-size: 12px;
-	color: yellow;
+#contentDescription {
+  color: yellow;
+  text-align: left;
 }
 
-#earlierVersions{
-	font-size: 12px;
-	color: gray;
+#noscript {
+  color: #ff3366;
+  font-variant: small-caps;
+  padding: 20px;
 }
 
-#earlierVersions a:link, #earlierVersions a:active {
-	color: 	#686868;
+#rightDemoDescription {
+  display: none;
 }
 
+#latestVersion {
+  font-size: 12px;
+  color: yellow;
+}
 
-#earlierVersions a:visited{
-	color: 	#484848;
+#earlierVersions {
+  font-size: 12px;
+  color: gray;
+}
+
+#earlierVersions a:link,
+#earlierVersions a:active {
+  color: #686868;
+}
+
+#earlierVersions a:visited {
+  color: #484848;
 }
 
 #earlierVersions a:hover {
-	color: #989898;
+  color: #989898;
 }
 
-.menuDescription{
-	clear: both;
-	text-align: left;
-	padding: 5px;
-	padding-top: 5px;
+.menuDescription {
+  clear: both;
+  text-align: left;
+  padding: 5px;
+  padding-top: 5px;
 }
 
-.image{
-	float: left;
-	width:180px;
+.image {
+  float: left;
+  width: 180px;
 }
 
-.imageDesc{
-	font-size: 12px;
-	float: left;
-	width: 380px;
-	padding-left: 5px;
-	padding-top: 5px;
-}	
+.imageDesc {
+  font-size: 12px;
+  float: left;
+  width: 380px;
+  padding-left: 5px;
+  padding-top: 5px;
+}
 
-.mouseDescription{
-	font-size: 11px;
-	text-align: left;
-}	
+.mouseDescription {
+  font-size: 11px;
+  text-align: left;
+}
 
-.digit{
-	float: left;
-	padding: 2px;
+.digit {
+  float: left;
+  padding: 2px;
 }
 
 #description {
-	width: 580px;
-	text-align: justify;
+  width: 580px;
+  text-align: justify;
 }
 
 .description {
-	width: 580px;
-	text-align: justify;
+  width: 580px;
+  text-align: justify;
 }
-
 
 .descriptionHalf {
-	width: 270px;
-	float: left;
-	color: yellow;
+  width: 270px;
+  float: left;
+  color: yellow;
 }
 
-#oranging{
-	color: orange;
+#oranging {
+  color: orange;
 }
 
-#mainDescription{
-	text-align: justify;	
+#mainDescription {
+  text-align: justify;
 }
 
-.none{
-	display: none;
+.none {
+  display: none;
 }
 
-
-#sampleButtonDescription{
-	color: maroon;
-	display:none;	
-} 
-
-#sampleButton{
-	text-align: left;
+#samples {
+  text-align: center;
+  font-size: 0px;
 }
 
-#sampleB{
-	color: maroon;
-}	
-
-#sampleButtonSolve{
-	text-align: center;
-	display: none;
-	
+#GameChoose:hover {
+  background-color: silver;
 }
-
-#sampleBS{
-	color: green;
-}	
-
-#stop{
-	float: left;
-	padding-top: 5px;
+#GameChoose {
+  background-color: silver;
+  border-radius: 20px;
 }
+#GameMinus,
+#GamePlus {
+  font-weight: bolder;
+  border-color: mediumaquamarine;
 
-#stoppause{
-	float: right;
+  width: 50px;
+  height: 30px;
+  width: 50px;
 }
-#czasstoper{
-	float: left;
-	width: 140px;
+#GameNumber {
+  width: 50px;
+  height: 30px;
+  text-align: center;
+  font-weight: bold;
+  background-color: mediumaquamarine;
+  border-color: mediumaquamarine;
 }
-
-#pause{
-	float: left;
-	padding-top: 5px;
+#GamePlay {
+  height: 40px;
+  width: 50px;
 }
-
-#czas{
-	float: left;
-	font-size: 20px;
-	height: 20px;
-	padding-top: 3px;
+#GameSolve {
+  height: 40px;
+  width: 100px;
 }
-
-#stoper{
-	float: right;
-	color: deepskyblue;
-	font-size: 22px;
-	padding-left: 5px;
-	padding-top: 1px;
+#GameSolve:hover,
+#GamePlay:hover {
+  border-color: mediumaquamarine;
+  background-color: green;
+  color: white;
+}
+#GamePlus:hover,
+#GameMinus:hover {
+  background-color: mediumaquamarine;
+  color: white;
 }
 
-.wrong{
-	color:red;
+#sampleButtonDescription {
+  color: maroon;
+  display: none;
 }
 
-#setB, #playB, #drawB{
-	display: none;
-	background: black;
-	color: white;
-	padding: 2px;
-	border-top: 0px solid black;
-	border-bottom: 10px solid green;
-	border-left: 0px solid black;
-	border-right: 0px solid black;
-	
+#sampleButton {
+  text-align: left;
 }
 
-.size2{
-	font-size: 30px;
-	color: white;
-	background: black;
-	padding: 0px;
-	border-top: 0px solid black;
-	border-bottom: 10px solid green;
-	border-left: 0px solid black;
-	border-right: 0px solid black;	
+#sampleB {
+  color: maroon;
 }
 
-#setPlay{
-	text-align: center;	
+#sampleButtonSolve {
+  text-align: center;
+  display: none;
 }
 
-#sizes:hover #tooltipSizes{
-	visibility: visible;
+#sampleBS {
+  color: green;
 }
 
-#tooltipSizes{
-	position: absolute;
-	visibility: hidden;
-	font-size: 14px;
-	padding-top: 2px ;
-	width: fit-content;
-	
-}
-#setPlay:hover #tooltipDigits{
- 	visibility: visible;
-	 position: absolute;
+#stop {
+  float: left;
+  padding-top: 5px;
 }
 
-#setPlay #tooltipDigits{
-	visibility: hidden;
-	position: absolute;
+#stoppause {
+  float: right;
 }
 
-#clearButtons{
-	text-align: center;
+#czasstoper {
+  float: left;
+  width: 140px;
 }
 
-#helpSolve:hover{	
-	background-color: red;
+#pause {
+  float: left;
+  padding-top: 5px;
 }
 
-#helpSolve{	
-	text-align: center;
-	padding-left: 5px;
-	margin-bottom: 5px;
-	width: 80px;
-	height: 26px;
-	border-radius: 25px;
-}
-#clearB, #clearI{
-	
-	text-align: center;
-	padding-left: 10px;
-	width: 63px;
-	height: 42px;
-	border-radius: 12px;
-}
-#clearD,#fillD, #clearG{
-	margin-top: 2px;
-	text-align: center;
-	padding-left: 5px;
-	width: 50px;
-	height: 50px;
-	border-radius: 42px;
+#czas {
+  float: left;
+  font-size: 20px;
+  height: 20px;
+  padding-top: 3px;
 }
 
-#clearB:hover, #clearI:hover{
-	background-color: rgb(56, 111, 182);
-	border-color: rgb(0, 41, 128);
+#stoper {
+  float: right;
+  color: deepskyblue;
+  font-size: 22px;
+  padding-left: 5px;
+  padding-top: 1px;
 }
 
-#clearD:hover,#fillD:hover{
-	background-color: green;
-	border-color: lightgreen;
+.wrong {
+  color: red;
 }
 
-#clearG:hover{
-	background-color: lightgreen;
-}
-#clearG{
-	background-color: green;
-	border-color: green;
-}
-
-#unlockSize1,#unlockSize2,#unlockSize3{
-	border-color: green;
-	border-radius: 7px;
-}
-
-#sample1,#sample2,#sample3, #sample4{
-	border-color: green;
-	border-radius: 7px;
-
-}
-#solution1,#solution2,#solution3, #solution4{
-	border-color: green;
-	border-radius: 7px;
-	background-color: lightgreen;
-
+#setB,
+#playB,
+#drawB {
+  display: none;
+  background: black;
+  color: white;
+  padding: 2px;
+  border-top: 0px solid black;
+  border-bottom: 10px solid green;
+  border-left: 0px solid black;
+  border-right: 0px solid black;
 }
 
-#bridgeRed, #bridgeBlue, #bridgeBlack, #bridgeGreen, #bridgeBrown, #bridgeGray, #bridgePurple,
-#themeRed, #themeBlue, #themeBlack, #themeGreen, #themeBrown, #themeGray{
-	color: white;
-	font-size: 14px;
-	border-radius: 6px;
-	width: 20px;
-	margin-bottom: 10px;
+.size2 {
+  font-size: 30px;
+  color: white;
+  background: black;
+  padding: 0px;
+  border-top: 0px solid black;
+  border-bottom: 10px solid green;
+  border-left: 0px solid black;
+  border-right: 0px solid black;
 }
 
-#islandRed, #islandBlue, #islandBlack, #islandGreen, #islandBrown, #islandGray, #islandPurple{
-	color: white;
-	font-size: 16px;
-	border-radius: 15px;
-	width: 26px;
+#setPlay {
+  text-align: center;
 }
 
-#islandColor{
-	padding-left: 20px;
-	margin: 0px;
-	font-size: 0px;
+#sizes:hover #tooltipSizes {
+  visibility: visible;
 }
 
-
-#bridgeColor{
-	padding-right: 10px;
-	padding-left: 30px;
-	font-size: 0px;
+#tooltipSizes {
+  position: absolute;
+  visibility: hidden;
+  font-size: 14px;
+  padding-top: 5px;
+  padding-left: 20px;
+  text-align: center;
+  width: fit-content;
 }
 
-#digiRed, #digiBlue, #digiBlack, #digiGreen, #digiBrown, #digiGray, #digiPurple{
-	width: 20px;
-	border-radius: 20px;
-	font-size: 12px;
-	color: white;
-	border-color: gray;
+#setPlay:hover #tooltipDigits {
+  visibility: visible;
+  position: absolute;
 }
 
-#digiColor, #circleColor, #themeColor{
-	padding-left: 30px;
-	
-	font-size: 0px;
-}
-#digiRed{
-	color:red;
-	
+#setPlay #tooltipDigits {
+  visibility: hidden;
+  position: absolute;
 }
 
-#digiBlue{
-	color:blue;
-	
-}
-#digiGreen{
-	color:Green;
-	
-}
-#digiBrown{
-	color:Brown;
-	
-}
-#digiGray{
-	color:Gray;
-	
-}
-#digiPurple{
-	color:Purple;
-	
-}
-#digiBlack{
-	color:black;
-	
+#clearButtons {
+  text-align: center;
 }
 
-
-#islandRed,#bridgeRed, #themeRed{
-	background-color: red;
-	border-color: lightcoral;
-}
-#bridgeBlue,#islandBlue,#themeBlue{
-	background-color: blue;
-	border-color: lightblue;
-	color: white;
-}
-#bridgeBlack,#islandBlack,#themeBlack{
-	background-color: black;
-	color: white;
-	border-color: silver;
+#helpSolve:hover {
+  background-color: red;
+  color: white;
 }
 
-#bridgeGreen,#islandGreen,#themeGreen{
-
-	background-color: green;
-	border-color: lightgreen;
+#helpSolve {
+  text-align: center;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  width: 80px;
+  height: 26px;
+  border-radius: 25px;
 }
 
-#bridgeBrown,#islandBrown,#themeBrown{
-
-	background-color: Brown;
-	border-color: orange;
-}
-#bridgeGray, #islandGray,#themeGray{
-
-	background-color: gray;
-	border-color: lightgray;
-}
-#bridgePurple, #islandPurple {
-	background-color: purple;
-	border-color: violet;
+#clearB,
+#clearI {
+  text-align: center;
+  padding-left: 10px;
+  width: 63px;
+  height: 42px;
+  border-radius: 12px;
 }
 
-
-#circleRed, #circleBlue, #circleBlack, #circleBrown, #circleGreen, #circleGray, #circlePurple{
-	width: 30px;
-	border-radius: 20px;
-	font-size: 20px;
-}
-#circlePurple{
-	border-color: purple;
-	color:purple;
-}
-#circleGreen{
-	border-color: green;
-	color:green;
+#clearD,
+#fillD,
+#clearG {
+  margin-top: 2px;
+  text-align: center;
+  padding-left: 5px;
+  width: 50px;
+  height: 50px;
+  border-radius: 42px;
 }
 
-#circleBlue{
-	border-color: Blue;
-	color:Blue;
-}
-#circleRed{
-	border-color: Red;
-	color:Red;
-}
-#circleBlack{
-	border-color: Black;
-	color:Black;
-}
-#circleBrown{
-	border-color: Brown;
-	color:Brown;
+#clearB:hover,
+#clearI:hover {
+  background-color: rgb(56, 111, 182);
+  border-color: rgb(0, 41, 128);
+  color: white;
 }
 
-#circleGray{
-	border-color: gray;
-	color:gray;
-}
-#bgColor{
-	padding-left: 5px;
-	font-size: 0px;
+#clearD:hover,
+#fillD:hover {
+  background-color: green;
+  border-color: lightgreen;
+  color: white;
 }
 
-#bodyColor{
-	padding-left: 20px;
-	font-size: 0px;
+#clearG:hover {
+  background-color: green;
+  color: white;
 }
 
-#bgColorWhite, #bodyColorWhite{
-	margin-top: 10px;
-	background-color: white;
-	border-color: lightgray;
-	color:black;
+#clearG {
+  background-color: green;
+  border-color: green;
+  color: white;
 }
 
-#bgColorGray{
-	background-color: gray;
-	border-color: lightgray;
-	color:white;
+#unlockSize1,
+#unlockSize2,
+#unlockSize3 {
+  border-color: green;
+  border-radius: 7px;
+  background-color: gray;
+  color: white;
 }
 
-#bgColorSkyblue{
-	background-color: skyblue;
-	border-color: lightblue;
-	color:white;
-}
-#bgColorGoldenrod{
-	background-color: goldenrod;
-	border-color: gold;
-	color:white;
+#sample1,
+#sample2,
+#sample3,
+#sample4 {
+  border-color: green;
+  border-radius: 7px;
 }
 
-#bgColorLightSeaGreen{
-	background-color: LightSeaGreen;
-	border-color: greenyellow;
-	color:white;
-}
-#bgColorBlack{
-	background-color: black;
-	border-color: lightgray;
-	color:white;
+#solution1,
+#solution2,
+#solution3,
+#solution4 {
+  border-color: green;
+  border-radius: 7px;
+  background-color: lightgreen;
 }
 
-#bgColorGray, #bgColorWhite, #bgColorGoldenrod, #bgColorSkyblue, 
-#bgColorLightSeaGreen, #bgColorBlack, #bodyColorWhite, #bodyColorBlack, #bodyColorMaroon, #bodyColorMidnightBlue{
-	width: 24px;
-	border-radius: 6px;
-	font-size: 16px;
+#bridgeRed,
+#bridgeBlue,
+#bridgeBlack,
+#bridgeGreen,
+#bridgeBrown,
+#bridgeGray,
+#bridgePurple,
+#themeRed,
+#themeBlue,
+#themeBlack,
+#themeGreen,
+#themeBrown,
+#themeGray {
+  color: white;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 20px;
+  margin-bottom: 10px;
 }
 
-#bodyColorBlack{
-	background-color: black;
-	border-color: lightgray;
-	color:white;
-}
-#bodyColorMaroon{
-	background-color: maroon;
-	border-color: red;
-	color:white;
-}
-#bodyColorMidnightBlue{
-	background-color: midnightblue;
-	border-color: blue;
-	color:white;
+#islandRed,
+#islandBlue,
+#islandBlack,
+#islandGreen,
+#islandBrown,
+#islandGray,
+#islandPurple {
+  color: white;
+  font-size: 16px;
+  border-radius: 15px;
+  width: 26px;
 }
 
-#navigation{
-	padding-top: 14px;
-	text-align: center;
-	padding-right: 220px;
+#islandColor {
+  padding-left: 20px;
+  margin: 0px;
+  font-size: 0px;
 }
 
+#bridgeColor {
+  padding-right: 10px;
+  padding-left: 30px;
+  font-size: 0px;
+}
+
+#digiRed,
+#digiBlue,
+#digiBlack,
+#digiGreen,
+#digiBrown,
+#digiGray,
+#digiPurple {
+  width: 27px;
+  border-radius: 20px;
+  font-size: 17px;
+  border-color: silver;
+  border-style: 15px;
+  background-color: white;
+}
+
+#digiColor,
+#circleColor,
+#themeColor {
+  padding-left: 30px;
+
+  font-size: 0px;
+}
+
+#digiRed {
+  color: red;
+}
+
+#digiBlue {
+  color: lightskyblue;
+}
+
+#digiGreen {
+  color: Green;
+}
+
+#digiBrown {
+  color: Brown;
+}
+
+#digiGray {
+  color: Gray;
+}
+
+#digiPurple {
+  color: Purple;
+}
+
+#digiBlack {
+  color: rgb(43, 43, 43);
+}
+
+#islandRed,
+#bridgeRed,
+#themeRed {
+  background-color: red;
+  border-color: lightcoral;
+}
+
+#bridgeBlue,
+#islandBlue,
+#themeBlue {
+  background-color: blue;
+  border-color: lightblue;
+  color: white;
+}
+
+#bridgeBlack,
+#islandBlack,
+#themeBlack {
+  background-color: black;
+  color: white;
+  border-color: silver;
+}
+
+#bridgeGreen,
+#islandGreen,
+#themeGreen {
+  background-color: green;
+  border-color: lightgreen;
+}
+
+#bridgeBrown,
+#islandBrown,
+#themeBrown {
+  background-color: Brown;
+  border-color: orange;
+}
+
+#bridgeGray,
+#islandGray,
+#themeGray {
+  background-color: gray;
+  border-color: lightgray;
+}
+
+#bridgePurple,
+#islandPurple {
+  background-color: purple;
+  border-color: violet;
+}
+
+#circleRed,
+#circleBlue,
+#circleBlack,
+#circleBrown,
+#circleGreen,
+#circleGray,
+#circlePurple {
+  width: 30px;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+#circlePurple {
+  border-color: purple;
+  color: purple;
+}
+
+#circleGreen {
+  border-color: green;
+  color: green;
+}
+
+#circleBlue {
+  border-color: Blue;
+  color: Blue;
+}
+
+#circleRed {
+  border-color: Red;
+  color: Red;
+}
+
+#circleBlack {
+  border-color: Black;
+  color: Black;
+}
+
+#circleBrown {
+  border-color: Brown;
+  color: Brown;
+}
+
+#circleGray {
+  border-color: gray;
+  color: gray;
+}
+
+#bgColor {
+  padding-left: 5px;
+  font-size: 0px;
+}
+
+#bodyColor {
+  padding-left: 20px;
+  font-size: 0px;
+}
+
+#bgColorWhite,
+#bodyColorWhite {
+  margin-top: 10px;
+  background-color: white;
+  border-color: lightgray;
+  color: black;
+}
+
+#bgColorGray {
+  background-color: gray;
+  border-color: lightgray;
+  color: white;
+}
+
+#bgColorSkyblue {
+  background-color: skyblue;
+  border-color: lightblue;
+  color: white;
+}
+
+#bgColorGoldenrod {
+  background-color: goldenrod;
+  border-color: gold;
+  color: white;
+}
+
+#bgColorLightSeaGreen {
+  background-color: LightSeaGreen;
+  border-color: greenyellow;
+  color: white;
+}
+
+#bgColorBlack {
+  background-color: black;
+  border-color: lightgray;
+  color: white;
+}
+
+#bgColorGray,
+#bgColorWhite,
+#bgColorGoldenrod,
+#bgColorSkyblue,
+#bgColorLightSeaGreen,
+#bgColorBlack,
+#bodyColorWhite,
+#bodyColorBlack,
+#bodyColorMaroon,
+#bodyColorMidnightBlue {
+  width: 24px;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+#bodyColorBlack {
+  background-color: black;
+  border-color: lightgray;
+  color: white;
+}
+
+#bodyColorMaroon {
+  background-color: maroon;
+  border-color: red;
+  color: white;
+}
+
+#bodyColorMidnightBlue {
+  background-color: midnightblue;
+  border-color: blue;
+  color: white;
+}
+
+#navigation {
+  padding-top: 14px;
+  text-align: center;
+  padding-right: 220px;
+}
