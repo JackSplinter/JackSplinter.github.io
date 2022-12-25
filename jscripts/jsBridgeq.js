@@ -65,9 +65,6 @@ function onLoud() {
   solvingBoard = true;
   colorBody("black");
   colorTheme("green");
-  unlocked = true;
-  changeSize(36);
-  sample(5);
 }
 
 function changedGameNumber() {
