@@ -50,7 +50,6 @@ var gameNumber = 0;
 function onLoud() {
   sampleSize = sample16;
   drawBoard();
-
   document.getElementById("rightDemoDescription").style.display = "inline";
   document.getElementById("demoInputsStateButton").style.display = "inline";
   document.getElementById("demoAllStateButton").style.display = "inline";
@@ -60,14 +59,20 @@ function onLoud() {
   document.getElementById("playB").style.display = "inline";
   document.getElementById("drawB").style.background = "green";
   document.getElementById("GameNumber").value = 1;
+  solvingBoard = true;
+  step0();
   solve(0);
-  colorBody("white");
-  colorTheme("black");
+  solvingBoard = true;
+  colorBody("black");
+  colorTheme("green");
+  unlocked = true;
+  changeSize(36);
+  sample(5);
 }
 
 function changedGameNumber() {
   number = parseInt(document.getElementById("GameNumber").value);
-  max = sampleSize.length;
+  max = sampleSize.length - 1;
 
   if (number > max) {
     document.getElementById("GameNumber").value = max;
@@ -314,9 +319,11 @@ function changeSize(size) {
     lock();
     stepsy = [];
     krok = 0;
+    step0();
     navigate();
-    document.getElementById("innav").value = "0";
     wymiar = size;
+    document.getElementById("GameNumber").value = 1;
+    document.getElementById("innav").value = "0";
     document.getElementById("wymiar").innerHTML = size;
     switch (size) {
       case 16:
@@ -731,13 +738,11 @@ function three(id) {
 
     if (startH == 0 || endH == 0) {
       // endh
-      //alert('b')
       five(id);
       return 0;
     }
 
     if ((whereJ == wymiar || whereJ == 1) && whereI != 1 && whereI != wymiar) {
-      //	alert('a')
       five(id);
       return 0;
     }
@@ -970,7 +975,6 @@ function change(inId) {
   }
 
   if (solvingBoard == true) {
-    //alert("solwing");
     el.value = "X";
   }
 }
@@ -1045,7 +1049,6 @@ function checkKeycode(e) {
     if (document.getElementById("in" + focuss))
       document.getElementById("in" + focuss).focus();
   }
-  //alert("keycode: " + keycode);
 }
 
 //up - 38
@@ -1143,7 +1146,7 @@ function clearBoard() {
       id = nr;
       p = document.getElementById("p" + id); // m1 m2 m3 m50 ... in1 in2
 
-      if (digit == "N") {
+      if (digit == "E") {
         p.innerHTML =
           '<input class="m0" id="m' +
           id +
@@ -1176,7 +1179,7 @@ function clearInputs() {
   if (drawingBoard) {
     var dwa = "";
     for (var i = 0; i < wymiar * wymiar; i++) {
-      dwa += "n";
+      dwa += "E";
     }
 
     setInputs(dwa);
@@ -1193,6 +1196,7 @@ function sample(id) {
   } else if (wymiar == 36) {
     setInputs(sample36[id]);
   }
+  step();
 }
 
 function solve(id) {
@@ -1204,6 +1208,7 @@ function solve(id) {
   } else if (wymiar == 36) {
     setAllOnBoard(solution36[id]);
   }
+  step();
 }
 
 function getAllOnBoard() {
@@ -1759,6 +1764,7 @@ function stretchV(id, type, dir) {
 }
 
 function clearGreens() {
+  shortenBoard(stepsy[stepsy.length - 1]);
   board = getAllOnBoard();
   board = board.replaceAll("K", 1);
   board = board.replaceAll("L", 2);
@@ -1884,7 +1890,7 @@ function setInputs(inputy) {
     id = nr;
     p = document.getElementById("p" + id); // m1 m2 m3 m50 ... in1 in2
 
-    if (digit.toUpperCase() == "N" || digit == "") {
+    if (digit.toUpperCase() == "E" || digit == "") {
       p.innerHTML =
         '<input class="m0" id="m' +
         id +
@@ -1950,7 +1956,7 @@ function getInputs() {
     if (inpt) {
       val = inpt.value;
       if (val == "") val = "0";
-    } else val = "N";
+    } else val = "E";
     inputy += val;
   }
 
@@ -1959,4 +1965,38 @@ function getInputs() {
 
 function getInputs2() {
   prompt("Actual islands state", getInputs());
+}
+
+function shortenBoard(board) {
+  console.log(board);
+  changeWhat = [
+    "EEEE",
+    "EEE",
+    "EE",
+    "ttt",
+    "tt",
+    "fff",
+    "ff",
+    "hhh",
+    "hh",
+    "iii",
+    "ii",
+  ];
+  changeTo = ["t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d"];
+  for (i = 0; i < changeWhat.length; i++) {
+    board = board.replaceAll(changeWhat[i], changeTo[i]);
+  }
+  console.log(board);
+
+  return board;
+}
+function lenghtenBoard(board) {
+  console.log(board);
+  changeWhat = ["z", "x", "y", "v"];
+  changeTo = ["EEEEEE", "EEEE", "EEE", "EE"];
+  for (i = 0; i < changeWhat.length; i++) {
+    board = board.replaceAll(changeWhat[i], changeTo[i]);
+  }
+  console.log(board);
+  return board;
 }
