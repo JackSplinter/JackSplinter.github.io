@@ -718,7 +718,11 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            arra[i + wymiar] = "i";
+            if (board[i + wymiar] == "i" || arra[i + wymiar] == "i") {
+              arra[i + wymiar] = "h";
+            } else {
+              arra[i + wymiar] = "i";
+            }
             arra[i] = "P";
             break;
           }
@@ -734,7 +738,11 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            arra[i - wymiar] = "i";
+            if (board[i - wymiar] == "i" || arra[i - wymiar] == "i") {
+              arra[i - wymiar] = "h";
+            } else {
+              arra[i - wymiar] = "i";
+            }
             arra[i] = "P";
             break;
           }
@@ -750,7 +758,12 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            arra[i + 1] = "t";
+            if (board[i + 1] == "t" || arra[i + 1] == "t") {
+              arra[i + 1] = "f";
+            } else {
+              arra[i + 1] = "t";
+            }
+
             arra[i] = "P";
             break;
           }
@@ -766,7 +779,12 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            arra[i - 1] = "t";
+            if (board[i - 1] == "t" || arra[i - 1] == "t") {
+              arra[i - 1] = "f";
+            } else {
+              arra[i - 1] = "t";
+            }
+
             arra[i] = "P";
             break;
           }
