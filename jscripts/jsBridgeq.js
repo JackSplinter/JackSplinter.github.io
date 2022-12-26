@@ -1236,7 +1236,7 @@ function sample(id) {
   } else if (wymiar == 25) {
     what = solution25[id];
   } else if (wymiar == 36) {
-    what = solution25[id];
+    what = solution36[id];
   }
 
   what = what.replaceAll("t", "E");
@@ -1255,7 +1255,7 @@ function solve(id) {
   } else if (wymiar == 25) {
     what = solution25[id];
   } else if (wymiar == 36) {
-    what = solution25[id];
+    what = solution36[id];
   }
 
   setAllOnBoard(what);
