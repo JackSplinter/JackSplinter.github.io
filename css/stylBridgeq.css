@@ -60,6 +60,7 @@
 .ingreen,
 .inbrown,
 .ingray,
+.inorange,
 .inpurple {
   cursor: pointer;
   font-weight: bolder;
@@ -72,6 +73,10 @@
 
 .colorDIGred {
   color: red;
+}
+
+.colorDIGorange {
+  color: orange;
 }
 
 .colorDIGblue {
@@ -137,10 +142,10 @@
 }
 
 /*
-.m0:hover,.m1:hover,.m2:hover,.m3:hover,.m4:hover{
-	border: 0px solid gray;
-
-}*/
+  .m0:hover,.m1:hover,.m2:hover,.m3:hover,.m4:hover{
+      border: 0px solid gray;
+  
+  }*/
 
 .p {
   cursor: pointer;
@@ -148,10 +153,10 @@
 }
 
 /*
-.m0,.m1,.m2,.m3,.m4{
-	color: pink;
-}
-*/
+  .m0,.m1,.m2,.m3,.m4{
+      color: pink;
+  }
+  */
 input {
   border: 0;
   padding: 0px;
@@ -199,12 +204,17 @@ input {
   background: url(../images/circleinpurple.svg);
 }
 
+.inorange {
+  background: url(../images/circleinorange.svg);
+}
+
 .inred,
 .inblue,
 .inblack,
 .ingreen,
 .inbrown,
 .ingray,
+.inorange,
 .inpurple {
   background-size: 28px 28px;
   background-position: center;
@@ -343,6 +353,42 @@ input {
 .m2red,
 .m3red,
 .m4red {
+  background-size: 28px 28px;
+  cursor: pointer;
+}
+
+.m1orange,
+.m2orange,
+.m3orange,
+.m4orange {
+  width: 28px;
+  height: 28px;
+}
+
+.m1orange {
+  background: url(../images/h1orange.svg);
+  height: 110%;
+}
+
+.m2orange {
+  background: url(../images/h2orange.svg);
+  height: 110%;
+}
+
+.m3orange {
+  background: url(../images/v1orange.svg);
+  width: 110%;
+}
+
+.m4orange {
+  background: url(../images/v2orange.svg);
+  width: 110%;
+}
+
+.m1orange,
+.m2orange,
+.m3orange,
+.m4orange {
   background-size: 28px 28px;
   cursor: pointer;
 }
