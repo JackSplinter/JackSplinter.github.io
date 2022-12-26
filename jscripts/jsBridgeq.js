@@ -48,7 +48,7 @@ var colorCIRCLE = "red";
 var gameNumber = 0;
 
 function onLoud() {
-  sampleSize = sample16;
+  sampleSize = solution16;
   drawBoard();
   document.getElementById("rightDemoDescription").style.display = "inline";
   document.getElementById("demoInputsStateButton").style.display = "inline";
@@ -384,7 +384,7 @@ function changeSize(size) {
     document.getElementById("wymiar").innerHTML = size;
     switch (size) {
       case 16:
-        sampleSize = sample16;
+        sampleSize = solution16;
         document.getElementById("size16").style.backgroundColor = "green";
         document.getElementById("size25").style.backgroundColor = "black";
         document.getElementById("size36").style.backgroundColor = "black";
@@ -404,7 +404,7 @@ function changeSize(size) {
         });
         break;
       case 25:
-        sampleSize = sample25;
+        sampleSize = solution25;
         document.getElementById("size16").style.background = "black";
         document.getElementById("size25").style.background = "green";
         document.getElementById("size36").style.background = "black";
@@ -424,7 +424,7 @@ function changeSize(size) {
         });
         break;
       case 36:
-        sampleSize = sample36;
+        sampleSize = solution36;
         document.getElementById("size16").style.background = "black";
         document.getElementById("size25").style.background = "black";
         document.getElementById("size36").style.background = "green";
@@ -1232,24 +1232,33 @@ function clearBoard() {
 function sample(id) {
   playB();
   if (wymiar == 16) {
-    setInputs(sample16[id]);
+    what = solution16[id];
   } else if (wymiar == 25) {
-    setInputs(sample25[id]);
+    what = solution25[id];
   } else if (wymiar == 36) {
-    setInputs(sample36[id]);
+    what = solution25[id];
   }
+
+  what = what.replaceAll("t", "E");
+  what = what.replaceAll("f", "E");
+  what = what.replaceAll("h", "E");
+  what = what.replaceAll("i", "E");
+
+  setInputs(what);
   step();
 }
 
 function solve(id) {
   playB();
   if (wymiar == 16) {
-    setAllOnBoard(solution16[id]);
+    what = solution16[id];
   } else if (wymiar == 25) {
-    setAllOnBoard(solution25[id]);
+    what = solution25[id];
   } else if (wymiar == 36) {
-    setAllOnBoard(solution36[id]);
+    what = solution25[id];
   }
+
+  setAllOnBoard(what);
   step();
 }
 
