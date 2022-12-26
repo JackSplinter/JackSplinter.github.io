@@ -15,7 +15,117 @@
 function helpMe() {
   if (solvingBoard == true) {
     helpSolve();
+    orangeBoard0 = false;
   }
+}
+
+orangeBoard0 = false;
+
+function uncheckLink() {
+  board = getAllOnBoard();
+  for (iu = 0; iu < wymiar * wymiar; iu++) {
+    if (/^[tfhi]/.test(board[iu])) {
+      colorBridgeIdChange("orange", colorBRIDGE, iu);
+    }
+  }
+  console.log("unchecjed" + colorBRIDGE);
+}
+
+function checkLink() {
+  board = getAllOnBoard();
+  if (orangeBoard0 == false) {
+    orangeBoard = Array.from(board);
+    orangeBoard0 = true;
+  }
+  idA = -1;
+  for (i = 0; i < wymiar * wymiar; i++) {
+    if (/^[1-8K-R]/.test(board[i])) {
+      idA = i;
+      break;
+    }
+  }
+
+  orangeBoard[idA] = "Z";
+
+  for (i = 0; i < wymiar * wymiar; i++) {
+    if (/^[1-8K-R]/.test(board[i])) {
+      if (/^[tf]+Z/.test(whatsLeftBoard(orangeBoard, i))) {
+        idIsland = findIdOfClosestConnectedZIsland(
+          i,
+          whatsLeftBoard(orangeBoard, i),
+          "left"
+        );
+        for (x = i - 1; x > idIsland; x--) {
+          colorBridgeId("orange", x);
+        }
+        //colorDigitId("orange", i);
+        orangeBoard[i] = "Z";
+      }
+      if (/^[tf]+Z/.test(whatsRightBoard(orangeBoard, i))) {
+        idIsland = findIdOfClosestConnectedZIsland(
+          i,
+          whatsRightBoard(orangeBoard, i),
+          "right"
+        );
+        for (x = i + 1; x < idIsland; x++) {
+          colorBridgeId("orange", x);
+        }
+
+        // colorDigitId("orange", i);
+        orangeBoard[i] = "Z";
+      }
+      if (/^[hi]+Z/.test(whatsUpBoard(orangeBoard, i))) {
+        idIsland = findIdOfClosestConnectedZIsland(
+          i,
+          whatsUpBoard(orangeBoard, i),
+          "up"
+        );
+        for (x = i - wymiar; x > idIsland; x -= wymiar) {
+          colorBridgeId("orange", x);
+        }
+        // colorDigitId("orange", i);
+        orangeBoard[i] = "Z";
+      }
+      if (/^[hi]+Z/.test(whatsDownBoard(orangeBoard, i))) {
+        idIsland = findIdOfClosestConnectedZIsland(
+          i,
+          whatsDownBoard(orangeBoard, i),
+          "down"
+        );
+        for (x = i + wymiar; x < idIsland; x += wymiar) {
+          colorBridgeId("orange", x);
+        }
+        //  colorDigitId("orange", i);
+        orangeBoard[i] = "Z";
+      }
+    }
+  }
+}
+
+function findIdOfClosestConnectedZIsland(id1, str, direction) {
+  // str is  whatsLeft(id) ..Right ..Up or ..Down ...
+  // this island should have at least 1 bridge to ME
+
+  minIndex = -1; // minimal position in the string
+  // looking for Z island in the string
+  minIndex = str.indexOf("Z");
+
+  // if found a Z island in str
+  if (minIndex > 0) {
+    switch (direction) {
+      case "left":
+        return id1 - minIndex - 1;
+      case "right":
+        return id1 + minIndex + 1;
+      case "up":
+        return id1 - (minIndex + 1) * wymiar;
+      case "down":
+        return id1 + (minIndex + 1) * wymiar;
+      default:
+        break;
+    }
+  }
+  return -1;
 }
 
 function reverseString(str) {
@@ -24,6 +134,58 @@ function reverseString(str) {
     rts += str[z];
   }
   return rts;
+}
+
+function whatsLeftBoard(board, id) {
+  str = "";
+
+  if (id % wymiar == 0) {
+    return str;
+  } else {
+    for (k = id - (id % wymiar); k < id; k++) {
+      str += board[k];
+    }
+  }
+  return reverseString(str);
+}
+
+function whatsRightBoard(board, id) {
+  str = "";
+
+  if ((id + 1) % wymiar == 0) {
+    return str;
+  } else {
+    for (k = id + 1; k < id + (wymiar - (id % wymiar)); k++) {
+      str += board[k];
+    }
+  }
+  return str;
+}
+
+function whatsUpBoard(board, id) {
+  str = "";
+
+  if (id < wymiar) {
+    return str;
+  } else {
+    for (k = id - wymiar; k >= 0; k -= wymiar) {
+      str += board[k];
+    }
+  }
+  return str;
+}
+
+function whatsDownBoard(board, id) {
+  str = "";
+
+  if (id >= wymiar * (wymiar - 1)) {
+    return str;
+  } else {
+    for (k = id + wymiar; k < wymiar * wymiar; k += wymiar) {
+      str += board[k];
+    }
+  }
+  return str;
 }
 
 function whatsLeft(id) {
@@ -857,7 +1019,6 @@ function helpSolve() {
           arra[i] = "P";
           break;
         }
-        if (i == 537) console.log("tt uu");
 
         // if on one side is 1  or TICKEN with 1 to ME then other sides will have got also 1 bridge at least
         if (/^[Et]*1|^t+[K-Q]/.test(whatsLeft(i))) {
