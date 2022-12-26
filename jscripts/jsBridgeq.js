@@ -64,7 +64,10 @@ function onLoud() {
   solve(0);
   solvingBoard = true;
   colorBody("black");
-  colorTheme("green");
+  colorTheme("gray");
+  //unlocked = true;
+  //changeSize(16);
+  //colorDigits("orange");
 }
 
 function changedGameNumber() {
@@ -95,6 +98,7 @@ function playGame() {
     sample(number);
     gameNumber = number;
   }
+  orangeBoard0 = false;
 }
 
 function solveGame() {
@@ -102,8 +106,8 @@ function solveGame() {
   if (number > 0 && number < sampleSize.length) {
     solve(number);
     gameNumber = number;
-    console.log(number);
   }
+  orangeBoard0 = false;
 }
 
 function fillDigits() {
@@ -200,6 +204,40 @@ function colorBridge(color) {
   colorBRIDGE = color;
 }
 
+function colorCircleId(color, idC) {
+  ingsss = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
+  ingsss.forEach((innn) => {
+    if (innn.id == "m" + (idC + 1)) {
+      nevv = "in" + color + " colorDIG" + colorDIG;
+      innn.className = nevv;
+    }
+  });
+}
+
+function colorBridgeId(color, idB) {
+  for (ii = 1; ii <= 4; ii++) {
+    ingss = Array.from(document.getElementsByClassName("m" + ii + colorBRIDGE));
+    ingss.forEach((inn) => {
+      if (inn) {
+        if (inn.id == "m" + (idB + 1)) {
+          inn.className = "m" + ii + color;
+        }
+      }
+    });
+  }
+}
+function colorBridgeIdChange(colorFrom, colorTo, idB) {
+  for (ii = 1; ii <= 4; ii++) {
+    ingss = Array.from(document.getElementsByClassName("m" + ii + colorFrom));
+    ingss.forEach((inn) => {
+      if (inn) {
+        if (inn.id == "m" + (idB + 1)) {
+          inn.className = "m" + ii + colorTo;
+        }
+      }
+    });
+  }
+}
 function colorTheme(color) {
   if (color == "black") {
     colorBackground("white");
@@ -236,6 +274,28 @@ function colorIsland(color) {
   ings.forEach((ing) => {
     ing.className = "ing" + color;
     colorING = color;
+  });
+}
+
+function colorDigitId(color, id) {
+  ings = Array.from(document.getElementsByClassName("ing" + colorING));
+  ings.forEach((ing) => {
+    if (ing.id == "in" + (id + 1)) {
+      nevv = "ing" + color + " colorDIG" + color;
+      ing.className = nevv;
+    }
+  });
+  ings = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
+  ings.forEach((inn) => {
+    if (inn.id == "in" + (id + 1)) {
+      nevv = "in" + color + " colorDIG" + color;
+      inn.className = nevv;
+    }
+  });
+  ings = Array.from(document.getElementsByClassName("inl"));
+  ings.forEach((inl) => {
+    nevv = "inl colorDIG" + color;
+    inl.className = nevv;
   });
 }
 
@@ -888,25 +948,8 @@ function five(id) {
 
   step();
 }
-
-function showBridges() {
-  board = stepsy[stepsy.length - 1];
-  for (var i = 0; i < wymiar * wymiar; i++) {
-    if (/[1-8K-R]/.test(board[i]))
-      console.log(
-        "id=" +
-          i +
-          " [" +
-          board[i] +
-          "]" +
-          "  bridges=" +
-          countBridgesOfIsland(i)
-      );
-  }
-}
 function startStoper() {
   checkIfNotMoreBridgesThanShouldBe();
-  // showBridges();
   czas--;
   document.getElementById("pause").innerHTML =
     '<img src="images/pause2.png" onclick="pauseStoper()" alt="" title="pauza">';
@@ -1064,6 +1107,7 @@ function step0() {
 }
 
 function step() {
+  orangeBoard0 = false;
   if (solvingBoard == true) {
     lock();
     krok++;
@@ -1127,7 +1171,8 @@ function thin(sid) {
   if (!clicked) goBackTo(krok);
 }
 
-function clearBoard() {
+function clearBridges() {
+  uncheckLink();
   if (drawingBoard) {
     step0();
     step();
@@ -1172,7 +1217,7 @@ function clearGrays() {
   setBoard(board);
 }
 
-function clearInputs() {
+function clearBoard() {
   if (drawingBoard) {
     var dwa = "";
     for (var i = 0; i < wymiar * wymiar; i++) {
@@ -1761,8 +1806,8 @@ function stretchV(id, type, dir) {
 }
 
 function clearGreens() {
-  shortenBoard(stepsy[stepsy.length - 1]);
   board = getAllOnBoard();
+
   board = board.replaceAll("K", 1);
   board = board.replaceAll("L", 2);
   board = board.replaceAll("M", 3);
@@ -1965,7 +2010,7 @@ function getInputs2() {
 }
 
 function shortenBoard(board) {
-  console.log(board);
+  //console.log(board);
   changeWhat = [
     "EEEE",
     "EEE",
@@ -1983,17 +2028,17 @@ function shortenBoard(board) {
   for (i = 0; i < changeWhat.length; i++) {
     board = board.replaceAll(changeWhat[i], changeTo[i]);
   }
-  console.log(board);
+  // console.log(board);
 
   return board;
 }
 function lenghtenBoard(board) {
-  console.log(board);
+  //console.log(board);
   changeWhat = ["z", "x", "y", "v"];
   changeTo = ["EEEEEE", "EEEE", "EEE", "EE"];
   for (i = 0; i < changeWhat.length; i++) {
     board = board.replaceAll(changeWhat[i], changeTo[i]);
   }
-  console.log(board);
+  //console.log(board);
   return board;
 }
