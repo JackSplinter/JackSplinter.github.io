@@ -27,7 +27,7 @@ function uncheckLink() {
     if (/^[tfhi]/.test(board[iu])) {
       colorBridgeIdChange("orange", colorBRIDGE, iu);
     }
-    if (/^[1-8K-R]/.test(board[iu])) {
+    if (/^[1-9K-S]/.test(board[iu])) {
       colorDigitIdUncheck('orange', iu);
     }
   }
