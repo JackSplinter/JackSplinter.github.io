@@ -31,6 +31,7 @@
 .ingblue,
 .ingblack,
 .inggreen,
+.ingorange,
 .ingbrown,
 .inggray,
 .ingpurple {
@@ -44,6 +45,17 @@
   background-color: transparent;
 }
 
+
+.ingpink {
+  animation: blinkin 5s linear infinite;
+}
+
+@keyframes blinkin {
+  50% {
+    opacity: 0.3;
+  }
+}
+
 .in,
 .ing,
 .inl,
@@ -51,6 +63,7 @@
 .ingblue,
 .ingblack,
 .inggreen,
+.ingorange,
 .ingbrown,
 .inggray,
 .ingpurple,
@@ -119,6 +132,10 @@
 
 .inggreen {
   background: url(../images/circlegreen.svg);
+  color: black;
+}
+.ingorange {
+  background: url(../images/circleorange.svg);
   color: black;
 }
 
@@ -248,6 +265,7 @@ input {
 .inggreen,
 .ingbrown,
 .inggray,
+.ingorange,
 .ingpurple,
 .inl:hover,
 .in:hover {
