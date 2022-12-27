@@ -27,8 +27,10 @@ function uncheckLink() {
     if (/^[tfhi]/.test(board[iu])) {
       colorBridgeIdChange("orange", colorBRIDGE, iu);
     }
+    if (/^[1-8K-R]/.test(board[iu])) {
+      colorDigitIdUncheck('orange', iu);
+    }
   }
-  console.log("unchecjed" + colorBRIDGE);
 }
 
 function checkLink() {
@@ -39,16 +41,17 @@ function checkLink() {
   }
   idA = -1;
   for (i = 0; i < wymiar * wymiar; i++) {
-    if (/^[1-8K-R]/.test(board[i])) {
+    if (/^[1-9K-S]/.test(board[i])) {
       idA = i;
       break;
     }
   }
-
+  colorDigitId("orange", idA);
+        
   orangeBoard[idA] = "Z";
 
   for (i = 0; i < wymiar * wymiar; i++) {
-    if (/^[1-8K-R]/.test(board[i])) {
+    if (/^[1-9K-S]/.test(board[i])) {
       if (/^[tf]+Z/.test(whatsLeftBoard(orangeBoard, i))) {
         idIsland = findIdOfClosestConnectedZIsland(
           i,
@@ -58,7 +61,7 @@ function checkLink() {
         for (x = i - 1; x > idIsland; x--) {
           colorBridgeId("orange", x);
         }
-        //colorDigitId("orange", i);
+        colorDigitId("orange", i);
         orangeBoard[i] = "Z";
       }
       if (/^[tf]+Z/.test(whatsRightBoard(orangeBoard, i))) {
@@ -71,7 +74,7 @@ function checkLink() {
           colorBridgeId("orange", x);
         }
 
-        // colorDigitId("orange", i);
+         colorDigitId("orange", i);
         orangeBoard[i] = "Z";
       }
       if (/^[hi]+Z/.test(whatsUpBoard(orangeBoard, i))) {
@@ -83,7 +86,7 @@ function checkLink() {
         for (x = i - wymiar; x > idIsland; x -= wymiar) {
           colorBridgeId("orange", x);
         }
-        // colorDigitId("orange", i);
+         colorDigitId("orange", i);
         orangeBoard[i] = "Z";
       }
       if (/^[hi]+Z/.test(whatsDownBoard(orangeBoard, i))) {
@@ -95,7 +98,7 @@ function checkLink() {
         for (x = i + wymiar; x < idIsland; x += wymiar) {
           colorBridgeId("orange", x);
         }
-        //  colorDigitId("orange", i);
+          colorDigitId("orange", i);
         orangeBoard[i] = "Z";
       }
     }
