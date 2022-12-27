@@ -64,7 +64,7 @@ function onLoud() {
   solve(0);
   solvingBoard = true;
   colorBody("black");
-  colorTheme("gray");
+  colorTheme("red");
   //unlocked = true;
   //changeSize(16);
   //colorDigits("orange");
@@ -226,6 +226,44 @@ function colorBridgeId(color, idB) {
     });
   }
 }
+
+
+
+function colorDigitIdUncheck(colorFrom,idD) {
+  ings = Array.from(document.getElementsByClassName("ing" + colorFrom));
+  ings.forEach((ing) => {
+    if (ing.id == "in" + (idD + 1)) {
+      nevv = "ing" + colorING + " colorDIG" + colorDIG;
+      ing.className = nevv;
+    }
+  });
+  ings = Array.from(document.getElementsByClassName("in" + colorFrom));
+  ings.forEach((inn) => {
+    if (inn.id == "in" + (idD + 1)) {
+      nevv = "in" + colorCIRCLE + " colorDIG" + colorDIG;
+      inn.className = nevv;
+    }
+  });
+}
+
+function colorDigitId(color, idD) {
+  ings = Array.from(document.getElementsByClassName("ing" + colorING));
+  ings.forEach((ing) => {
+    if (ing.id == "in" + (idD + 1)) {
+      nevv = "ing" + color + " colorDIG" + color;
+      ing.className = nevv;
+    }
+  });
+  ings = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
+  ings.forEach((inn) => {
+    if (inn.id == "in" + (idD + 1)) {
+      nevv = "in" + color + " colorDIG" + color;
+      inn.className = nevv;
+    }
+  });
+}
+
+
 function colorBridgeIdChange(colorFrom, colorTo, idB) {
   for (ii = 1; ii <= 4; ii++) {
     ingss = Array.from(document.getElementsByClassName("m" + ii + colorFrom));
@@ -274,28 +312,6 @@ function colorIsland(color) {
   ings.forEach((ing) => {
     ing.className = "ing" + color;
     colorING = color;
-  });
-}
-
-function colorDigitId(color, id) {
-  ings = Array.from(document.getElementsByClassName("ing" + colorING));
-  ings.forEach((ing) => {
-    if (ing.id == "in" + (id + 1)) {
-      nevv = "ing" + color + " colorDIG" + color;
-      ing.className = nevv;
-    }
-  });
-  ings = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
-  ings.forEach((inn) => {
-    if (inn.id == "in" + (id + 1)) {
-      nevv = "in" + color + " colorDIG" + color;
-      inn.className = nevv;
-    }
-  });
-  ings = Array.from(document.getElementsByClassName("inl"));
-  ings.forEach((inl) => {
-    nevv = "inl colorDIG" + color;
-    inl.className = nevv;
   });
 }
 
