@@ -5,7 +5,8 @@
 #mostq {
   background: white;
   margin-left: 0px;
-  border: white solid 0px;
+  border: 2px black solid;
+  padding: 5px;
   height: 453px;
   width: 453px;
 }
@@ -24,17 +25,13 @@
 .m2,
 .m3,
 .m4,
+.mc1,
+.mc2,
+.mc3,
+.mc4,
 .in,
 .ing,
-.inl,
-.ingred,
-.ingblue,
-.ingblack,
-.inggreen,
-.ingorange,
-.ingbrown,
-.inggray,
-.ingpurple {
+.inl {
   width: 28px;
   height: 28px;
 
@@ -44,7 +41,6 @@
 .m0 {
   background-color: transparent;
 }
-
 
 .ingpink {
   animation: blinkin 5s linear infinite;
@@ -58,24 +54,7 @@
 
 .in,
 .ing,
-.inl,
-.ingred,
-.ingblue,
-.ingblack,
-.inggreen,
-.ingorange,
-.ingbrown,
-.inggray,
-.ingpurple,
-.inred,
-.inblue,
-.inblack,
-.ingreen,
-.inbrown,
-.ingray,
-.inorange,
-.inpurple {
-  cursor: pointer;
+.inl {
   font-weight: bolder;
   padding: 0px;
   border: 0px;
@@ -116,64 +95,15 @@
   color: purple;
 }
 
-.inl:hover {
-  background: url(../images/circley.svg);
-}
-
-.ingblue {
-  background: url(../images/circleblue.svg);
-  color: skyblue;
-}
-
-.ingblack {
-  background: url(../images/circleblack.svg);
-  color: white;
-}
-
-.inggreen {
-  background: url(../images/circlegreen.svg);
-  color: black;
-}
-.ingorange {
-  background: url(../images/circleorange.svg);
-  color: black;
-}
-
-.ingbrown {
-  background: url(../images/circlebrown.svg);
-  color: white;
-}
-
-.inggray {
-  background: url(../images/circlegray.svg);
-  color: black;
-}
-
-.ingpurple {
-  background: url(../images/circlepurple.svg);
-  color: white;
-}
-
 .inl {
   background: url(../images/circlel.svg);
 }
-
-/*
-  .m0:hover,.m1:hover,.m2:hover,.m3:hover,.m4:hover{
-      border: 0px solid gray;
-  
-  }*/
 
 .p {
   cursor: pointer;
   overflow: visible;
 }
 
-/*
-  .m0,.m1,.m2,.m3,.m4{
-      color: pink;
-  }
-  */
 input {
   border: 0;
   padding: 0px;
@@ -184,411 +114,16 @@ input {
   padding: 0px;
 }
 
-.ingred {
-  background: url(../images/circlered.svg);
-  color: white;
-}
-
-.in {
-  background: url(../images/circle.svg);
-}
-
-.inred {
-  background: url(../images/circleinred.svg);
-}
-
-.inblue {
-  background: url(../images/circleinblue.svg);
-}
-
-.inblack {
-  background: url(../images/circleinblack.svg);
-}
-
-.ingreen {
-  background: url(../images/circleingreen.svg);
-}
-
-.inbrown {
-  background: url(../images/circleinbrown.svg);
-}
-
-.ingray {
-  background: url(../images/circleingray.svg);
-}
-
-.inpurple {
-  background: url(../images/circleinpurple.svg);
-}
-
-.inorange {
-  background: url(../images/circleinorange.svg);
-}
-
-.inred,
-.inblue,
-.inblack,
-.ingreen,
-.inbrown,
-.ingray,
-.inorange,
-.inpurple {
-  background-size: 28px 28px;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 105%;
-  height: 105%;
-}
-
-.inred:hover,
-.inblue:hover,
-.inblack:hover,
-.ingreen:hover,
-.inbrown:hover,
-.ingray:hover,
-.inpurple:hover {
-  background: url(../images/circlel.svg);
-  background-size: 28px 28px;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 105%;
-  height: 105%;
-}
-
-/* bigger circles */
-
 .in,
-.ingred,
-.inl,
-.ingblue,
-.ingblack,
-.inggreen,
-.ingbrown,
-.inggray,
-.ingorange,
-.ingpurple,
-.inl:hover,
-.in:hover {
-  background-size: 28px 28px;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 105%;
-  height: 105%;
-}
-
-.m1 {
-  background: url(../images/h1.svg);
-  height: 110%;
-}
-
-.m2 {
-  background: url(../images/h2.svg);
-  height: 110%;
-}
-
-.m3 {
-  background: url(../images/v1.svg);
-  width: 110%;
-}
-
-.m4 {
-  background: url(../images/v2.svg);
-  width: 110%;
-}
-
 .m1,
 .m2,
 .m3,
-.m4 {
+.m4,
+.mc1,
+.mc2,
+.mc3,
+.mc4 {
   background-size: 28px 28px;
-}
-
-.m1black,
-.m2black,
-.m3black,
-.m4black {
-  width: 28px;
-  height: 28px;
-}
-
-.m1black {
-  background: url(../images/h1.svg);
-  height: 110%;
-}
-
-.m2black {
-  background: url(../images/h2.svg);
-  height: 110%;
-}
-
-.m3black {
-  background: url(../images/v1.svg);
-  width: 110%;
-}
-
-.m4black {
-  background: url(../images/v2.svg);
-  width: 110%;
-}
-
-.m1black,
-.m2black,
-.m3black,
-.m4black {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1red,
-.m2red,
-.m3red,
-.m4red {
-  width: 28px;
-  height: 28px;
-}
-
-.m1red {
-  background: url(../images/h1red.svg);
-  height: 110%;
-}
-
-.m2red {
-  background: url(../images/h2red.svg);
-  height: 110%;
-}
-
-.m3red {
-  background: url(../images/v1red.svg);
-  width: 110%;
-}
-
-.m4red {
-  background: url(../images/v2red.svg);
-  width: 110%;
-}
-
-.m1red,
-.m2red,
-.m3red,
-.m4red {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1orange,
-.m2orange,
-.m3orange,
-.m4orange {
-  width: 28px;
-  height: 28px;
-}
-
-.m1orange {
-  background: url(../images/h1orange.svg);
-  height: 110%;
-}
-
-.m2orange {
-  background: url(../images/h2orange.svg);
-  height: 110%;
-}
-
-.m3orange {
-  background: url(../images/v1orange.svg);
-  width: 110%;
-}
-
-.m4orange {
-  background: url(../images/v2orange.svg);
-  width: 110%;
-}
-
-.m1orange,
-.m2orange,
-.m3orange,
-.m4orange {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1blue,
-.m2blue,
-.m3blue,
-.m4blue {
-  width: 28px;
-  height: 28px;
-}
-
-.m1blue {
-  background: url(../images/h1blue.svg);
-  height: 110%;
-}
-
-.m2blue {
-  background: url(../images/h2blue.svg);
-  height: 110%;
-}
-
-.m3blue {
-  background: url(../images/v1blue.svg);
-  width: 110%;
-}
-
-.m4blue {
-  background: url(../images/v2blue.svg);
-  width: 110%;
-}
-
-.m1blue,
-.m2blue,
-.m3blue,
-.m4blue {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1green,
-.m2green,
-.m3green,
-.m4green {
-  width: 28px;
-  height: 28px;
-}
-
-.m1green {
-  background: url(../images/h1green.svg);
-  height: 110%;
-}
-
-.m2green {
-  background: url(../images/h2green.svg);
-  height: 110%;
-}
-
-.m3green {
-  background: url(../images/v1green.svg);
-  width: 110%;
-}
-
-.m4green {
-  background: url(../images/v2green.svg);
-  width: 110%;
-}
-
-.m1green,
-.m2green,
-.m3green,
-.m4green {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1brown,
-.m2brown,
-.m3brown,
-.m4brown {
-  width: 28px;
-  height: 28px;
-}
-
-.m1brown {
-  background: url(../images/h1brown.svg);
-  height: 110%;
-}
-
-.m2brown {
-  background: url(../images/h2brown.svg);
-  height: 110%;
-}
-
-.m3brown {
-  background: url(../images/v1brown.svg);
-  width: 110%;
-}
-
-.m4brown {
-  background: url(../images/v2brown.svg);
-  width: 110%;
-}
-
-.m1brown,
-.m2brown,
-.m3brown,
-.m4brown {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1gray,
-.m2gray,
-.m3gray,
-.m4gray {
-  width: 28px;
-  height: 28px;
-}
-
-.m1gray {
-  background: url(../images/h1gray.svg);
-  height: 110%;
-}
-
-.m2gray {
-  background: url(../images/h2gray.svg);
-  height: 110%;
-}
-
-.m3gray {
-  background: url(../images/v1gray.svg);
-  width: 110%;
-}
-
-.m4gray {
-  background: url(../images/v2gray.svg);
-  width: 110%;
-}
-
-.m1gray,
-.m2gray,
-.m3gray,
-.m4gray {
-  background-size: 28px 28px;
-  cursor: pointer;
-}
-
-.m1purple,
-.m2purple,
-.m3purple,
-.m4purple {
-  width: 28px;
-  height: 28px;
-}
-
-.m1purple {
-  background: url(../images/h1purple.svg);
-  height: 110%;
-}
-
-.m2purple {
-  background: url(../images/h2purple.svg);
-  height: 110%;
-}
-
-.m3purple {
-  background: url(../images/v1purple.svg);
-  width: 110%;
-}
-
-.m4purple {
-  background: url(../images/v2purple.svg);
-  width: 110%;
-}
-
-.m1purple,
-.m2purple,
-.m3purple,
-.m4purple {
-  background-size: 28px 28px;
-  cursor: pointer;
 }
 
 .steps {
@@ -663,9 +198,49 @@ input {
 .imgB {
   width: 28px;
   height: 28px;
-  border: 1px solid white;
   float: left;
-  background-color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+#colorBackground,
+#colorBoard,
+#colorCircle,
+#colorDigit,
+#colorTicked,
+#colorTickedDigit {
+  color: red;
+}
+.colo {
+  width: 38px;
+  height: 28px;
+  float: left;
+  border: 0px;
+}
+
+.imgC {
+  width: 28px;
+  height: 28px;
+}
+
+.imgC2 {
+  width: 130px;
+  height: 28px;
+  background-color: wheat;
+  border-radius: 5px;
+  float: right;
+}
+
+.imgC3 {
+  width: 28px;
+  height: 28px;
+  float: left;
+  padding-left: 2px;
+}
+
+.imgC4 {
+  width: 200px;
+  height: 28px;
+  padding-top: 5px;
 }
 
 .butB {
@@ -676,4 +251,8 @@ input {
 
 .clearBoth {
   clear: both;
+}
+
+#loadset {
+  padding-left: 13px;
 }
