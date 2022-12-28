@@ -29,7 +29,7 @@ var settingBoard = false;
 var drawingBoard = true;
 var solvingBoard = false;
 var wymiar = 16;
-var sampleSize;
+var sampleSize = 5;
 var unlocked = false;
 var unlocked1 = false;
 var unlocked2 = false;
@@ -40,20 +40,31 @@ var endH = 0;
 var startH = 0;
 var whereI = 0;
 var whereJ = 0;
+var showSettings = false;
+var themeNUMBER = 1;
+var colorBACKGROUND = theme[1][0];
+var colorBOARD = theme[1][1];
+var colorBOARDBORDER = theme[1][2];
+var colorCIRCLE = theme[1][3];
+var colorDIG = theme[1][4];
+var colorING = theme[1][5];
+var colorINGDIGIT = theme[1][6];
+var colorCHECK = theme[1][7];
+var colorCHECKDIGIT = theme[1][8];
+var colorCHECKTICKED = theme[1][9];
+var colorCHECKTICKEDDIGIT = theme[1][10];
+var colorBRIDGE = theme[1][11];
+var colorBRIDGECHECKED = theme[1][12];
 
-var colorING = "red";
-var colorDIG = "red";
-var colorBRIDGE = "red";
-var colorCIRCLE = "red";
 var gameNumber = 0;
 
 function onLoud() {
+  loadStyles();
+  loadTheme();
+  changeBackgroundColor();
   sampleSize = solution16;
   drawBoard();
-  document.getElementById("rightDemoDescription").style.display = "inline";
-  document.getElementById("demoInputsStateButton").style.display = "inline";
-  document.getElementById("demoAllStateButton").style.display = "inline";
-  document.getElementById("timer").style.display = "inline";
+  document.getElementById("ThemeNumber").value = 1;
   document.getElementById("setB").style.display = "inline";
   document.getElementById("drawB").style.display = "inline";
   document.getElementById("playB").style.display = "inline";
@@ -62,12 +73,220 @@ function onLoud() {
   solvingBoard = true;
   step0();
   solve(0);
-  solvingBoard = true;
-  colorBody("black");
-  colorTheme("red");
-  //unlocked = true;
-  //changeSize(16);
-  //colorDigits("orange");
+
+}
+
+function changeBackgroundColor() {
+  colorBACKGROUND = document.getElementById("colorBackground").value;
+  colos = Array.from(document.getElementsByClassName("colo"));
+  colos.forEach((colo) => {
+    colo.style.backgroundColor = colorBACKGROUND;
+  });
+  colorBackground();
+}
+function changeBoardColor() {
+  colorBOARD = document.getElementById("colorBoard").value;
+  colorBoard();
+}
+function changeBoardBorderColor() {
+  colorBOARDBORDER = document.getElementById("colorBoardBorder").value;
+  colorBoard();
+}
+function changeCircleColor() {
+  colorCIRCLE = document.getElementById("colorCircle").value;
+  colorCircle();
+}
+
+function changeDigitColor() {
+  colorDIG = document.getElementById("colorDigit").value;
+  colorCircle();
+}
+function changeTickedColor() {
+  colorING = document.getElementById("colorTicked").value;
+  colorTicked();
+}
+function changeTickedDigitColor() {
+  colorINGDIGIT = document.getElementById("colorTickedDigit").value;
+  colorTicked();
+}
+function changeCheckedColor() {
+  colorCHECK = document.getElementById("colorChecked").value;
+  colorChecked();
+}
+function changeCheckedDigitColor() {
+  colorCHECKDIGIT = document.getElementById("colorCheckedDigit").value;
+  colorChecked();
+}
+function changeCheckedTickedColor() {
+  colorCHECKTICKED = document.getElementById("colorCheckedTicked").value;
+  colorCheckedTicked();
+}
+function changeCheckedTickedDigitColor() {
+  colorCHECKTICKEDDIGIT = document.getElementById(
+    "colorCheckedTickedDigit"
+  ).value;
+  colorCheckedTicked();
+}
+function changeBridgeColor() {
+  colorBRIDGE = document.getElementById("colorBridge").value;
+  colorBridge();
+}
+function changeBridgeCheckedColor() {
+  colorBRIDGECHECKED = document.getElementById("colorBridgeChecked").value;
+  colorBridgeChecked();
+}
+function getTheme() {
+  actualTheme = "";
+  actualTheme +=
+    colorBACKGROUND +
+    "," +
+    colorBOARD +
+    "," +
+    colorBOARDBORDER +
+    "," +
+    colorCIRCLE +
+    "," +
+    colorDIG +
+    "," +
+    colorING +
+    "," +
+    colorINGDIGIT +
+    "," +
+    colorCHECK +
+    "," +
+    colorCHECKDIGIT +
+    "," +
+    colorCHECKTICKED +
+    "," +
+    colorCHECKTICKEDDIGIT +
+    "," +
+    colorBRIDGE +
+    "," +
+    colorBRIDGECHECKED;
+
+  prompt("Actual theme", actualTheme);
+}
+
+function setTheme() {
+  themeStr = prompt("Set theme");
+
+  if (/^[#,a-zA-Z0-9]+$/.test(themeStr)) {
+    themeArray = themeStr.split(",");
+
+    colorBACKGROUND = themeArray[0];
+    colorBOARD = themeArray[1];
+    colorBOARDBORDER = themeArray[2];
+    colorCIRCLE = themeArray[3];
+    colorDIG = themeArray[4];
+    colorING = themeArray[5];
+    colorINGDIGIT = themeArray[6];
+    colorCHECK = themeArray[7];
+    colorCHECKDIGIT = themeArray[8];
+    colorCHECKTICKED = themeArray[9];
+    colorCHECKTICKEDDIGIT = themeArray[10];
+    colorBRIDGE = themeArray[11];
+    colorBRIDGECHECKED = themeArray[12];
+    colorBackground();
+    colorBoard();
+    colorCircle();
+    colorTicked();
+    colorChecked();
+    colorCheckedTicked();
+    colorBridge();
+    colorBridgeChecked();
+
+    document.getElementById("colorBackground").value = colorBACKGROUND;
+    document.getElementById("colorBoard").value = colorBOARD;
+    document.getElementById("colorBoardBorder").value = colorBOARDBORDER;
+    document.getElementById("colorCircle").value = colorCIRCLE;
+    document.getElementById("colorDigit").value = colorDIG;
+    document.getElementById("colorTicked").value = colorING;
+    document.getElementById("colorTickedDigit").value = colorINGDIGIT;
+    document.getElementById("colorChecked").value = colorCHECK;
+    document.getElementById("colorCheckedDigit").value = colorCHECKDIGIT;
+    document.getElementById("colorCheckedTicked").value = colorCHECKTICKED;
+    document.getElementById("colorCheckedTickedDigit").value =
+      colorCHECKTICKEDDIGIT;
+    document.getElementById("colorBridge").value = colorBRIDGE;
+    document.getElementById("colorBridgeChecked").value = colorBRIDGECHECKED;
+  }
+}
+
+function themeDetails() {
+  document.getElementById("themeSettings").style.display = "none";
+
+  if (showSettings == false) {
+    document.getElementById("themeSettings").style.display = "inline";
+    showSettings = true;
+  } else {
+    document.getElementById("themeSettings").style.display = "none";
+    showSettings = false;
+  }
+}
+
+function changedThemeNumber() {
+  number = parseInt(document.getElementById("ThemeNumber").value);
+  max = theme.length - 1;
+
+  if (number > max) {
+    document.getElementById("ThemeNumber").value = max;
+  }
+}
+
+function minusTheme() {
+  number = parseInt(document.getElementById("ThemeNumber").value);
+  if (number > 1) {
+    document.getElementById("ThemeNumber").value = number - 1;
+  }
+}
+function plusTheme() {
+  number = parseInt(document.getElementById("ThemeNumber").value);
+  if (number < theme.length - 1) {
+    document.getElementById("ThemeNumber").value = number + 1;
+  }
+}
+function loadTheme() {
+  number = parseInt(document.getElementById("ThemeNumber").value);
+  if (number > 0 && number < sampleSize.length) {
+    themeNUMBER = number;
+  }
+
+  colorBACKGROUND = theme[themeNUMBER][0];
+  colorBOARD = theme[themeNUMBER][1];
+  colorBOARDBORDER = theme[themeNUMBER][2];
+  colorCIRCLE = theme[themeNUMBER][3];
+  colorDIG = theme[themeNUMBER][4];
+  colorING = theme[themeNUMBER][5];
+  colorINGDIGIT = theme[themeNUMBER][6];
+  colorCHECK = theme[themeNUMBER][7];
+  colorCHECKDIGIT = theme[themeNUMBER][8];
+  colorCHECKTICKED = theme[themeNUMBER][9];
+  colorCHECKTICKEDDIGIT = theme[themeNUMBER][10];
+  colorBRIDGE = theme[themeNUMBER][11];
+  colorBRIDGECHECKED = theme[themeNUMBER][12];
+  colorBackground();
+  colorBoard();
+  colorCircle();
+  colorTicked();
+  colorChecked();
+  colorCheckedTicked();
+  colorBridge();
+  colorBridgeChecked();
+
+  document.getElementById("colorBackground").value = colorBACKGROUND;
+  document.getElementById("colorBoard").value = colorBOARD;
+  document.getElementById("colorBoardBorder").value = colorBOARDBORDER;
+  document.getElementById("colorCircle").value = colorCIRCLE;
+  document.getElementById("colorDigit").value = colorDIG;
+  document.getElementById("colorTicked").value = colorING;
+  document.getElementById("colorTickedDigit").value = colorINGDIGIT;
+  document.getElementById("colorChecked").value = colorCHECK;
+  document.getElementById("colorCheckedDigit").value = colorCHECKDIGIT;
+  document.getElementById("colorCheckedTicked").value = colorCHECKTICKED;
+  document.getElementById("colorCheckedTickedDigit").value =
+    colorCHECKTICKEDDIGIT;
+  document.getElementById("colorBridge").value = colorBRIDGE;
+  document.getElementById("colorBridgeChecked").value = colorBRIDGECHECKED;
 }
 
 function changedGameNumber() {
@@ -193,22 +412,11 @@ function clearDigits() {
   }
 }
 
-function colorBridge(color) {
-  for (i = 1; i <= 4; i++) {
-    ings = Array.from(document.getElementsByClassName("m" + i + colorBRIDGE));
-    ings.forEach((inn) => {
-      if (inn) inn.className = "m" + i + color;
-    });
-  }
-
-  colorBRIDGE = color;
-}
-
 function colorCircleId(color, idC) {
-  ingsss = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
+  ingsss = Array.from(document.getElementsByClassName("in"));
   ingsss.forEach((innn) => {
     if (innn.id == "m" + (idC + 1)) {
-      nevv = "in" + color + " colorDIG" + colorDIG;
+      nevv = "inc" + " colorDIG" + colorDIG;
       innn.className = nevv;
     }
   });
@@ -216,120 +424,98 @@ function colorCircleId(color, idC) {
 
 function colorBridgeId(color, idB) {
   for (ii = 1; ii <= 4; ii++) {
-    ingss = Array.from(document.getElementsByClassName("m" + ii + colorBRIDGE));
+    ingss = Array.from(document.getElementsByClassName("m" + ii));
     ingss.forEach((inn) => {
       if (inn) {
         if (inn.id == "m" + (idB + 1)) {
-          inn.className = "m" + ii + color;
+          inn.className = "mc" + ii;
         }
       }
     });
   }
 }
 
-
-
-function colorDigitIdUncheck(colorFrom,idD) {
-  ings = Array.from(document.getElementsByClassName("ing" + colorFrom));
+function colorDigitIdUncheck(colorFrom, idD) {
+  ings = Array.from(document.getElementsByClassName("ingc"));
   ings.forEach((ing) => {
     if (ing.id == "in" + (idD + 1)) {
-      nevv = "ing" + colorING + " colorDIG" + colorDIG;
+      nevv = "ing" + " colorDIG" + colorDIG;
       ing.className = nevv;
     }
   });
-  ings = Array.from(document.getElementsByClassName("in" + colorFrom));
+  ings = Array.from(document.getElementsByClassName("inc"));
   ings.forEach((inn) => {
     if (inn.id == "in" + (idD + 1)) {
-      nevv = "in" + colorCIRCLE + " colorDIG" + colorDIG;
+      nevv = "in" + " colorDIG" + colorDIG;
       inn.className = nevv;
     }
   });
 }
 
 function colorDigitId(color, idD) {
-  ings = Array.from(document.getElementsByClassName("ing" + colorING));
+  ings = Array.from(document.getElementsByClassName("ing"));
   ings.forEach((ing) => {
     if (ing.id == "in" + (idD + 1)) {
-      nevv = "ing" + color + " colorDIG" + color;
+      nevv = "ingc" + " colorDIG" + color;
       ing.className = nevv;
     }
   });
-  ings = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
+  ings = Array.from(document.getElementsByClassName("in"));
   ings.forEach((inn) => {
     if (inn.id == "in" + (idD + 1)) {
-      nevv = "in" + color + " colorDIG" + color;
+      nevv = "inc" + " colorDIG" + color;
       inn.className = nevv;
     }
   });
 }
 
-
 function colorBridgeIdChange(colorFrom, colorTo, idB) {
   for (ii = 1; ii <= 4; ii++) {
-    ingss = Array.from(document.getElementsByClassName("m" + ii + colorFrom));
+    ingss = Array.from(document.getElementsByClassName("mc" + ii));
     ingss.forEach((inn) => {
       if (inn) {
         if (inn.id == "m" + (idB + 1)) {
-          inn.className = "m" + ii + colorTo;
+          inn.className = "m" + ii;
         }
       }
     });
   }
 }
-function colorTheme(color) {
-  if (color == "black") {
-    colorBackground("white");
-  } else {
-    colorBackground("black");
-  }
-  colorBridge(color);
-  colorCircle(color);
-  colorIsland(color);
-  colorDigits(color);
+
+function colorBackground() {
+  // 0 = background
+  document.body.style.backgroundColor = colorBACKGROUND;
 }
 
-function colorCircle(color) {
-  ings = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
-
-  ings.forEach((inn) => {
-    nevv = "in" + color + " colorDIG" + colorDIG;
-    inn.className = nevv;
-  });
-  colorCIRCLE = color;
-}
-
-function colorBackground(color) {
-  document.getElementById("mostq").style.backgroundColor = color;
-  document.getElementById("mostq").style.border = color + " solid 10px";
+function colorBoard() {
+  document.getElementById("mostq").style.backgroundColor = colorBOARD;
+  document.getElementById("mostq").style.border =
+    colorBOARDBORDER + " solid 2px";
 }
 
 function colorBody(color) {
+  picked = document.getElementById("colorpicker").value;
   document.body.style.backgroundColor = color;
+  
 }
-
 function colorIsland(color) {
-  ings = Array.from(document.getElementsByClassName("ing" + colorING));
+  ings = Array.from(document.getElementsByClassName("ing"));
   ings.forEach((ing) => {
-    ing.className = "ing" + color;
+    ing.className = "ing";
     colorING = color;
   });
 }
 
 function colorDigits(color) {
-  ings = Array.from(document.getElementsByClassName("ing" + colorING));
+  ings = Array.from(document.getElementsByClassName("ing"));
   ings.forEach((ing) => {
-    nevv = "ing" + colorING + " colorDIG" + color;
+    nevv = "ing" + " colorDIG" + color;
     ing.className = nevv;
   });
-  ings = Array.from(document.getElementsByClassName("in" + colorCIRCLE));
+  ings = Array.from(document.getElementsByClassName("in"));
   ings.forEach((inn) => {
-    nevv = "in" + colorCIRCLE + " colorDIG" + color;
+    nevv = "in" + " colorDIG" + color;
     inn.className = nevv;
-  });
-  ings = Array.from(document.getElementsByClassName("inl"));
-  ings.forEach((inl) => {
-    nevv = "inl colorDIG" + color;
-    inl.className = nevv;
   });
   colorDIG = color;
 }
@@ -405,11 +591,10 @@ function changeSize(size) {
         document.getElementById("size25").style.backgroundColor = "black";
         document.getElementById("size36").style.backgroundColor = "black";
 
-        document.getElementById("PAGE").style.width = "890px";
+        //document.getElementById("PAGE").style.width = "1190px";
         document.getElementById("CONTENT").style.width = "473px";
         document.getElementById("CONTENT").style.height = "473px";
-        document.getElementById("MENU_RIGHT").style.height = "586px";
-        document.getElementById("MENU_LEFT").style.height = "596px";
+        //document.getElementById("MENU_RIGHT").style.height = "586px";
         document.getElementById("mostq").style.width = "453px";
         document.getElementById("mostq").style.height = "453px";
 
@@ -425,11 +610,11 @@ function changeSize(size) {
         document.getElementById("size25").style.background = "green";
         document.getElementById("size36").style.background = "black";
 
-        document.getElementById("PAGE").style.width = "980px";
+        //document.getElementById("PAGE").style.width = "1180px";
         document.getElementById("CONTENT").style.width = "720px";
         document.getElementById("CONTENT").style.height = "720px";
-        document.getElementById("MENU_RIGHT").style.height = "786px";
-        document.getElementById("MENU_LEFT").style.height = "796px";
+        //document.getElementById("MENU_RIGHT").style.height = "786px";
+
         document.getElementById("mostq").style.width = "700px";
         document.getElementById("mostq").style.height = "700px";
 
@@ -445,11 +630,10 @@ function changeSize(size) {
         document.getElementById("size25").style.background = "black";
         document.getElementById("size36").style.background = "green";
 
-        document.getElementById("PAGE").style.width = "1290px";
+        //  document.getElementById("PAGE").style.width = "1490px";
         document.getElementById("CONTENT").style.width = "1030px";
         document.getElementById("CONTENT").style.height = "1030px";
-        document.getElementById("MENU_RIGHT").style.height = "1100px";
-        document.getElementById("MENU_LEFT").style.height = "1110px";
+        //document.getElementById("MENU_RIGHT").style.height = "1100px";
         document.getElementById("mostq").style.width = "1010px";
         document.getElementById("mostq").style.height = "1010px";
 
@@ -491,7 +675,6 @@ function drawBoard() {
           id +
           ')" ' +
           'class="in' +
-          colorCIRCLE +
           " colorDIG" +
           colorDIG +
           '" ' +
@@ -510,7 +693,7 @@ function drawBoard() {
           id +
           '">' +
           "<input " +
-          'onclick="intwo(' +
+          'onclick="ones(' +
           id +
           ')" ' +
           'onchange="change(' +
@@ -519,7 +702,7 @@ function drawBoard() {
           'onfocus="focused(' +
           id +
           ')" ' +
-          'class="inl" ' +
+          'class="m0" ' +
           'name="in' +
           id +
           '" ' +
@@ -638,7 +821,6 @@ function inone(id) {
       id +
       ')" ' +
       'class="ing' +
-      colorING +
       '" ' +
       'name="in' +
       id +
@@ -675,7 +857,6 @@ function intwo(id) {
       id +
       ')" ' +
       'class="in' +
-      colorCIRCLE +
       " colorDIG" +
       colorDIG +
       '" ' +
@@ -726,7 +907,6 @@ function ones(id) {
       id +
       ')" ' +
       'class="in' +
-      colorCIRCLE +
       " colorDIG" +
       colorDIG +
       '" ' +
@@ -742,7 +922,6 @@ function ones(id) {
   } else if (solvingBoard == true) {
     p.innerHTML =
       '<input class="m1' +
-      colorBRIDGE +
       '" id="m' +
       id +
       '" ' +
@@ -776,7 +955,6 @@ function two(id) {
       id +
       ')" ' +
       'class="in' +
-      colorCIRCLE +
       " colorDIG" +
       colorDIG +
       '" ' +
@@ -792,7 +970,6 @@ function two(id) {
   } else if (solvingBoard == true) {
     p.innerHTML =
       '<input class="m2' +
-      colorBRIDGE +
       '" id="m' +
       id +
       '" ' +
@@ -838,7 +1015,6 @@ function three(id) {
       id +
       ')" ' +
       'class="in' +
-      colorCIRCLE +
       " colorDIG" +
       colorDIG +
       '" ' +
@@ -854,7 +1030,6 @@ function three(id) {
   } else if (solvingBoard == true) {
     p.innerHTML =
       '<input class="m3' +
-      colorBRIDGE +
       '" id="m' +
       id +
       '" ' +
@@ -887,7 +1062,6 @@ function four(id) {
       id +
       ')" ' +
       'class="in' +
-      colorCIRCLE +
       " colorDIG" +
       colorDIG +
       '" ' +
@@ -903,7 +1077,6 @@ function four(id) {
   } else if (solvingBoard == true) {
     p.innerHTML =
       '<input class="m4' +
-      colorBRIDGE +
       '" id="m' +
       id +
       '" ' +
@@ -936,7 +1109,6 @@ function five(id) {
       id +
       ')" ' +
       'class="in' +
-      colorCIRCLE +
       " colorDIG" +
       colorDIG +
       '" ' +
@@ -1356,7 +1528,6 @@ function setAllOnBoard(board) {
           id +
           ')" ' +
           'class="ing' +
-          colorING +
           '" ' +
           'name="in' +
           id +
@@ -1390,7 +1561,6 @@ function setAllOnBoard(board) {
           id +
           ')" ' +
           'class="in' +
-          colorCIRCLE +
           " colorDIG" +
           colorDIG +
           '" ' +
@@ -1419,7 +1589,6 @@ function setAllOnBoard(board) {
           id +
           ')" ' +
           'class="in' +
-          colorCIRCLE +
           " colorDIG" +
           colorDIG +
           '" ' +
@@ -1446,7 +1615,6 @@ function setAllOnBoard(board) {
           id +
           ')" ' +
           'class="ing' +
-          colorING +
           '" ' +
           'name="in' +
           id +
@@ -1473,7 +1641,6 @@ function setAllOnBoard(board) {
       case "i":
         p.innerHTML =
           '<input class="m1' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1485,7 +1652,6 @@ function setAllOnBoard(board) {
       case "h":
         p.innerHTML =
           '<input class="m2' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1497,7 +1663,6 @@ function setAllOnBoard(board) {
       case "t":
         p.innerHTML =
           '<input class="m3' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1509,7 +1674,6 @@ function setAllOnBoard(board) {
       case "f":
         p.innerHTML =
           '<input class="m4' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1690,7 +1854,6 @@ function stretchH(id, type, dir) {
         case "i":
           p.innerHTML =
             '<input class="m1' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1702,7 +1865,6 @@ function stretchH(id, type, dir) {
         case "h":
           p.innerHTML =
             '<input class="m2' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1714,7 +1876,6 @@ function stretchH(id, type, dir) {
         case "t":
           p.innerHTML =
             '<input class="m3' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1726,7 +1887,6 @@ function stretchH(id, type, dir) {
         case "f":
           p.innerHTML =
             '<input class="m4' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1778,7 +1938,6 @@ function stretchV(id, type, dir) {
         case "i":
           p.innerHTML =
             '<input class="m1' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1790,7 +1949,6 @@ function stretchV(id, type, dir) {
         case "h":
           p.innerHTML =
             '<input class="m2' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1802,7 +1960,6 @@ function stretchV(id, type, dir) {
         case "t":
           p.innerHTML =
             '<input class="m3' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1814,7 +1971,6 @@ function stretchV(id, type, dir) {
         case "f":
           p.innerHTML =
             '<input class="m4' +
-            colorBRIDGE +
             '" id="m' +
             id +
             '" ' +
@@ -1890,7 +2046,6 @@ function setBoard(board) {
       case "i":
         p.innerHTML =
           '<input class="m1' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1902,7 +2057,6 @@ function setBoard(board) {
       case "h":
         p.innerHTML =
           '<input class="m2' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1914,7 +2068,6 @@ function setBoard(board) {
       case "t":
         p.innerHTML =
           '<input class="m3' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1926,7 +2079,6 @@ function setBoard(board) {
       case "f":
         p.innerHTML =
           '<input class="m4' +
-          colorBRIDGE +
           '" id="m' +
           id +
           '" ' +
@@ -1994,7 +2146,6 @@ function setInputs(inputy) {
         id +
         ')" ' +
         'class="in' +
-        colorCIRCLE +
         " colorDIG" +
         colorDIG +
         '" ' +
