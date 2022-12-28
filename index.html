@@ -9,8 +9,9 @@
   <link rel="stylesheet" type="text/css" href="css/styl.css">
   <link rel="stylesheet" type="text/css" href="css/stylBridgeq.css">
   <link rel="shortcut icon" type="image/x-icon" href="images/dj.ico">
-  <script src="jscripts/jsBridgeq.js"></script>
   <script src="jscripts/jsSamples.js"></script>
+  <script src="jscripts/jsSVG.js"></script>
+  <script src="jscripts/jsBridgeq.js"></script>
   <script src="jscripts/jsHelpSolve.js"></script>
   <title>BridgeQ - build your own bridges and connect all islands</title>
 </head>
@@ -32,94 +33,7 @@
   </div>
 
   <div id="PAGE">
-    <div id="HEADER">
-      <span id="bodyColor">
-        <button id="bodyColorWhite" onmousedown="colorBody('white')">B</button>
-        <button id="bodyColorBlack" onmousedown="colorBody('black')">A</button>
-        <button id="bodyColorMaroon" onmousedown="colorBody('maroon')">C</button>
-        <button id="bodyColorMidnightBlue" onmousedown="colorBody('midnightblue')">K</button>
-      </span>
-      <span id="bgColor">
-        <button id="bgColorWhite" onmousedown="colorBackground('white')">G</button>
-        <button id="bgColorGray" onmousedown="colorBackground('gray')">R</button>
-        <button id="bgColorGoldenrod" onmousedown="colorBackground('goldenrod')">O</button>
-        <button id="bgColorSkyblue" onmousedown="colorBackground('skyblue')">U</button>
-        <button id="bgColorLightSeaGreen" onmousedown="colorBackground('lightseagreen')">N</button>
-        <button id="bgColorBlack" onmousedown="colorBackground('black')">D</button>
-      </span>
-
-      <span id="themeColor">
-        <button id="themeRed" onmousedown="colorTheme('red')">T </button>
-        <button id="themeBlue" onmousedown="colorTheme('blue')">H </button>
-        <button id="themeBlack" onmousedown="colorTheme('black')">E </button>
-        <button id="themeGreen" onmousedown="colorTheme('green')">M </button>
-        <button id="themeBrown" onmousedown="colorTheme('brown')">E </button>
-        <button id="themeGray" onmousedown="colorTheme('gray')">S </button>
-
-        <span id="bridgeColor">
-          <button id="bridgeRed" onmousedown="colorBridge('red')">B </button>
-          <button id="bridgeBlue" onmousedown="colorBridge('blue')">R </button>
-          <button id="bridgeBlack" onmousedown="colorBridge('black')">I </button>
-          <button id="bridgeGreen" onmousedown="colorBridge('green')">D </button>
-          <button id="bridgeBrown" onmousedown="colorBridge('brown')">G </button>
-          <button id="bridgeGray" onmousedown="colorBridge('gray')">E </button>
-          <button id="bridgePurple" onmousedown="colorBridge('purple')">S </button>
-        </span>
-        <br>
-      </span>
-      <span id="islandColor">
-        <button id="islandRed" onmousedown="colorIsland('red')">I </button>
-        <button id="islandBlue" onmousedown="colorIsland('blue')">S </button>
-        <button id="islandBlack" onmousedown="colorIsland('black')">L </button>
-        <button id="islandGreen" onmousedown="colorIsland('green')">A </button>
-        <button id="islandBrown" onmousedown="colorIsland('brown')">N </button>
-        <button id="islandGray" onmousedown="colorIsland('gray')">D </button>
-        <button id="islandPurple" onmousedown="colorIsland('purple')">S </button>
-
-      </span>
-      <span id="circleColor">
-        <button id="circleRed" onmousedown="colorCircle('red')">C </button>
-        <button id="circleBlue" onmousedown="colorCircle('blue')">I </button>
-        <button id="circleBlack" onmousedown="colorCircle('black')">R </button>
-        <button id="circleGreen" onmousedown="colorCircle('green')">C </button>
-        <button id="circleBrown" onmousedown="colorCircle('brown')">L </button>
-        <button id="circleGray" onmousedown="colorCircle('gray')">E </button>
-        <button id="circlePurple" onmousedown="colorCircle('purple')">S </button>
-
-      </span>
-
-      <span id="digiColor">
-        <button id="digiRed" onmousedown="colorDigits('red')">N</button>
-        <button id="digiBlue" onmousedown="colorDigits('blue')">U </button>
-        <button id="digiGreen" onmousedown="colorDigits('green')">M</button>
-        <button id="digiBlack" onmousedown="colorDigits('black')">B</button>
-        <button id="digiBrown" onmousedown="colorDigits('brown')">E</button>
-        <button id="digiGray" onmousedown="colorDigits('gray')">R</button>
-        <button id="digiPurple" onmousedown="colorDigits('purple')">S</button>
-      </span>
-      <br>
-      <div id="navigation">
-
-        <span id="nav0" onclick="goBackTo('0')">0</span>
-        <span id="navLeft">
-          <span id="navL">&lt;</span>
-        </span>
-        <span id="navA">
-          <input type="text" id="innav" name="inputNav" onchange="changeNav()" value="0" maxlength="5">
-        </span>
-        <span id="navRight">
-          <span id="navR">&gt;</span>
-        </span>
-        <span id="navZ">
-          <span>0</span>
-        </span>
-
-      </div>
-
-
-
-    </div>
-    <div id="MENU_LEFT"> </div>
+   
     <div id="CONTENT">
       <div id="contentDescription">
         <!-- Solve you own board or try sample board <span id="wymiarz">16</span>x16. <br>
@@ -141,19 +55,22 @@
       </div>
     </div>
     <div id="MENU_RIGHT">
-      <div id="timer" style="display: inline;">
-        <div id="czasstoper">
-          <div id="czas">Time: <span id="stoper">00:00:00</span>
-          </div>
-        </div>
-        <div id="stoppause">
-          <div id="pause">
-            <img src="images/play2.png" alt="" title="start" onclick="startStoper()">
-          </div>
-          <div id="stop">
-            <img src="images/stop2.png" alt="" title="stop" onclick="stopStoper()">
-          </div>
-        </div>
+      <div id="navigation">
+
+        <span id="nav0" onclick="goBackTo('0')">0</span>
+        <span id="navLeft">
+          <span id="navL">&lt;</span>
+        </span>
+        <span id="navA">
+          <input type="text" id="innav" name="inputNav" onchange="changeNav()" value="0" maxlength="4">
+        </span>
+        <span id="navRight">
+          <span id="navR">&gt;</span>
+        </span>
+        <span id="navZ">
+          <span>0</span>
+        </span>
+
       </div>
       <div id="noscript">
         <noscript> This page requires <i>JavaScript</i> to work properly. Without it you won't be able to do anything
@@ -201,50 +118,129 @@
       </div>
       <br>
 
-      <div id="rightDemoDescription" style="display: inline;">
-      </div>
-
+     
+    </div>
+    <div id="MENU_RIGHT2">   
       <div id="samples" style="display: block;">
 
-        <button id="GameChoose">Choose game to play:</button><br>
-        <button id="GameMinus" onclick="minusGame()">-</button>
-        <input type="text" id="GameNumber" value="0" onchange="changedGameNumber()" maxlength="2"></input>
-        <button id="GamePlus" onclick="plusGame()">+</button><br>
-        <button id="GamePlay" onclick="playGame()">Play</button>
-        <button id="GameSolve" onclick="solveGame()">Show solution</button>
-      </div>
-      <br>
-      <div class="imgB">
-        <div class="in"></div>
-      </div>
-      <div id="demoInputsStateButton" style="display: inline;">
-        <button class="butB" id="getIS" onclick="getInputs2()">Islands</button>
-        <div class="imgB">
-          <div class="in">8</div>
-        </div>
-        <button class="butB" id="setIS" onclick="setInputs2()">Set</button>
-      </div>
-      <div class="clearBoth"></div>
-      <br>
-      <div class="imgB">
-        <div class="m1"></div>
-      </div>
-      <div id="demoAllStateButton" style="display: inline;">
-        <button class="butB" id="getAll" onclick="getAllOnBoard2()">Board</button>
-        <div class="imgB">
-          <div class="in">1</div>
-        </div>
-        <div class="imgB">
-          <div class="m3"></div>
-        </div>
-        <button class="butB" id="setAll" onclick="setAllOnBoard2()">Set</button>
-      </div>
+      <button id="GameChoose">Choose game to play:</button><br>
+      <button id="GameMinus" onclick="minusGame()">-</button>
+      <input type="text" id="GameNumber" value="0" onchange="changedGameNumber()" maxlength="2"></input>
+      <button id="GamePlus" onclick="plusGame()">+</button><br>
+      <button id="GamePlay" onclick="playGame()">Play</button>
+      <button id="GameSolve" onclick="solveGame()">Show solution</button>
     </div>
-    <div id="FOOTER">
-      <br> C0PYright © 2022 Jack Splinter | N0 Rights Reserved !
+    <br>
+    <div id="loadset">
+    <div class="imgB">
+      <div class="in"></div>
     </div>
-    <div id="UNDER_FOOTER"></div>
-  </div>
+    <div id="demoInputsStateButton" style="display: inline;">
+      <button class="butB" id="getIS" onclick="getInputs2()">Get islands</button>
+      <div class="imgB">
+        <div class="in">8</div>
+      </div>
+      <button class="butB" id="setIS" onclick="setInputs2()">Set</button>
+    </div><br><br>
+    <div id="demoAllStateButton" style="display: inline;">
+      <button class="butB" id="getAll" onclick="getAllOnBoard2()">Get board</button>
+      <div class="imgB">
+        <div class="in">1</div>
+      </div>
+      <div class="imgB">
+        <div class="m3"></div>
+      </div>
+      <button class="butB" id="setAll" onclick="setAllOnBoard2()">Set</button>
+    </div>
+    </div>
+    <br><br>
+    <br>
+      
+    <div id="themes" style="display: inline;">
+        <button id="ThemeChoose">Choose theme to load:</button><br>
+        <button id="ThemeMinus" onclick="minusTheme()">-</button>
+        <input type="text" id="ThemeNumber" value="1" onchange="changedThemeNumber()" maxlength="2"></input>
+        <button id="ThemePlus" onclick="plusTheme()">+</button><br>
+        <button id="ThemeLoad" onclick="loadTheme()">Load </button>
+        <button id="ThemeDetails" onclick="themeDetails()">Details</button>
+      </div>
+<div id="themeSettings" style="display: none;">
+<br>
+<button id="GetTheme" onclick="getTheme()">Get theme</button>
+<button id="SetTheme" onclick="setTheme()">Set theme</button>
+
+<div class="imgC4">
+  <input type="color" class="colo" name="colorBackground" id="colorBackground" oninput="changeBackgroundColor()" value="pink">
+  <button class="imgC2"><label for="colorBackground"  >Background</label></button>
+</div>
+<div class="imgC4">
+<input type="color" class="colo" name="colorBoard" id="colorBoard" oninput="changeBoardColor()" value="blue">
+<button class="imgC2"><label for="colorBoard"  >Board</label></button>
+</div>
+<div class="imgC4">
+<input type="color" class="colo" name="colorBoardBorder" id="colorBoardBorder" oninput="changeBoardBorderColor()" value="blue">
+<button class="imgC2"><label for="colorBoardBorder"  >Board border</label></button>
+</div>
+ <div class="imgC4">
+  <input type="color"  class="colo" name="colorCircle" id="colorCircle" oninput="changeCircleColor()" value="blue">
+  <label for="colorCircle"  ><div class="imgC3">   <div class="in"></div>  </div></label>
+  <button class="imgC2"><label for="colorCircle"  >Circle</label></button>
+</div>
+ 
+ <div class="imgC4">
+  <input type="color"  class="colo" name="colorDigit" id="colorDigit" oninput="changeDigitColor()" value="blue">
+  <label for="colorDigit"  ><div class="imgC3">   <div class="in">1</div>  </div></label>
+  <button class="imgC2"><label for="colorDigit"  >Digit</label></button>
+</div>
+ <div class="imgC4">
+  <input type="color" class="colo"  name="colorTicked" id="colorTicked" oninput="changeTickedColor()" value="blue">
+  <label for="colorTicked"  ><div class="imgC3">   <div class="ing"></div>  </div></label>
+  <button class="imgC2"><label for="colorTicked"  >Ticked</label></button>
+</div>
+ 
+<div class="imgC4">
+  <input type="color" class="colo" name="colorTickedDigit" id="colorTickedDigit" oninput="changeTickedDigitColor()" value="blue">
+  <label for="colorTickedDigit"  ><div class="imgC3">   <div class="ing">2</div>  </div></label>
+  <button class="imgC2"><label for="colorTickedDigit"  >Ticked digit</label></button>
+</div>
+ 
+<div class="imgC4">
+  <input type="color" class="colo" name="colorChecked" id="colorChecked" oninput="changeCheckedColor()" value="blue">
+  <label for="colorChecked"  ><div class="imgC3">   <div class="inc"></div>  </div></label>
+  <button class="imgC2"><label for="colorChecked"  >Checked</label></button>
+</div>
+ 
+<div class="imgC4">
+  <input type="color" class="colo" name="colorCheckedDigit" id="colorCheckedDigit" oninput="changeCheckedDigitColor()" value="blue">
+  <label for="colorCheckedDigit"  ><div class="imgC3">   <div class="inc">3</div>  </div></label>
+  <button class="imgC2"><label for="colorCheckedDigit"  >Checked digit</label></button>
+</div>
+<div class="imgC4">
+  <input type="color" class="colo" name="colorCheckedTicked" id="colorCheckedTicked" oninput="changeCheckedTickedColor()" value="blue">
+  <label for="colorCheckedTicked"  ><div class="imgC3">   <div class="ingc"></div>  </div></label>
+  <button class="imgC2"><label for="colorCheckedTicked"  >Checked ticked</label></button>
+</div>
+<div class="imgC4">
+  <input type="color" class="colo" name="colorCheckedTickedDigit" id="colorCheckedTickedDigit" oninput="changeCheckedTickedDigitColor()" value="blue">
+  <label for="colorCheckedTickedDigit"  ><div class="imgC3">   <div class="ingc">4</div>  </div></label>
+  <button class="imgC2"><label for="colorCheckedTickedDigit"  >Checked ticked digit</label></button>
+</div>
+ 
+<div class="imgC4">
+  <input type="color" class="colo" name="colorBridge" id="colorBridge" oninput="changeBridgeColor()" value="blue">
+  <label for="colorBridge"  ><div class="imgC3">   <div class="m2"></div>  </div></label>
+  <button class="imgC2"><label for="colorBridge"  >Bridge</label></button>
+</div>
+ 
+<div class="imgC4">
+  <input type="color" class="colo" name="colorBridgeChecked" id="colorBridgeChecked" oninput="changeBridgeCheckedColor()" value="blue">
+  <label for="colorBridgeChecked"  ><div class="imgC3">   <div class="mc4"></div>  </div></label>
+  <button class="imgC2"><label for="colorBridgeChecked"  >Bridge checked</label></button>
+</div>
+
+</div>
+</div>
+</div>
 </body>
 
 </html>
