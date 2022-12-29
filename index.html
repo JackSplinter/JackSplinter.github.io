@@ -76,6 +76,12 @@
         <noscript> This page requires <i>JavaScript</i> to work properly. Without it you won't be able to do anything
           with the board. <br> Please turn JavaScript on, it's really worth it :) </noscript>
       </div>
+
+      
+
+      <button class="hideMenu" onclick="hideMenu1()">---</button>
+      <button class="hideMenu" onclick="hideMenu2()">===</button>
+      <div id="menu2hide1">
       <div id="sizes">
         <div>Choose board size: </div>
         <span id="wymiar" style="visibility: hidden;">16</span>
@@ -118,9 +124,11 @@
       </div>
       <br>
 
-     
+     </div>
     </div>
     <div id="MENU_RIGHT2">   
+
+      <div id="menu2hide2">
       <div id="samples" style="display: block;">
 
       <button id="GameChoose">Choose game to play:</button><br>
@@ -170,74 +178,75 @@
 <button id="SetTheme" onclick="setTheme()">Set theme</button>
 
 <div class="imgC4">
-  <input type="color" class="colo" name="colorBackground" id="colorBackground" oninput="changeBackgroundColor()" value="pink">
+  <input type="color" class="colo" name="colorBackground" id="colorBackground" oninput="changeBackgroundColor()" value="">
   <button class="imgC2"><label for="colorBackground"  >Background</label></button>
 </div>
 <div class="imgC4">
-<input type="color" class="colo" name="colorBoard" id="colorBoard" oninput="changeBoardColor()" value="blue">
+<input type="color" class="colo" name="colorBoard" id="colorBoard" oninput="changeBoardColor()" value="">
 <button class="imgC2"><label for="colorBoard"  >Board</label></button>
 </div>
 <div class="imgC4">
-<input type="color" class="colo" name="colorBoardBorder" id="colorBoardBorder" oninput="changeBoardBorderColor()" value="blue">
+<input type="color" class="colo" name="colorBoardBorder" id="colorBoardBorder" oninput="changeBoardBorderColor()" value="">
 <button class="imgC2"><label for="colorBoardBorder"  >Board border</label></button>
 </div>
  <div class="imgC4">
-  <input type="color"  class="colo" name="colorCircle" id="colorCircle" oninput="changeCircleColor()" value="blue">
+  <input type="color"  class="colo" name="colorCircle" id="colorCircle" oninput="changeCircleColor()" value="">
   <label for="colorCircle"  ><div class="imgC3">   <div class="in"></div>  </div></label>
   <button class="imgC2"><label for="colorCircle"  >Circle</label></button>
 </div>
  
  <div class="imgC4">
-  <input type="color"  class="colo" name="colorDigit" id="colorDigit" oninput="changeDigitColor()" value="blue">
+  <input type="color"  class="colo" name="colorDigit" id="colorDigit" oninput="changeDigitColor()" value="">
   <label for="colorDigit"  ><div class="imgC3">   <div class="in">1</div>  </div></label>
   <button class="imgC2"><label for="colorDigit"  >Digit</label></button>
 </div>
  <div class="imgC4">
-  <input type="color" class="colo"  name="colorTicked" id="colorTicked" oninput="changeTickedColor()" value="blue">
+  <input type="color" class="colo"  name="colorTicked" id="colorTicked" oninput="changeTickedColor()" value="">
   <label for="colorTicked"  ><div class="imgC3">   <div class="ing"></div>  </div></label>
   <button class="imgC2"><label for="colorTicked"  >Ticked</label></button>
 </div>
  
 <div class="imgC4">
-  <input type="color" class="colo" name="colorTickedDigit" id="colorTickedDigit" oninput="changeTickedDigitColor()" value="blue">
+  <input type="color" class="colo" name="colorTickedDigit" id="colorTickedDigit" oninput="changeTickedDigitColor()" value="">
   <label for="colorTickedDigit"  ><div class="imgC3">   <div class="ing">2</div>  </div></label>
   <button class="imgC2"><label for="colorTickedDigit"  >Ticked digit</label></button>
 </div>
  
 <div class="imgC4">
-  <input type="color" class="colo" name="colorChecked" id="colorChecked" oninput="changeCheckedColor()" value="blue">
+  <input type="color" class="colo" name="colorChecked" id="colorChecked" oninput="changeCheckedColor()" value="">
   <label for="colorChecked"  ><div class="imgC3">   <div class="inc"></div>  </div></label>
   <button class="imgC2"><label for="colorChecked"  >Checked</label></button>
 </div>
  
 <div class="imgC4">
-  <input type="color" class="colo" name="colorCheckedDigit" id="colorCheckedDigit" oninput="changeCheckedDigitColor()" value="blue">
+  <input type="color" class="colo" name="colorCheckedDigit" id="colorCheckedDigit" oninput="changeCheckedDigitColor()" value="">
   <label for="colorCheckedDigit"  ><div class="imgC3">   <div class="inc">3</div>  </div></label>
   <button class="imgC2"><label for="colorCheckedDigit"  >Checked digit</label></button>
 </div>
 <div class="imgC4">
-  <input type="color" class="colo" name="colorCheckedTicked" id="colorCheckedTicked" oninput="changeCheckedTickedColor()" value="blue">
+  <input type="color" class="colo" name="colorCheckedTicked" id="colorCheckedTicked" oninput="changeCheckedTickedColor()" value="">
   <label for="colorCheckedTicked"  ><div class="imgC3">   <div class="ingc"></div>  </div></label>
   <button class="imgC2"><label for="colorCheckedTicked"  >Checked ticked</label></button>
 </div>
 <div class="imgC4">
-  <input type="color" class="colo" name="colorCheckedTickedDigit" id="colorCheckedTickedDigit" oninput="changeCheckedTickedDigitColor()" value="blue">
+  <input type="color" class="colo" name="colorCheckedTickedDigit" id="colorCheckedTickedDigit" oninput="changeCheckedTickedDigitColor()" value="">
   <label for="colorCheckedTickedDigit"  ><div class="imgC3">   <div class="ingc">4</div>  </div></label>
   <button class="imgC2"><label for="colorCheckedTickedDigit"  >Checked ticked digit</label></button>
 </div>
  
 <div class="imgC4">
-  <input type="color" class="colo" name="colorBridge" id="colorBridge" oninput="changeBridgeColor()" value="blue">
+  <input type="color" class="colo" name="colorBridge" id="colorBridge" oninput="changeBridgeColor()" value="">
   <label for="colorBridge"  ><div class="imgC3">   <div class="m2"></div>  </div></label>
   <button class="imgC2"><label for="colorBridge"  >Bridge</label></button>
 </div>
  
 <div class="imgC4">
-  <input type="color" class="colo" name="colorBridgeChecked" id="colorBridgeChecked" oninput="changeBridgeCheckedColor()" value="blue">
+  <input type="color" class="colo" name="colorBridgeChecked" id="colorBridgeChecked" oninput="changeBridgeCheckedColor()" value="">
   <label for="colorBridgeChecked"  ><div class="imgC3">   <div class="mc4"></div>  </div></label>
   <button class="imgC2"><label for="colorBridgeChecked"  >Bridge checked</label></button>
 </div>
 
+</div>
 </div>
 </div>
 </div>
