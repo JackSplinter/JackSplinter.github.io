@@ -124,10 +124,6 @@ function hideMenu2() {
 
 function changeBackgroundColor() {
   colorBACKGROUND = document.getElementById("colorBackground").value;
-  colos = Array.from(document.getElementsByClassName("colo"));
-  colos.forEach((colo) => {
-    colo.style.backgroundColor = colorBACKGROUND;
-  });
   colorBackground();
   hideClassChange();
 }
@@ -235,6 +231,7 @@ function setTheme() {
     colorBRIDGE = themeArray[11];
     colorBRIDGECHECKED = themeArray[12];
     colorBackground();
+    changeBackgroundColor();
     colorBoard();
     colorCircle();
     colorTicked();
