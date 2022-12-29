@@ -41,11 +41,21 @@ function checkLink() {
   }
   idA = -1;
   for (i = 0; i < wymiar * wymiar; i++) {
-    if (/^[1-9K-S]/.test(board[i])) {
+    if (/^[K-S]/.test(board[i])){ //  now starts from TICKED ISLAND /^[1-9K-S]/.- before from FIRST ISLAND
       idA = i;
       break;
     }
   }
+  if(idA<0){
+   
+  for (i = 0; i < wymiar * wymiar; i++) {
+    if (/^[1-9]/.test(board[i])){ //  if there is no TICKED then starts with FIRST
+      idA = i;
+      break;
+    }
+  }
+  }
+
   colorDigitId("orange", idA);
 
   orangeBoard[idA] = "Z";
