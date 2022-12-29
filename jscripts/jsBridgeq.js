@@ -70,10 +70,9 @@ function onLoud() {
   document.getElementById("playB").style.display = "inline";
   document.getElementById("drawB").style.background = "green";
   document.getElementById("GameNumber").value = 1;
-  solvingBoard = true;
-  step0();
-  solve(0);
 
+  unlocked = true;
+  step0();
 }
 
 function changeBackgroundColor() {
@@ -331,6 +330,7 @@ function solveGame() {
 
 function fillDigits() {
   if (settingBoard) {
+    clearGreens();
     board = getAllOnBoard();
     var arra = [];
     for (i = 0; i < wymiar * wymiar; i++) {
@@ -341,11 +341,11 @@ function fillDigits() {
       right = 0;
       left = 0;
       down = 0;
-      ip = 0;
+      up = 0;
       field = board[i];
-      if (i < wymiar * wymiar - 1) right = board[i + 1];
+      if (i % wymiar != wymiar - 1) right = board[i + 1];
       if (i < wymiar * (wymiar - 1)) down = board[i + wymiar];
-      if (i > 0) left = board[i - 1];
+      if (i % wymiar > 0) left = board[i - 1];
       if (i > wymiar) up = board[i - wymiar];
 
       if (i != wymiar * (i + 1) - 1 && i < wymiar * wymiar - 1) {
@@ -386,11 +386,21 @@ function fillDigits() {
           }
         }
       }
+
+      if (
+        /[1-9]/.test(field) &&
+        (!left || left == "E") &&
+        (!right || right == "E") &&
+        (!up || up == "E") &&
+        (!down || down == "E")
+      ) {
+        arra[i] = "S";
+      }
     }
 
     board2 = "";
     for (i = 0; i < wymiar * wymiar; i++) {
-      if (arra[i] > 0) {
+      if (arra[i] > 0 || arra[i] == "S") {
         board2 += arra[i];
       } else {
         board2 += board[i];
@@ -401,6 +411,9 @@ function fillDigits() {
 }
 
 function clearDigits() {
+  checkIfNotMoreBridgesThanShouldBe();
+  //checkIfNotLessBridgesThanShouldBe();
+
   if (settingBoard) {
     clearGreens();
 
@@ -496,7 +509,6 @@ function colorBoard() {
 function colorBody(color) {
   picked = document.getElementById("colorpicker").value;
   document.body.style.backgroundColor = color;
-  
 }
 function colorIsland(color) {
   ings = Array.from(document.getElementsByClassName("ing"));
@@ -675,8 +687,6 @@ function drawBoard() {
           id +
           ')" ' +
           'class="in' +
-          " colorDIG" +
-          colorDIG +
           '" ' +
           'name="in' +
           id +
@@ -783,7 +793,7 @@ function inone(id) {
 
     p.innerHTML =
       "<input " +
-      'onclick="intwo(' +
+      'onclick="ones(' +
       id +
       ')" ' +
       'onchange="change(' +
@@ -792,7 +802,7 @@ function inone(id) {
       'onfocus="focused(' +
       id +
       ')" ' +
-      'class="inl" ' +
+      'class="m0" ' +
       'name="in' +
       id +
       '" ' +
@@ -1137,7 +1147,6 @@ function five(id) {
   step();
 }
 function startStoper() {
-  checkIfNotMoreBridgesThanShouldBe();
   czas--;
   document.getElementById("pause").innerHTML =
     '<img src="images/pause2.png" onclick="pauseStoper()" alt="" title="pauza">';
@@ -1167,7 +1176,6 @@ function stoper() {
 }
 
 function stopStoper() {
-  checkIfNotLessBridgesThanShouldBe();
   clearTimeout(idTimeout);
   document.getElementById("stoper").innerHTML = "00:00:00";
   document.getElementById("pause").innerHTML =
@@ -1468,7 +1476,12 @@ function getAllOnBoard() {
       val = inpt.value;
       val = parseInt(val);
       if (val) pola += String.fromCharCode(val + plus);
-      else pola += String.fromCharCode(9 + plus); // there's an empty island - input without a digit
+      else if (patti.test(pole.innerHTML)) {
+        // empty island withour a digit - 9
+        pola += String.fromCharCode(9 + plus);
+      } else {
+        pola += "E"; // empty space - E
+      }
     } else {
       patt0a = new RegExp("ones");
       patt0b = new RegExp("inone");
@@ -2095,6 +2108,12 @@ function setBoard(board) {
 
 function setInputs2() {
   var inputy = prompt("Load saved islands");
+
+  inputy = inputy.replaceAll("t", "E");
+  inputy = inputy.replaceAll("f", "E");
+  inputy = inputy.replaceAll("h", "E");
+  inputy = inputy.replaceAll("i", "E");
+
   setInputs(inputy);
 }
 
