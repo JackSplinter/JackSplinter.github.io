@@ -23,6 +23,8 @@ var stateBoard = "";
 var pola = "";
 var czas = 0;
 var idTimeout = 0;
+var menu2HIDDEN = false;
+var menu1HIDDEN = false;
 
 var clicked = false;
 var settingBoard = false;
@@ -60,6 +62,7 @@ var gameNumber = 0;
 
 function onLoud() {
   loadStyles();
+  hideClassLoad();
   loadTheme();
   changeBackgroundColor();
   sampleSize = solution16;
@@ -75,6 +78,50 @@ function onLoud() {
   step0();
 }
 
+function hideClassLoad() {
+  hideClass = document.createElement("style");
+  hideClass.setAttribute("id", "hideClass");
+  hideClass.innerHTML =
+    ".hideMenu{border: 1px dashed gray; background-color: " +
+    colorBACKGROUND +
+    "; color: gray; padding: 5px; margin: 10px;}   .hideMenu:hover{border: 1px gray; border-style: dashed; background-color: " +
+    colorBACKGROUND +
+    "; color: gray;}";
+  document.getElementsByTagName("head")[0].appendChild(hideClass);
+}
+
+function hideClassChange() {
+  document.getElementsByTagName("head")[0].removeChild(hideClass);
+  hideClass = document.createElement("style");
+  hideClass.setAttribute("id", "hideClass");
+  hideClass.innerHTML =
+    ".hideMenu{border: 1px dashed gray; background-color: " +
+    colorBACKGROUND +
+    "; color: gray; padding: 5px; margin: 10px;}   .hideMenu:hover{border: 1px gray; border-style: dashed; background-color: " +
+    colorBACKGROUND +
+    "; color: gray;}";
+  document.getElementsByTagName("head")[0].appendChild(hideClass);
+}
+
+function hideMenu1() {
+  if (!menu1HIDDEN) {
+    document.getElementById("menu2hide1").style.display = "none";
+    menu1HIDDEN = true;
+  } else {
+    document.getElementById("menu2hide1").style.display = "inline";
+    menu1HIDDEN = false;
+  }
+}
+function hideMenu2() {
+  if (!menu2HIDDEN) {
+    document.getElementById("menu2hide2").style.display = "none";
+    menu2HIDDEN = true;
+  } else {
+    document.getElementById("menu2hide2").style.display = "inline";
+    menu2HIDDEN = false;
+  }
+}
+
 function changeBackgroundColor() {
   colorBACKGROUND = document.getElementById("colorBackground").value;
   colos = Array.from(document.getElementsByClassName("colo"));
@@ -82,6 +129,7 @@ function changeBackgroundColor() {
     colo.style.backgroundColor = colorBACKGROUND;
   });
   colorBackground();
+  hideClassChange();
 }
 function changeBoardColor() {
   colorBOARD = document.getElementById("colorBoard").value;
@@ -94,6 +142,7 @@ function changeBoardBorderColor() {
 function changeCircleColor() {
   colorCIRCLE = document.getElementById("colorCircle").value;
   colorCircle();
+  changeTickedColor();
 }
 
 function changeDigitColor() {
@@ -209,6 +258,7 @@ function setTheme() {
     document.getElementById("colorBridge").value = colorBRIDGE;
     document.getElementById("colorBridgeChecked").value = colorBRIDGECHECKED;
   }
+  hideClassChange();
 }
 
 function themeDetails() {
@@ -286,6 +336,8 @@ function loadTheme() {
     colorCHECKTICKEDDIGIT;
   document.getElementById("colorBridge").value = colorBRIDGE;
   document.getElementById("colorBridgeChecked").value = colorBRIDGECHECKED;
+
+  hideClassChange();
 }
 
 function changedGameNumber() {
@@ -389,10 +441,10 @@ function fillDigits() {
 
       if (
         /[1-9]/.test(field) &&
-        (!left || left == "E") &&
-        (!right || right == "E") &&
-        (!up || up == "E") &&
-        (!down || down == "E")
+        /^[Ehi0]*$/.test(left) && // if '' or 'E' or 'h' or 'i' then tick it !
+        /^[Ehi0]*$/.test(right) &&
+        /^[Etf0]*$/.test(up) &&
+        /^[Etf0]*$/.test(down)
       ) {
         arra[i] = "S";
       }
@@ -412,7 +464,7 @@ function fillDigits() {
 
 function clearDigits() {
   checkIfNotMoreBridgesThanShouldBe();
-  //checkIfNotLessBridgesThanShouldBe();
+  checkIfNotLessBridgesThanShouldBe();
 
   if (settingBoard) {
     clearGreens();
@@ -429,7 +481,7 @@ function colorCircleId(color, idC) {
   ingsss = Array.from(document.getElementsByClassName("in"));
   ingsss.forEach((innn) => {
     if (innn.id == "m" + (idC + 1)) {
-      nevv = "inc" + " colorDIG" + colorDIG;
+      nevv = "inc";
       innn.className = nevv;
     }
   });
@@ -452,14 +504,14 @@ function colorDigitIdUncheck(colorFrom, idD) {
   ings = Array.from(document.getElementsByClassName("ingc"));
   ings.forEach((ing) => {
     if (ing.id == "in" + (idD + 1)) {
-      nevv = "ing" + " colorDIG" + colorDIG;
+      nevv = "ing";
       ing.className = nevv;
     }
   });
   ings = Array.from(document.getElementsByClassName("inc"));
   ings.forEach((inn) => {
     if (inn.id == "in" + (idD + 1)) {
-      nevv = "in" + " colorDIG" + colorDIG;
+      nevv = "in";
       inn.className = nevv;
     }
   });
@@ -469,14 +521,14 @@ function colorDigitId(color, idD) {
   ings = Array.from(document.getElementsByClassName("ing"));
   ings.forEach((ing) => {
     if (ing.id == "in" + (idD + 1)) {
-      nevv = "ingc" + " colorDIG" + color;
+      nevv = "ingc";
       ing.className = nevv;
     }
   });
   ings = Array.from(document.getElementsByClassName("in"));
   ings.forEach((inn) => {
     if (inn.id == "in" + (idD + 1)) {
-      nevv = "inc" + " colorDIG" + color;
+      nevv = "inc";
       inn.className = nevv;
     }
   });
@@ -521,12 +573,12 @@ function colorIsland(color) {
 function colorDigits(color) {
   ings = Array.from(document.getElementsByClassName("ing"));
   ings.forEach((ing) => {
-    nevv = "ing" + " colorDIG" + color;
+    nevv = "ing";
     ing.className = nevv;
   });
   ings = Array.from(document.getElementsByClassName("in"));
   ings.forEach((inn) => {
-    nevv = "in" + " colorDIG" + color;
+    nevv = "in";
     inn.className = nevv;
   });
   colorDIG = color;
@@ -867,8 +919,6 @@ function intwo(id) {
       id +
       ')" ' +
       'class="in' +
-      " colorDIG" +
-      colorDIG +
       '" ' +
       'name="in' +
       id +
@@ -917,8 +967,6 @@ function ones(id) {
       id +
       ')" ' +
       'class="in' +
-      " colorDIG" +
-      colorDIG +
       '" ' +
       'name="in' +
       id +
@@ -965,8 +1013,6 @@ function two(id) {
       id +
       ')" ' +
       'class="in' +
-      " colorDIG" +
-      colorDIG +
       '" ' +
       'name="in' +
       id +
@@ -1025,8 +1071,6 @@ function three(id) {
       id +
       ')" ' +
       'class="in' +
-      " colorDIG" +
-      colorDIG +
       '" ' +
       'name="in' +
       id +
@@ -1072,8 +1116,6 @@ function four(id) {
       id +
       ')" ' +
       'class="in' +
-      " colorDIG" +
-      colorDIG +
       '" ' +
       'name="in' +
       id +
@@ -1119,8 +1161,6 @@ function five(id) {
       id +
       ')" ' +
       'class="in' +
-      " colorDIG" +
-      colorDIG +
       '" ' +
       'name="in' +
       id +
@@ -1574,8 +1614,6 @@ function setAllOnBoard(board) {
           id +
           ')" ' +
           'class="in' +
-          " colorDIG" +
-          colorDIG +
           '" ' +
           'name="in' +
           id +
@@ -1602,8 +1640,6 @@ function setAllOnBoard(board) {
           id +
           ')" ' +
           'class="in' +
-          " colorDIG" +
-          colorDIG +
           '" ' +
           'name="in' +
           id +
@@ -2165,8 +2201,6 @@ function setInputs(inputy) {
         id +
         ')" ' +
         'class="in' +
-        " colorDIG" +
-        colorDIG +
         '" ' +
         'name="in' +
         id +
