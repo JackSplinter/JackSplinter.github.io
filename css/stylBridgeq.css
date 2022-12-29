@@ -153,11 +153,11 @@ input {
 
 #navL,
 #navR {
-  background: green;
-  border: 2px solid lightgreen;
+  background: black;
+  border: 2px solid gray;
   cursor: pointer;
-  border-radius: 12px;
-  color: yellow;
+  border-radius: 6px;
+  color: silver;
   font-weight: bolder;
   padding: 2px 10px;
 }
