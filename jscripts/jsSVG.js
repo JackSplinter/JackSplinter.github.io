@@ -2,7 +2,7 @@ function loadStyles() {
   inClass = document.createElement("style");
   inClass.setAttribute("id", "inClass");
   inClass.innerHTML =
-    ".in, .ing, .inc, .ingc {font-weight: bolder;padding: 0px;border: 0px;text-align: center;font-size: 23px;cursor: font-weight: bolder;padding: 0px;border: 0px;text-align: center;font-size: 23px;cursor: pointer;  }";
+    ".in, .inge, .ing, .inc, .ingc {font-weight: bolder;padding: 0px;border: 0px;text-align: center;font-size: 23px;cursor: font-weight: bolder;padding: 0px;border: 0px;text-align: center;font-size: 23px;cursor: pointer;  }";
 
   inClassB = document.createElement("style");
   inClassB.setAttribute("id", "inClassB");
@@ -17,7 +17,24 @@ function loadStyles() {
     "'); color: " +
     colorDIG +
     ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
-
+  
+    ingeClassB = document.createElement("style");
+    ingeClassB.setAttribute("id", "ingeClassB");
+    ingeCircleSVG =
+      '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="140" cy="140" r="130" stroke="' +
+      colorCIRCLE +
+      '" stroke-width="20" fill="' +
+      colorINGE +
+      '"/></svg>';
+    ingeCircleSVG64 = window.btoa(ingeCircleSVG);
+    ingeClassB.innerHTML =
+      ".inge {background: url('data:image/svg+xml;base64," +
+      ingeCircleSVG64 +
+      "'); color: " +
+      colorDIG +
+      ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+  
+    
   ingClassB = document.createElement("style");
   ingClassB.setAttribute("id", "ingClassB");
   ingCircleSVG =
@@ -178,6 +195,7 @@ function loadStyles() {
   document.getElementsByTagName("head")[0].appendChild(tcClassB);
   document.getElementsByTagName("head")[0].appendChild(fcClassB);
   document.getElementsByTagName("head")[0].appendChild(inClassB);
+  document.getElementsByTagName("head")[0].appendChild(ingeClassB);
   document.getElementsByTagName("head")[0].appendChild(ingClassB);
   document.getElementsByTagName("head")[0].appendChild(incClassB);
   document.getElementsByTagName("head")[0].appendChild(ingcClassB);
@@ -351,6 +369,29 @@ function colorTicked() {
     "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
 
   document.getElementsByTagName("head")[0].appendChild(ingClassB);
+}
+
+
+function colorTickedWrong() {
+  document.getElementsByTagName("head")[0].removeChild(ingeClassB);
+
+  ingeClassB = document.createElement("style");
+  ingeClassB.setAttribute("id", "ingeClassB");
+  ingeCircleSVG =
+    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"><circle cx="140" cy="140" r="130" stroke="' +
+    colorCIRCLE +
+    '" stroke-width="20" fill="' +
+    colorINGE +
+    '"/></svg>';
+  ingeCircleSVG64 = window.btoa(ingeCircleSVG);
+  ingeClassB.innerHTML =
+    ".inge {background: url('data:image/svg+xml;base64," +
+    ingeCircleSVG64 +
+    "'); color: " +
+    colorINGDIGIT +
+    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+
+  document.getElementsByTagName("head")[0].appendChild(ingeClassB);
 }
 
 function colorChecked() {
