@@ -405,12 +405,14 @@ a:hover {
 
 #GameGet {
   height: 30px;
+  font-size: 13px;
   width: 75px;
   background-color: rgb(76, 135, 245);
   color: white;
 }
 #GameSet {
   background-color: gray;
+  font-size: 13px;
   height: 30px;
   width: 75px;
 }
@@ -635,6 +637,7 @@ a:hover {
 #GetTheme,
 #SetTheme {
   background-color: gray;
+  font-size: 12px;
   height: 30px;
   width: 75px;
   color: black;
