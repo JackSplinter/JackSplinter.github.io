@@ -41,7 +41,7 @@ function checkLink() {
   }
   idA = -1;
   for (i = 0; i < wymiar * wymiar; i++) {
-    if (/^[K-S]/.test(board[i])){ //  now starts from TICKED ISLAND /^[1-9K-S]/.- before from FIRST ISLAND
+    if (/^[K-S]/.test(board[i])){ //  now starts from TICKED ISLAND /^[1-9K-S]/.- earlier started from FIRST ISLAND
       idA = i;
       break;
     }
@@ -499,27 +499,21 @@ function checkIfNotMoreBridgesThanShouldBe() {
   board = stepsy[stepsy.length - 1];
   counted = 0;
   for (i = 0; i < wymiar * wymiar; i++) {
-    if (/[1-8K-R]/.test(board[i])) {
+    if (/[K-R]/.test(board[i])) {
       counted = countBridgesOfIsland(i);
 
       shouldHave = KRto18(board[i]);
 
       if (counted > shouldHave) {
-        console.log(
-          "ISLAND ID=" +
-            i +
-            " ((" +
-            shouldHave +
-            ")) HAS TOO MANY BRIDGES =" +
-            counted
-        );
+      document.getElementById('in'+(i+1)).className='inge';
+       // console.log("ISLAND ID=" +i +" ((" +shouldHave +")) HAS TOO MANY BRIDGES =" +counted);
         foundONE = true;
       }
     }
-  }
+  }/*
   if (!foundONE) {
     console.log("ISLANDs HAVEN'T TOO MANY BRIDGES");
-  }
+  }*/
 }
 
 function checkIfNotLessBridgesThanShouldBe() {
@@ -527,25 +521,18 @@ function checkIfNotLessBridgesThanShouldBe() {
   board = stepsy[stepsy.length - 1];
   counted = 0;
   for (i = 0; i < wymiar * wymiar; i++) {
-    if (/[1-8K-R]/.test(board[i])) {
+    if (/[K-R]/.test(board[i])) {
       counted = countBridgesOfIsland(i);
       shouldHave = KRto18(board[i]);
       if (counted < shouldHave) {
-        console.log(
-          "ISLAND ID=" +
-            i +
-            " ((" +
-            shouldHave +
-            ")) HAS NOT ENOUGH BRIDGES =" +
-            counted
-        );
-        foundONE = true;
+        document.getElementById('in'+(i+1)).className='inge';
+        //console.log("ISLAND ID=" +  i +  " ((" +  shouldHave +  ")) HAS NOT ENOUGH BRIDGES =" +  counted        );        foundONE = true;
       }
     }
-  }
+  }/*
   if (!foundONE) {
     console.log("ISLANDs HAVEN'T GOT TOO LITTLE BRIDGES");
-  }
+  }*/
 }
 
 function countMissingBridgesOfIsland(id) {
