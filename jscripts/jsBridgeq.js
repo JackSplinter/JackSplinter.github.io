@@ -57,6 +57,7 @@ var colorCHECKTICKED = theme[1][9];
 var colorCHECKTICKEDDIGIT = theme[1][10];
 var colorBRIDGE = theme[1][11];
 var colorBRIDGECHECKED = theme[1][12];
+var colorINGE = theme[1][13];
 
 var gameNumber = 0;
 
@@ -74,7 +75,9 @@ function onLoud() {
   document.getElementById("drawB").style.background = "green";
   document.getElementById("GameNumber").value = 1;
 
-  unlocked = true;
+ // unlocked = true;
+  //changeSize(36);
+  //solve(1);
   step0();
 }
 
@@ -139,6 +142,7 @@ function changeCircleColor() {
   colorCIRCLE = document.getElementById("colorCircle").value;
   colorCircle();
   changeTickedColor();
+  changeTickedWrongColor();
 }
 
 function changeDigitColor() {
@@ -149,9 +153,16 @@ function changeTickedColor() {
   colorING = document.getElementById("colorTicked").value;
   colorTicked();
 }
+
+function changeTickedWrongColor() {
+  colorINGE = document.getElementById("colorTickedWrong").value;
+  colorTickedWrong();
+}
+
 function changeTickedDigitColor() {
-  colorINGDIGIT = document.getElementById("colorTickedDigit").value;
+  colorINGE = document.getElementById("colorTickedDigit").value;
   colorTicked();
+  colorTickedWrong();
 }
 function changeCheckedColor() {
   colorCHECK = document.getElementById("colorChecked").value;
@@ -206,7 +217,9 @@ function getTheme() {
     "," +
     colorBRIDGE +
     "," +
-    colorBRIDGECHECKED;
+    colorBRIDGECHECKED+
+    "," +
+    colorINGE;
 
   prompt("Actual theme", actualTheme);
 }
@@ -223,6 +236,7 @@ function setTheme() {
     colorCIRCLE = themeArray[3];
     colorDIG = themeArray[4];
     colorING = themeArray[5];
+    colorINGE = themeArray[13];
     colorINGDIGIT = themeArray[6];
     colorCHECK = themeArray[7];
     colorCHECKDIGIT = themeArray[8];
@@ -235,6 +249,7 @@ function setTheme() {
     colorBoard();
     colorCircle();
     colorTicked();
+    colorTickedWrong();
     colorChecked();
     colorCheckedTicked();
     colorBridge();
@@ -246,6 +261,7 @@ function setTheme() {
     document.getElementById("colorCircle").value = colorCIRCLE;
     document.getElementById("colorDigit").value = colorDIG;
     document.getElementById("colorTicked").value = colorING;
+    document.getElementById("colorTickedWrong").value = colorINGE;
     document.getElementById("colorTickedDigit").value = colorINGDIGIT;
     document.getElementById("colorChecked").value = colorCHECK;
     document.getElementById("colorCheckedDigit").value = colorCHECKDIGIT;
@@ -303,6 +319,7 @@ function loadTheme() {
   colorCIRCLE = theme[themeNUMBER][3];
   colorDIG = theme[themeNUMBER][4];
   colorING = theme[themeNUMBER][5];
+  colorINGE = theme[themeNUMBER][13];
   colorINGDIGIT = theme[themeNUMBER][6];
   colorCHECK = theme[themeNUMBER][7];
   colorCHECKDIGIT = theme[themeNUMBER][8];
@@ -314,6 +331,7 @@ function loadTheme() {
   colorBoard();
   colorCircle();
   colorTicked();
+  colorTickedWrong();
   colorChecked();
   colorCheckedTicked();
   colorBridge();
@@ -325,6 +343,7 @@ function loadTheme() {
   document.getElementById("colorCircle").value = colorCIRCLE;
   document.getElementById("colorDigit").value = colorDIG;
   document.getElementById("colorTicked").value = colorING;
+  document.getElementById("colorTickedWrong").value = colorINGE;
   document.getElementById("colorTickedDigit").value = colorINGDIGIT;
   document.getElementById("colorChecked").value = colorCHECK;
   document.getElementById("colorCheckedDigit").value = colorCHECKDIGIT;
@@ -483,6 +502,7 @@ function colorCircleId(color, idC) {
     }
   });
 }
+
 
 function colorBridgeId(color, idB) {
   for (ii = 1; ii <= 4; ii++) {
@@ -652,10 +672,8 @@ function changeSize(size) {
         document.getElementById("size25").style.backgroundColor = "black";
         document.getElementById("size36").style.backgroundColor = "black";
 
-        //document.getElementById("PAGE").style.width = "1190px";
         document.getElementById("CONTENT").style.width = "473px";
         document.getElementById("CONTENT").style.height = "473px";
-        //document.getElementById("MENU_RIGHT").style.height = "586px";
         document.getElementById("mostq").style.width = "453px";
         document.getElementById("mostq").style.height = "453px";
 
@@ -671,11 +689,8 @@ function changeSize(size) {
         document.getElementById("size25").style.background = "green";
         document.getElementById("size36").style.background = "black";
 
-        //document.getElementById("PAGE").style.width = "1180px";
         document.getElementById("CONTENT").style.width = "720px";
         document.getElementById("CONTENT").style.height = "720px";
-        //document.getElementById("MENU_RIGHT").style.height = "786px";
-
         document.getElementById("mostq").style.width = "700px";
         document.getElementById("mostq").style.height = "700px";
 
@@ -691,10 +706,8 @@ function changeSize(size) {
         document.getElementById("size25").style.background = "black";
         document.getElementById("size36").style.background = "green";
 
-        //  document.getElementById("PAGE").style.width = "1490px";
         document.getElementById("CONTENT").style.width = "1030px";
         document.getElementById("CONTENT").style.height = "1030px";
-        //document.getElementById("MENU_RIGHT").style.height = "1100px";
         document.getElementById("mostq").style.width = "1010px";
         document.getElementById("mostq").style.height = "1010px";
 
@@ -1183,48 +1196,6 @@ function five(id) {
 
   step();
 }
-function startStoper() {
-  czas--;
-  document.getElementById("pause").innerHTML =
-    '<img src="images/pause2.png" onclick="pauseStoper()" alt="" title="pauza">';
-  stoper();
-}
-
-function stoper() {
-  czas++;
-  hou = (czas - (czas % 3600)) / 3600;
-  min = (czas - (czas % 60)) / 60;
-  sec = czas % 60;
-
-  if (min >= 60) min = min % 60;
-  if (min < 10) min = "0" + min;
-
-  if (sec < 10) sec = "0" + sec;
-  minelo = min + ":" + sec;
-  if (hou >= 0) {
-    if (hou < 10) {
-      hou = "0" + hou;
-    }
-    minelo = hou + ":" + min + ":" + sec;
-  }
-  document.getElementById("stoper").innerHTML = minelo;
-
-  idTimeout = setTimeout("stoper()", 1000);
-}
-
-function stopStoper() {
-  clearTimeout(idTimeout);
-  document.getElementById("stoper").innerHTML = "00:00:00";
-  document.getElementById("pause").innerHTML =
-    '<img src="images/play2.png" onclick="startStoper()" alt="" title="start">';
-  czas = 0;
-}
-
-function pauseStoper() {
-  clearTimeout(idTimeout);
-  document.getElementById("pause").innerHTML =
-    '<img src="images/play2.png" onclick="startStoper()" alt="" title="start">';
-}
 
 function change(inId) {
   el = document.forms["forma"].elements["in" + inId];
@@ -1349,6 +1320,9 @@ function step() {
     pointedStep = krok;
     navigate();
   }
+  getAllOnBoard(); 
+  checkIfNotMoreBridgesThanShouldBe();
+  checkIfNotLessBridgesThanShouldBe();
 }
 
 function goBackTo(step) {
@@ -1857,7 +1831,7 @@ function setStartEndH(id) {
         }
       }
     }
-  }
+  }  
 }
 
 function stretchH(id, type, dir) {
@@ -1953,7 +1927,7 @@ function stretchV(id, type, dir) {
   setStartEndV(id);
   setWhereIJ(id);
 
-  if (whereI == wymiar && /[ih]]/.test(type)) {
+  if (whereI == wymiar && /[ih]/.test(type)) {
     return 0;
   }
   if (whereI == 1 && /[ih]/.test(type)) {
