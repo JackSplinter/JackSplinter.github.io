@@ -42,13 +42,13 @@
   background-color: transparent;
 }
 
-.ingpink {
+.inge {
   animation: blinkin 5s linear infinite;
 }
 
 @keyframes blinkin {
   50% {
-    opacity: 0.3;
+    opacity: 0.4;
   }
 }
 
@@ -171,11 +171,13 @@ input {
   padding-left: 4px;
   padding-right: 4px;
 }
+
 #colorBackground,
 #colorBoard,
 #colorCircle,
 #colorDigit,
 #colorTicked,
+#colorTickedWrong,
 #colorTickedDigit {
   color: red;
 }
