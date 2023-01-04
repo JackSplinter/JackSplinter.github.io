@@ -592,6 +592,21 @@ a:hover {
   color: white;
 }
 
+#makeB:hover{
+  background-color: fuchsia;
+}
+#makeB{
+    background-color: darkmagenta;
+  margin-top: 10px;
+  text-align: center;
+  padding-left: 5px;
+  width: 120px;
+  height: 30px;
+  border-top-left-radius: 31px;
+  border-bottom-right-radius: 16px;
+
+}
+
 #unlockSize1,
 #unlockSize2,
 #unlockSize3 {
