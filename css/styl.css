@@ -592,19 +592,20 @@ a:hover {
   color: white;
 }
 
-#makeB:hover{
-  background-color: fuchsia;
+#makeB:hover {
+  background-color: rgba(133, 32, 133, 0.726);
+  color: white;
 }
-#makeB{
-    background-color: darkmagenta;
+#makeB {
+  color: white;
+  background-color: darkmagenta;
   margin-top: 10px;
   text-align: center;
   padding-left: 5px;
-  width: 120px;
+  width: 154px;
   height: 30px;
   border-top-left-radius: 31px;
   border-bottom-right-radius: 16px;
-
 }
 
 #unlockSize1,
