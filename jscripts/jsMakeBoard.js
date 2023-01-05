@@ -11,10 +11,21 @@
  .003338070504090210021240150501001505070210061006150112030415070104070708131305150904.061.
  .Made.by.Jack.Splinter.2022.12.04.........................................................		
 */
+var making = false;
 
 function makeBoard() {
   if (drawingBoard == true) {
-    for (i = 0; i < 20; i++) makeBoard2();
+    for (i = 0; i < 16; i++) makeBoard2();
+  }
+
+  if (making) {
+    document.getElementById("makeB").innerHTML = "START making board";
+    clearInterval(idTimeout);
+    making = false;
+  } else {
+    document.getElementById("makeB").innerHTML = "STOP making board";
+    making = true;
+    idTimeout = setInterval(makeBoard2, 100);
   }
 }
 
@@ -37,7 +48,7 @@ function makeBoard2() {
   bridge = "";
   if (r < 1) r = 0;
   getAllOnBoard();
-  if (/^E+9/.test(whatsLeftBoard(board, r))) {
+  if (/^EE?E?E?E?9/.test(whatsLeftBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsLeftBoard(board, r), "left");
     bridge = "t";
     if (r % 2) bridge = "f";
@@ -47,14 +58,14 @@ function makeBoard2() {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-   /* if (krok == 0) {
+    /* if (krok == 0) {
       stepsy[0] = getAllOnBoard();
     }
     krok++;
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();*/
-  } else if (/^E+9/.test(whatsRightBoard(board, r))) {
+  } else if (/^EE?E?E?E?9/.test(whatsRightBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsRightBoard(board, r), "right");
     bridge = "t";
     if (r % 2) bridge = "f";
@@ -64,14 +75,14 @@ function makeBoard2() {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-   /* if (krok == 0) {
+    /* if (krok == 0) {
       stepsy[0] = getAllOnBoard();
     }
     krok++;
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();*/
-  } else if (/^E+9/.test(whatsUpBoard(board, r))) {
+  } else if (/^EE?E?E?E?9/.test(whatsUpBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsUpBoard(board, r), "up");
     bridge = "i";
     if (r % 2) bridge = "i";
@@ -81,14 +92,14 @@ function makeBoard2() {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-   /*if (krok == 0) {
+    /*if (krok == 0) {
       stepsy[0] = getAllOnBoard();
     }
     krok++;
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();*/
-  } else if (/^E+9/.test(whatsDownBoard(board, r))) {
+  } else if (/^EE?E?E?E?9/.test(whatsDownBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsDownBoard(board, r), "down");
     bridge = "i";
     if (r % 2) bridge = "h";
