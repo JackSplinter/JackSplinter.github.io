@@ -109,7 +109,12 @@
         <button id="fillD" onmousedown="fillDigits()">Fill <br> digits </button>
       <br>
 
-        <button id="makeB" onmousedown="makeBoard()">START making board</button>
+        <button id="makeB" onmousedown="makeBoard()">START making board </button>
+        <br>
+        <button id="makeBr">Max lenght of bridge:</button><br>
+        <button class="bridgeLen" onclick="minusLen()">-</button>
+        <input type="text" id="bridgeLength" value="2" onchange="changedBridgeLength()" maxlength="2"></input>
+        <button class="bridgeLen" onclick="plusLen()">+</button>
       </div>
       <br>
       <br>
