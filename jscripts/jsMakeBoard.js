@@ -14,6 +14,13 @@
 var making = false;
 
 function makeBoard() {
+ 
+ 
+  board = getAllOnBoard();
+  if(/[1-8K-R]/.test(board)){
+    console.log('CLEAR DIGITS to START making board')
+    return 0;
+  }
   if (drawingBoard == true) {
     for (i = 0; i < 16; i++) makeBoard2();
   }
