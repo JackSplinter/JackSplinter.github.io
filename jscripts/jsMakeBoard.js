@@ -21,6 +21,12 @@ function makeBoard() {
     console.log('CLEAR DIGITS to START making board')
     return 0;
   }
+  
+  if(!(/9/.test(board))){
+    console.log('PUT 1 island to START making board')
+    return 0;
+  }
+ 
   if (drawingBoard == true) {
     for (i = 0; i < 16; i++) makeBoard2();
   }
