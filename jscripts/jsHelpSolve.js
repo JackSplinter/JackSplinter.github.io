@@ -683,7 +683,30 @@ function helpSolveBridges() {
   } while (isSomethingToDo);
 }
 
+function checkIfAllTicked(){
+
+
+  board = getAllOnBoard();
+  if(/[1-8]/.test(board)){
+    isAllTicked=false;
+  }
+  else{
+    isAllTicked=true;
+  }
+}
+
+
+
 function helpSolve() {
+
+  if(stepsy[stepsy.length - 1]==stepsy[stepsy.length - 4])
+   return 0;
+
+  checkIfAllTicked();  
+  if(isAllTicked) {
+    return 0;
+  }
+
   step0();
   step();
 
@@ -961,7 +984,7 @@ function helpSolve() {
           // not connected 1 island or TICKED island connected with 1 bridge to ME
           arra[i + wymiar] = "h";
           arra[i - wymiar] = "h";
-          arra[i] = "P";
+         // arra[i] = "P";
           break;
         }
         // UD
@@ -972,7 +995,7 @@ function helpSolve() {
           // not connected 1 island or TICKED island connected with 1 bridge to ME
           arra[i + 1] = "f";
           arra[i - 1] = "f";
-          arra[i] = "P";
+          //arra[i] = "P";
           break;
         }
         // LD
@@ -983,7 +1006,7 @@ function helpSolve() {
           // not connected 1 island or TICKED island connected with 1 bridge to ME
           arra[i + 1] = "f";
           arra[i - wymiar] = "h";
-          arra[i] = "P";
+          //arra[i] = "P";
           break;
         }
         // LU
@@ -994,7 +1017,7 @@ function helpSolve() {
           // not connected 1 island or TICKED island connected with 1 bridge to ME
           arra[i + 1] = "f";
           arra[i + wymiar] = "h";
-          arra[i] = "P";
+          //arra[i] = "P";
           break;
         }
         // RU
@@ -1005,7 +1028,7 @@ function helpSolve() {
           // not connected 1 island or TICKED island connected with 1 bridge to ME
           arra[i + wymiar] = "h";
           arra[i - 1] = "f";
-          arra[i] = "P";
+         // arra[i] = "P";
           break;
         }
         // RD
@@ -1016,7 +1039,7 @@ function helpSolve() {
           // not connected 1 island or TICKED island connected with 1 bridge to ME
           arra[i - 1] = "f";
           arra[i - wymiar] = "h";
-          arra[i] = "P";
+        //  arra[i] = "P";
           break;
         }
 
@@ -2954,4 +2977,5 @@ function helpSolve() {
   helpSolveBridges();
   step();
   helpSolveIslandsComplete();
+  checkIfAllTicked();  
 }
