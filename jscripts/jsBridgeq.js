@@ -60,6 +60,7 @@ var colorBRIDGECHECKED = theme[1][12];
 var colorINGE = theme[1][13];
 
 var gameNumber = 0;
+var isAllTicked=false;
 
 function onLoud() {
   loadStyles();
@@ -74,10 +75,9 @@ function onLoud() {
   document.getElementById("playB").style.display = "inline";
   document.getElementById("drawB").style.background = "green";
   document.getElementById("GameNumber").value = 1;
+  document.getElementById('bridgeLength').value=2;
 
- // unlocked = true;
-  //changeSize(36);
-  //solve(1);
+  stepsy[0] = getAllOnBoard();
   step0();
 }
 
@@ -656,9 +656,11 @@ function unlockSize(nr) {
 
 function changeSize(size) {
   if (unlocked) {
+    
     lock();
     stepsy = [];
     krok = 0;
+    stepsy[0] = getAllOnBoard();
     step0();
     navigate();
     wymiar = size;
@@ -1312,14 +1314,14 @@ function step0() {
 
 function step() {
   orangeBoard0 = false;
-  if (solvingBoard == true) {
+  //if (solvingBoard == true) {
     lock();
     krok++;
 
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();
-  }
+ // }
   getAllOnBoard(); 
   checkIfNotMoreBridgesThanShouldBe();
   checkIfNotLessBridgesThanShouldBe();
@@ -1409,9 +1411,9 @@ function clearBridges() {
       }
     }
 
-    step();
+  //  step();
   }
-  step0();
+  //step0();
 
   step();
 }
@@ -1707,7 +1709,8 @@ function setAllOnBoard(board) {
     }
   }
 }
-+function getBoard() {
+
+function getBoard(){
   changeInl2m0();
 
   pola = "";
@@ -1742,7 +1745,7 @@ function setAllOnBoard(board) {
     }
   }
   return pola;
-};
+}
 
 function getAllOnBoard2() {
   prompt("Actual board state", getAllOnBoard());
@@ -2007,6 +2010,7 @@ function stretchV(id, type, dir) {
 }
 
 function clearGreens() {
+  isAllTicked=false;
   board = getAllOnBoard();
 
   board = board.replaceAll("K", 1);
