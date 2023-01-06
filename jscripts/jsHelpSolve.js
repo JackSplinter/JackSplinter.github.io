@@ -698,9 +698,9 @@ function checkIfAllTicked(){
 
 
 function helpSolve() {
-
+/*
   if(stepsy[stepsy.length - 1]==stepsy[stepsy.length - 4])
-   return 0;
+   return 0;*/
 
   checkIfAllTicked();  
   if(isAllTicked) {
