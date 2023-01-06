@@ -14,22 +14,23 @@
 var making = false;
 
 function makeBoard() {
- 
- 
   board = getAllOnBoard();
   if(/[1-8K-R]/.test(board)){
+    document.getElementById("makeB").innerHTML = "START making board";
+    clearInterval(idTimeout);
+    making = false;
     console.log('CLEAR DIGITS to START making board')
     return 0;
   }
   
   if(!(/9/.test(board))){
+    document.getElementById("makeB").innerHTML = "START making board";
+    clearInterval(idTimeout);
+    making = false;
     console.log('PUT 1 island to START making board')
     return 0;
   }
- 
-  if (drawingBoard == true) {
-    for (i = 0; i < 16; i++) makeBoard2();
-  }
+
 
   if (making) {
     document.getElementById("makeB").innerHTML = "START making board";
