@@ -29,6 +29,35 @@ function makeBoard() {
   }
 }
 
+var maxBRIDGELENGTH = 2;
+
+function changedBridgeLength() {
+  number = parseInt(document.getElementById("bridgeLength").value);
+  if (number >= 1 && number < wymiar - 1) {
+    maxBRIDGELENGTH = number;
+  } else {
+    document.getElementById("bridgeLength").value = wymiar - 2;
+    maxBRIDGELENGTH = wymiar - 2;
+  }
+}
+
+function minusLen() {
+  number = parseInt(document.getElementById("bridgeLength").value);
+  if (number > 1) {
+    document.getElementById("bridgeLength").value = number - 1;
+
+    maxBRIDGELENGTH--;
+  }
+}
+
+function plusLen() {
+  number = parseInt(document.getElementById("bridgeLength").value);
+  if (number < wymiar - 2) {
+    document.getElementById("bridgeLength").value = number + 1;
+
+    maxBRIDGELENGTH++;
+  }
+}
 function makeBoard2() {
   board = getAllOnBoard();
 
@@ -48,7 +77,17 @@ function makeBoard2() {
   bridge = "";
   if (r < 1) r = 0;
   getAllOnBoard();
-  if (/^EE?E?E?E?9/.test(whatsLeftBoard(board, r))) {
+  ///^EE?E?E?9/
+  if (maxBRIDGELENGTH < 1 || maxBRIDGELENGTH > wymiar - 2) maxBRIDGELENGTH = 1;
+
+  patt = "^E";
+  for (i = 1; i < maxBRIDGELENGTH; i++) {
+    patt += "E?";
+  }
+  patt += "9";
+  patt = new RegExp(patt);
+
+  if (patt.test(whatsLeftBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsLeftBoard(board, r), "left");
     bridge = "t";
     if (r % 2) bridge = "f";
@@ -65,7 +104,7 @@ function makeBoard2() {
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();*/
-  } else if (/^EE?E?E?E?9/.test(whatsRightBoard(board, r))) {
+  } else if (patt.test(whatsRightBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsRightBoard(board, r), "right");
     bridge = "t";
     if (r % 2) bridge = "f";
@@ -82,7 +121,7 @@ function makeBoard2() {
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();*/
-  } else if (/^EE?E?E?E?9/.test(whatsUpBoard(board, r))) {
+  } else if (patt.test(whatsUpBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsUpBoard(board, r), "up");
     bridge = "i";
     if (r % 2) bridge = "i";
@@ -99,7 +138,7 @@ function makeBoard2() {
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
     navigate();*/
-  } else if (/^EE?E?E?E?9/.test(whatsDownBoard(board, r))) {
+  } else if (patt.test(whatsDownBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsDownBoard(board, r), "down");
     bridge = "i";
     if (r % 2) bridge = "h";
