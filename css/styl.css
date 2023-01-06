@@ -402,7 +402,6 @@ a:hover {
   width: 100px;
 }
 
-
 #GameGet {
   height: 30px;
   font-size: 13px;
@@ -417,7 +416,7 @@ a:hover {
   width: 75px;
 }
 
-#GameGet:hover{
+#GameGet:hover {
   background-color: rgb(13, 88, 201);
   color: white;
 }
@@ -425,7 +424,8 @@ a:hover {
   background-color: rgb(13, 88, 201);
   color: white;
 }
-#GameSolve:hover,#GameSet:hover{
+#GameSolve:hover,
+#GameSet:hover {
   border-color: mediumaquamarine;
   background-color: green;
   color: white;
@@ -592,6 +592,39 @@ a:hover {
   color: white;
 }
 
+.bridgeLen{
+  width: 40px;
+  border: 0px;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  
+}
+#bridgeLength{
+  width: 40px;
+  font-size: 20px;
+  text-align: center;
+  background-color: black;
+  color: white;
+
+}
+#makeBr {
+  color: white;
+  background-color: rgb(43, 5, 43);
+  border-color: black;
+  margin-top: 5px;
+  margin-bottom: 2px;
+  text-align: center;
+  padding-left: 5px;
+  width: 154px;
+  height: 30px;
+  border-top-right-radius: 31px;
+  border-bottom-left-radius: 16px;
+}
+
+
+
 #makeB:hover {
   background-color: rgba(133, 32, 133, 0.726);
   color: white;
@@ -646,8 +679,8 @@ a:hover {
 #ThemeLoad {
   height: 30px;
   width: 75px;
-  background-color:rgb(40, 10, 177);
-  color:white;
+  background-color: rgb(40, 10, 177);
+  color: white;
 }
 
 #GetTheme,
@@ -673,12 +706,10 @@ a:hover {
   width: 75px;
 }
 #ThemeLoad:hover {
-	
-	
-	background-color: rgb(14, 62, 194);
-	color: white;
-  }
-  
+  background-color: rgb(14, 62, 194);
+  color: white;
+}
+
 #ThemeDetails:hover {
   border-color: rgb(205, 102, 174);
   background-color: rgb(128, 0, 64);
