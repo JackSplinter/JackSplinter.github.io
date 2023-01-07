@@ -977,6 +977,7 @@ function helpSolve() {
           } else if (countBridgesOfIsland(i) == 5) {
             if ((board[i - wymiar] == "i" || arra[i - wymiar] == "i") && /^i+[K-R]/.test(whatsUpArra(i,arra))==false){
               arra[i - wymiar] = "h"; // error with sample25[27] so added this whatsUpArra
+            //  alert('a'+arra[i-2*wymiar])
             } else {
               arra[i - wymiar] = "i";
             }
@@ -2800,83 +2801,110 @@ function helpSolve() {
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))
         ) {
-          if (board[i + 1] != "f" && !arra[i + 1]) arra[i + 1] = "t";
+          if (board[i + 1] != "f" && !arra[i + 1]){
+             arra[i + 1] = "t";
+             if(board[i-1]=='t' || arra[i-1]=='t') arra[i]="L";
+           }
         }
         if (
           /^[Et]*[12KLMNOPQ][2-8]*/.test(whatsLeft(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))
         ) {
-          if (board[i + wymiar] != "h" && !arra[i + wymiar])
+          if (board[i + wymiar] != "h" && !arra[i + wymiar]){
             arra[i + wymiar] = "i";
+            if(board[i-1]=='t' || arra[i-1]=='t') arra[i]="L";
+          }
         }
         if (
           /^[Et]*[12KLMNOPQ][2-8]*/.test(whatsLeft(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))
         ) {
-          if (board[i - wymiar] != "h" && !arra[i - wymiar])
+          if (board[i - wymiar] != "h" && !arra[i - wymiar]){
             arra[i - wymiar] = "i";
+            if(board[i-1]=='t' || arra[i-1]=='t') arra[i]="L";
+          }
         } // 1 on the upside
         if (
           /^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsUp(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))
         ) {
-          if (board[i + 1] != "f" && !arra[i + 1]) arra[i + 1] = "t";
+          if (board[i + 1] != "f" && !arra[i + 1]) {
+            arra[i + 1] = "t";
+            if(board[i-wymiar]=='i' || arra[i-wymiar]=='i') arra[i]="L";
+          }
         }
         if (
           /^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsUp(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))
         ) {
-          if (board[i - 1] != "f" && !arra[i - 1]) arra[i - 1] = "t";
+          if (board[i - 1] != "f" && !arra[i - 1]) {
+            arra[i - 1] = "t";
+            if(board[i-wymiar]=='i' || arra[i-wymiar]=='i') arra[i]="L";
+          }
         }
         if (
           /^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsUp(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))
         ) {
-          if (board[i + wymiar] != "h" && !arra[i + wymiar])
+          if (board[i + wymiar] != "h" && !arra[i + wymiar]){
             arra[i + wymiar] = "i";
+            if(board[i-wymiar]=='i' || arra[i-wymiar]=='i') arra[i]="L"; 
+          }
         } // 1 on the right
         if (
           /^[Et]*[12KLMNOPQ][2-8]*/.test(whatsRight(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))
         ) {
-          if (board[i - 1] != "f" && !arra[i - 1]) arra[i - 1] = "t";
+          if (board[i - 1] != "f" && !arra[i - 1]){
+             arra[i - 1] = "t";
+             if(board[i+1]=='t' || arra[i+1]=='t') arra[i]="L";
+           }
         }
         if (
           /^[Et]*[12KLMNOPQ][2-8]*/.test(whatsRight(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsDown(i))
         ) {
-          if (board[i - wymiar] != "h" && !arra[i - wymiar])
+          if (board[i - wymiar] != "h" && !arra[i - wymiar]){
             arra[i - wymiar] = "i";
+            if(board[i+1]=='t' || arra[i+1]=='t') arra[i]="L";
+          }
         }
         if (
           /^[Et]*[12KLMNOPQ][2-8]*/.test(whatsRight(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i))
         ) {
-          if (board[i + wymiar] != "h" && !arra[i + wymiar])
+          if (board[i + wymiar] != "h" && !arra[i + wymiar]){
             arra[i + wymiar] = "i";
+            if(board[i+1]=='t' || arra[i+1]=='t') arra[i]="L";
+          }
         } // 1 on the down
         if (
           /^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsRight(i))
         ) {
-          if (board[i - wymiar] != "h" && !arra[i - wymiar])
+          if (board[i - wymiar] != "h" && !arra[i - wymiar]){
             arra[i - wymiar] = "i";
+            if(board[i+wymiar]=='i' || arra[i+wymiar]=='i') arra[i]="L";
+          }
         }
         if (
           /^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) &&
           /^[Ehi]*[hiK-R]+[1-8]*|^E*$/.test(whatsLeft(i)) &&
           /^[Etf]*[tfK-R]+[1-8]*|^E*$/.test(whatsUp(i))
         ) {
-          if (board[i + 1] != "f" && !arra[i + 1]) arra[i + 1] = "t";
+          if (board[i + 1] != "f" && !arra[i + 1]) {
+            arra[i + 1] = "t";
+            if(board[i+wymiar]=='i' || arra[i+wymiar]=='i') arra[i]="L";
+          }
         }
         if (
           /^[Ei]*[12KLMNOPQ][2-8]*/.test(whatsDown(i)) &&
@@ -2885,6 +2913,7 @@ function helpSolve() {
         ) {
           if (board[i - 1] != "f" && !arra[i - 1]) {
             arra[i - 1] = "t";
+            if(board[i+wymiar]=='i' || arra[i+wymiar]=='i') arra[i]="L";
           }
         }
         break;
@@ -3013,6 +3042,7 @@ function helpSolve() {
       default:
         break;
     }
+
   }
 
   board2 = "";
@@ -3030,4 +3060,6 @@ function helpSolve() {
   step();
   helpSolveIslandsComplete();
   checkIfAllTicked();  
+  checkIfNotMoreBridgesThanShouldBe();
+  checkIfNotLessBridgesThanShouldBe();
 }
