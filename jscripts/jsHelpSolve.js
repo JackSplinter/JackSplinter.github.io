@@ -214,6 +214,18 @@ function whatsLeft(id) {
   return reverseString(str);
 }
 
+function whatsLeftArra(id,arra) {
+  str = "";
+  if (id % wymiar == 0) {
+    return str;
+  } else {
+    for (k = id - (id % wymiar); k < id; k++) {
+      str += arra[k];
+    }
+  }
+  return reverseString(str);
+}
+
 function whatsRight(id) {
   str = "";
   board = stepsy[stepsy.length - 1];
@@ -223,6 +235,20 @@ function whatsRight(id) {
   } else {
     for (k = id + 1; k < id + (wymiar - (id % wymiar)); k++) {
       str += board[k];
+    }
+  }
+  return str;
+}
+
+function whatsRightArra(id,arra) {
+  str = "";
+  
+
+  if ((id + 1) % wymiar == 0) {
+    return str;
+  } else {
+    for (k = id + 1; k < id + (wymiar - (id % wymiar)); k++) {
+      str += arra[k];
     }
   }
   return str;
@@ -242,6 +268,19 @@ function whatsUp(id) {
   return str;
 }
 
+function whatsUpArra(id,arra) {
+  str = "";
+  
+  if (id < wymiar) {
+    return str;
+  } else {
+    for (k = id - wymiar; k >= 0; k -= wymiar) {
+      str += arra[k];
+    }
+  }
+  return str;
+}
+
 function whatsDown(id) {
   str = "";
 
@@ -252,6 +291,19 @@ function whatsDown(id) {
   } else {
     for (k = id + wymiar; k < wymiar * wymiar; k += wymiar) {
       str += board[k];
+    }
+  }
+  return str;
+}
+
+function whatsDownArra(id,arra) {
+  str = "";
+
+  if (id >= wymiar * (wymiar - 1)) {
+    return str;
+  } else {
+    for (k = id + wymiar; k < wymiar * wymiar; k += wymiar) {
+      str += arra[k];
     }
   }
   return str;
@@ -698,9 +750,9 @@ function checkIfAllTicked(){
 
 
 function helpSolve() {
-/*
-  if(stepsy[stepsy.length - 1]==stepsy[stepsy.length - 4])
-   return 0;*/
+
+  if(stepsy[stepsy.length - 1]==stepsy[stepsy.length - 5])
+   return 0;
 
   checkIfAllTicked();  
   if(isAllTicked) {
@@ -903,8 +955,8 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            if (board[i + wymiar] == "i" || arra[i + wymiar] == "i") {
-              arra[i + wymiar] = "h";
+            if ((board[i + wymiar] == "i" || arra[i + wymiar] == "i")  && /^i+[K-R]/.test(whatsDownArra(i,arra))==false){
+              arra[i + wymiar] = "h"; 
             } else {
               arra[i + wymiar] = "i";
             }
@@ -923,8 +975,8 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            if (board[i - wymiar] == "i" || arra[i - wymiar] == "i") {
-              arra[i - wymiar] = "h";
+            if ((board[i - wymiar] == "i" || arra[i - wymiar] == "i") && /^i+[K-R]/.test(whatsUpArra(i,arra))==false){
+              arra[i - wymiar] = "h"; // error with sample25[27] so added this whatsUpArra
             } else {
               arra[i - wymiar] = "i";
             }
@@ -943,7 +995,7 @@ function helpSolve() {
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            if (board[i + 1] == "t" || arra[i + 1] == "t") {
+            if ((board[i + 1] == "t" || arra[i + 1] == "t") && /^t+[K-R]/.test(whatsRightArra(i,arra))==false) {
               arra[i + 1] = "f";
             } else {
               arra[i + 1] = "t";
@@ -960,12 +1012,12 @@ function helpSolve() {
           /^[ih]+[K-R]/.test(whatsDown(i))
         ) {
           if (countBridgesOfIsland(i) == 4) {
-            arra[i - 1] = "f";
+            arra[i - 1] = "f"; 
             arra[i] = "P";
             break;
           } else if (countBridgesOfIsland(i) == 5) {
-            if (board[i - 1] == "t" || arra[i - 1] == "t") {
-              arra[i - 1] = "f";
+            if( (board[i - 1] == "t" || arra[i - 1] == "t" ) && /^t+[K-R]/.test(whatsLeftArra(i,arra))==false) {
+              arra[i - 1] = "f"; 
             } else {
               arra[i - 1] = "t";
             }
@@ -2177,7 +2229,7 @@ function helpSolve() {
           missingC = 0;
           missingC = countMissingBridgesOfIsland(idC);
           if (idC >= 0 && missingC == 1) {
-            arra[i - 1] = "t";
+            if(!arra[i-1]) arra[i - 1] = "t";
             break;
           }
         }
@@ -2225,7 +2277,7 @@ function helpSolve() {
           missingC = 0;
           missingC = countMissingBridgesOfIsland(idC);
           if (idC >= 0 && missingC == 1) {
-            arra[i - 1] = "t";
+            if(!arra[i-1]) arra[i - 1] = "t";
             break;
           }
           idC = -1;
@@ -2253,7 +2305,7 @@ function helpSolve() {
           missingC = 0;
           missingC = countMissingBridgesOfIsland(idC);
           if (idC >= 0 && missingC == 1) {
-            arra[i - 1] = "t";
+            if(!arra[i-1]) arra[i - 1] = "t";
             break;
           }
           idC = -1;
