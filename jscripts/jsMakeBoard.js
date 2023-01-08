@@ -15,27 +15,46 @@ var making = false;
 
 function makeBoard() {
   board = getAllOnBoard();
-  if(/[1-8K-R]/.test(board)){
+  if (/[1-8K-R]/.test(board)) {
     document.getElementById("makeB").innerHTML = "START making board";
     clearInterval(idTimeout);
     making = false;
-    console.log('CLEAR DIGITS to START making board')
-    return 0;
-  }
-  
-  if(!(/9/.test(board))){
-    document.getElementById("makeB").innerHTML = "START making board";
-    clearInterval(idTimeout);
-    making = false;
-    console.log('PUT 1 island to START making board')
+    console.log("CLEAR DIGITS to START making board");
     return 0;
   }
 
+  if (!/9/.test(board)) {
+    document.getElementById("makeB").innerHTML = "START making board";
+    clearInterval(idTimeout);
+    making = false;
+    console.log("PUT 1 island to START making board");
+    return 0;
+  }
 
   if (making) {
     document.getElementById("makeB").innerHTML = "START making board";
     clearInterval(idTimeout);
     making = false;
+
+    //If island has bridges on 4 sides, then it will be 2 bridges on each side (solving much easier)
+    board = getAllOnBoard();
+    board2 = Array.from(board);
+
+    for (i = wymiar * 2; i < wymiar * (wymiar - 2); i++) {
+      if (
+        /^[tf]+/.test(whatsLeft(i)) &&
+        /^[tf]+/.test(whatsRight(i)) &&
+        /^[ih]+/.test(whatsUp(i)) &&
+        /^[ih]+/.test(whatsDown(i))
+      ) {
+        board2[i - 1] = "f";
+        board2[i + 1] = "f";
+        board2[i - wymiar] = "h";
+        board2[i + wymiar] = "h";
+      }
+    }
+    setAllOnBoard(board2.toString().replaceAll(",", ""));
+    helpSolveBridges();
   } else {
     document.getElementById("makeB").innerHTML = "STOP making board";
     making = true;
@@ -104,16 +123,14 @@ function makeBoard2() {
   if (patt.test(whatsLeftBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsLeftBoard(board, r), "left");
     bridge = "t";
-    if (r % 2) bridge = "f";
+    if (r % 3) bridge = "f";
     board = Array.from(board);
     board[r] = "9";
     for (i = id + 1; i < r; i++) {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-    /* if (krok == 0) {
-      stepsy[0] = getAllOnBoard();
-    }
+    /* if (krok == 0) {      stepsy[0] = getAllOnBoard();    }
     krok++;
     stepsy[krok] = getAllOnBoard();
     pointedStep = krok;
@@ -121,54 +138,36 @@ function makeBoard2() {
   } else if (patt.test(whatsRightBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsRightBoard(board, r), "right");
     bridge = "t";
-    if (r % 2) bridge = "f";
+    if (r % 3) bridge = "f";
     board = Array.from(board);
     board[r] = "9";
     for (i = id - 1; i > r; i--) {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-    /* if (krok == 0) {
-      stepsy[0] = getAllOnBoard();
-    }
-    krok++;
-    stepsy[krok] = getAllOnBoard();
-    pointedStep = krok;
-    navigate();*/
+   
   } else if (patt.test(whatsUpBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsUpBoard(board, r), "up");
     bridge = "i";
-    if (r % 2) bridge = "i";
+    if (r % 3) bridge = "i";
     board = Array.from(board);
     board[r] = "9";
     for (i = id + wymiar; i < r; i += wymiar) {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-    /*if (krok == 0) {
-      stepsy[0] = getAllOnBoard();
-    }
-    krok++;
-    stepsy[krok] = getAllOnBoard();
-    pointedStep = krok;
-    navigate();*/
+
   } else if (patt.test(whatsDownBoard(board, r))) {
     id = findIdOfClosestEmptyIsland(r, whatsDownBoard(board, r), "down");
     bridge = "i";
-    if (r % 2) bridge = "h";
+    if (r % 3) bridge = "h";
     board = Array.from(board);
     board[r] = "9";
     for (i = id - wymiar; i > r; i -= wymiar) {
       board[i] = bridge;
     }
     setAllOnBoard(board.toString().replaceAll(",", ""));
-    /*if (krok == 0) {
-      stepsy[0] = getAllOnBoard();
-    }
-    krok++;
-    stepsy[krok] = getAllOnBoard();
-    pointedStep = krok;
-    navigate();*/
+
   }
 }
 
