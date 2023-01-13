@@ -16,7 +16,7 @@ function loadStyles() {
     inCircleSVG64 +
     "'); color: " +
     colorDIG +
-    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
   
     ingeClassB = document.createElement("style");
     ingeClassB.setAttribute("id", "ingeClassB");
@@ -32,7 +32,7 @@ function loadStyles() {
       ingeCircleSVG64 +
       "'); color: " +
       colorDIG +
-      ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+      ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
   
     
   ingClassB = document.createElement("style");
@@ -49,7 +49,7 @@ function loadStyles() {
     ingCircleSVG64 +
     "'); color: " +
     colorINGDIGIT +
-    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   incClassB = document.createElement("style");
   incClassB.setAttribute("id", "incClassB");
@@ -63,7 +63,7 @@ function loadStyles() {
     incCircleSVG64 +
     "'); color: " +
     colorCHECKDIGIT +
-    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   ingcClassB = document.createElement("style");
   ingcClassB.setAttribute("id", "ingcClassB");
@@ -79,111 +79,111 @@ function loadStyles() {
     ingcCircleSVG64 +
     "'); color: " +
     colorCHECKTICKEDDIGIT +
-    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    ";  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   iClassB = document.createElement("style");
   iClassB.setAttribute("id", "iClassB");
   iSVG =
-    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="125" y="0" width="30" height="280" style="fill: ' +
+    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="138" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGE +
     '"/> </svg>';
   iSVG64 = window.btoa(iSVG);
   iClassB.innerHTML =
     ".m1 {background: url('data:image/svg+xml;base64," +
     iSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 28px 30px;background-position: center;background-repeat: no-repeat;width: 105%;height: 115%;}";
 
   hClassB = document.createElement("style");
   hClassB.setAttribute("id", "hClassB");
   hSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="100" y="0" width="30" height="280" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="105" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGE +
-    '"/>   <rect x="150" y="0" width="30" height="280" style="fill: ' +
+    '"/>   <rect x="175" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGE +
     '"/> </svg>  ';
   hSVG64 = window.btoa(hSVG);
   hClassB.innerHTML =
     ".m2 {background: url('data:image/svg+xml;base64," +
     hSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 28px 32px;background-position: center;background-repeat: no-repeat;width: 105%;height: 120%;}";
 
   tClassB = document.createElement("style");
   tClassB.setAttribute("id", "tClassB");
   tSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="125" width="280" height="30" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="150" width="280" height="30" style="fill: ' +
     colorBRIDGE +
     '"/> </svg>  ';
   tSVG64 = window.btoa(tSVG);
   tClassB.innerHTML =
     ".m3 {background: url('data:image/svg+xml;base64," +
     tSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 30px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   fClassB = document.createElement("style");
   fClassB.setAttribute("id", "fClassB");
   fSVG =
-    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="100" width="280" height="30"  style="fill: ' +
+    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="115" width="280" height="30"  style="fill: ' +
     colorBRIDGE +
-    '"/> <rect x="0" y="150" width="280" height="30"  style="fill: ' +
+    '"/> <rect x="0" y="185" width="280" height="30"  style="fill: ' +
     colorBRIDGE +
     '"/>  </svg>  ';
   fSVG64 = window.btoa(fSVG);
   fClassB.innerHTML =
     ".m4 {background: url('data:image/svg+xml;base64," +
     fSVG64 +
-    "'); background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "'); background-size: 32px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   icClassB = document.createElement("style");
   icClassB.setAttribute("id", "icClassB");
   icSVG =
-    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="125" y="0" width="30" height="280" style="fill: ' +
+    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="138" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGECHECKED +
     '"/> </svg>';
   icSVG64 = window.btoa(icSVG);
   icClassB.innerHTML =
     ".mc1 {background: url('data:image/svg+xml;base64," +
     icSVG64 +
-    "');   background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');   background-size: 28px 30px;background-position: center;background-repeat: no-repeat;width: 105%;height: 115%;}";
 
   hcClassB = document.createElement("style");
   hcClassB.setAttribute("id", "hcClassB");
   hcSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="100" y="0" width="30" height="280" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="105" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGECHECKED +
-    '"/>   <rect x="150" y="0" width="30" height="280" style="fill: ' +
+    '"/>   <rect x="175" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGECHECKED +
     '"/> </svg>  ';
   hcSVG64 = window.btoa(hcSVG);
   hcClassB.innerHTML =
     ".mc2 {background: url('data:image/svg+xml;base64," +
     hcSVG64 +
-    "'); background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "'); background-size: 28px 32px;background-position: center;background-repeat: no-repeat;width: 105%;height: 120%;}";
 
   tcClassB = document.createElement("style");
   tcClassB.setAttribute("id", "tcClassB");
   tcSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="125" width="280" height="30" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="150" width="280" height="30" style="fill: ' +
     colorBRIDGECHECKED +
     '"/> </svg>  ';
   tcSVG64 = window.btoa(tcSVG);
   tcClassB.innerHTML =
     ".mc3 {background: url('data:image/svg+xml;base64," +
     tcSVG64 +
-    "'); background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "'); background-size: 30px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   fcClassB = document.createElement("style");
   fcClassB.setAttribute("id", "fcClassB");
   fcSVG =
-    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="100" width="280" height="30"  style="fill: ' +
+    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="115" width="280" height="30"  style="fill: ' +
     colorBRIDGECHECKED +
-    '"/> <rect x="0" y="150" width="280" height="30"  style="fill: ' +
+    '"/> <rect x="0" y="185" width="280" height="30"  style="fill: ' +
     colorBRIDGECHECKED +
     '"/>  </svg>  ';
   fcSVG64 = window.btoa(fcSVG);
   fcClassB.innerHTML =
     ".mc4 {background: url('data:image/svg+xml;base64," +
     fcSVG64 +
-    "'); background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "'); background-size: 32px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   document.getElementsByTagName("head")[0].appendChild(inClass);
   document.getElementsByTagName("head")[0].appendChild(iClassB);
@@ -210,54 +210,54 @@ function colorBridge() {
   iClassB = document.createElement("style");
   iClassB.setAttribute("id", "iClassB");
   iSVG =
-    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="125" y="0" width="30" height="280" style="fill: ' +
+    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="138" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGE +
     '"/> </svg>';
   iSVG64 = window.btoa(iSVG);
   iClassB.innerHTML =
     ".m1 {background: url('data:image/svg+xml;base64," +
     iSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 28px 30px;background-position: center;background-repeat: no-repeat;width: 105%;height: 115%;}";
 
   hClassB = document.createElement("style");
   hClassB.setAttribute("id", "hClassB");
   hSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="100" y="0" width="30" height="280" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="105" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGE +
-    '"/>   <rect x="150" y="0" width="30" height="280" style="fill: ' +
+    '"/>   <rect x="175" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGE +
     '"/> </svg>  ';
   hSVG64 = window.btoa(hSVG);
   hClassB.innerHTML =
     ".m2 {background: url('data:image/svg+xml;base64," +
     hSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 28px 32px;background-position: center;background-repeat: no-repeat;width: 105%;height: 120%;}";
 
   tClassB = document.createElement("style");
   tClassB.setAttribute("id", "tClassB");
   tSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="125" width="280" height="30" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="150" width="280" height="30" style="fill: ' +
     colorBRIDGE +
     '"/> </svg>  ';
   tSVG64 = window.btoa(tSVG);
   tClassB.innerHTML =
     ".m3 {background: url('data:image/svg+xml;base64," +
     tSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 30px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   fClassB = document.createElement("style");
   fClassB.setAttribute("id", "fClassB");
   fSVG =
-    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="100" width="280" height="30"  style="fill: ' +
+    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="115" width="280" height="30"  style="fill: ' +
     colorBRIDGE +
-    '"/> <rect x="0" y="150" width="280" height="30"  style="fill: ' +
+    '"/> <rect x="0" y="185" width="280" height="30"  style="fill: ' +
     colorBRIDGE +
     '"/>  </svg>  ';
   fSVG64 = window.btoa(fSVG);
   fClassB.innerHTML =
     ".m4 {background: url('data:image/svg+xml;base64," +
     fSVG64 +
-    "');  background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');  background-size: 32px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   document.getElementsByTagName("head")[0].appendChild(iClassB);
   document.getElementsByTagName("head")[0].appendChild(hClassB);
@@ -274,54 +274,54 @@ function colorBridgeChecked() {
   icClassB = document.createElement("style");
   icClassB.setAttribute("id", "icClassB");
   icSVG =
-    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="125" y="0" width="30" height="280" style="fill: ' +
+    '<svg width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="138" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGECHECKED +
     '"/> </svg>';
   icSVG64 = window.btoa(icSVG);
   icClassB.innerHTML =
     ".mc1 {background: url('data:image/svg+xml;base64," +
     icSVG64 +
-    "');   background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');   background-size: 28px 30px;background-position: center;background-repeat: no-repeat;width: 105%;height: 115%;}";
 
   hcClassB = document.createElement("style");
   hcClassB.setAttribute("id", "hcClassB");
   hcSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="100" y="0" width="30" height="280" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="105" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGECHECKED +
-    '"/>   <rect x="150" y="0" width="30" height="280" style="fill: ' +
+    '"/>   <rect x="175" y="0" width="30" height="280" style="fill: ' +
     colorBRIDGECHECKED +
     '"/> </svg>  ';
   hcSVG64 = window.btoa(hcSVG);
   hcClassB.innerHTML =
     ".mc2 {background: url('data:image/svg+xml;base64," +
     hcSVG64 +
-    "');   background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');   background-size: 28px 32px;background-position: center;background-repeat: no-repeat;width: 105%;height: 120%;}";
 
   tcClassB = document.createElement("style");
   tcClassB.setAttribute("id", "tcClassB");
   tcSVG =
-    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="125" width="280" height="30" style="fill: ' +
+    '<svg  width="280" height="280" version="1.1" xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="150" width="280" height="30" style="fill: ' +
     colorBRIDGECHECKED +
     '"/> </svg>  ';
   tcSVG64 = window.btoa(tcSVG);
   tcClassB.innerHTML =
     ".mc3 {background: url('data:image/svg+xml;base64," +
     tcSVG64 +
-    "');background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "');background-size: 30px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   fcClassB = document.createElement("style");
   fcClassB.setAttribute("id", "fcClassB");
   fcSVG =
-    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="100" width="280" height="30"  style="fill: ' +
+    '<svg  width="280"  height="280"  version="1.1"  xmlns="http://www.w3.org/2000/svg"> <rect x="0" y="115" width="280" height="30"  style="fill: ' +
     colorBRIDGECHECKED +
-    '"/> <rect x="0" y="150" width="280" height="30"  style="fill: ' +
+    '"/> <rect x="0" y="185" width="280" height="30"  style="fill: ' +
     colorBRIDGECHECKED +
     '"/>  </svg>  ';
   fcSVG64 = window.btoa(fcSVG);
   fcClassB.innerHTML =
     ".mc4 {background: url('data:image/svg+xml;base64," +
     fcSVG64 +
-    "'); background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "'); background-size: 32px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 105%;}";
 
   document.getElementsByTagName("head")[0].appendChild(icClassB);
   document.getElementsByTagName("head")[0].appendChild(hcClassB);
@@ -344,7 +344,7 @@ function colorCircle() {
     inCircleSVG64 +
     "'); color: " +
     colorDIG +
-    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   document.getElementsByTagName("head")[0].appendChild(inClassB);
 }
@@ -366,7 +366,7 @@ function colorTicked() {
     ingCircleSVG64 +
     "'); color: " +
     colorINGDIGIT +
-    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   document.getElementsByTagName("head")[0].appendChild(ingClassB);
 }
@@ -389,7 +389,7 @@ function colorTickedWrong() {
     ingeCircleSVG64 +
     "'); color: " +
     colorINGDIGIT +
-    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   document.getElementsByTagName("head")[0].appendChild(ingeClassB);
 }
@@ -410,7 +410,7 @@ function colorChecked() {
     incCircleSVG64 +
     "'); color: " +
     colorCHECKDIGIT +
-    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   document.getElementsByTagName("head")[0].appendChild(incClassB);
 }
@@ -432,7 +432,7 @@ function colorCheckedTicked() {
     ingcCircleSVG64 +
     "'); color: " +
     colorCHECKTICKEDDIGIT +
-    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 105%;height: 105%;}";
+    "; background-size: 28px 28px;background-position: center;background-repeat: no-repeat;width: 115%;height: 120%;}";
 
   document.getElementsByTagName("head")[0].appendChild(ingcClassB);
 }
