@@ -34,10 +34,9 @@
   </div>
 
   <div id="PAGE">
-   
     <div id="CONTENT">
       <div id="contentDescription">
-        <!-- Solve you own board or try sample board <span id="wymiarz">16</span>x16. <br>
+        <!-- Solve you own board or try sample board <br>
         The game is to connect all of the islands (circles) with each other 
         using bridges (lines). 
         Each one of the bridges connect precisely two islands and they can't cross, between two islands can be 
@@ -48,7 +47,7 @@
         -->
       </div>
 
-
+     
 
       <div id="mostq"></div>
       <div id="steps" style="display: none;">
@@ -56,6 +55,15 @@
       </div>
     </div>
     <div id="MENU_RIGHT">
+
+      
+
+      <button class="hideMenu" id="hide1" onclick="hideMenu1()">-</button>
+      <button class="hideMenu" id="hide2a" onclick="hideMenu2a()">--</button>
+      <button class="hideMenu" id="hide2b" onclick="hideMenu2b()">---</button>
+      <div id="menu2hide1">
+
+        
       <div id="navigation">
 
         <span id="nav0" onclick="goBackTo('0')">0</span>
@@ -73,17 +81,7 @@
         </span>
 
       </div>
-      <div id="noscript">
-        <noscript> This page requires <i>JavaScript</i> to work properly. Without it you won't be able to do anything
-          with the board. <br> Please turn JavaScript on, it's really worth it :) </noscript>
-      </div>
-
-      
-
-      <button class="hideMenu" onclick="hideMenu1()">---</button>
-      <button class="hideMenu" onclick="hideMenu2()">===</button>
-      <div id="menu2hide1">
-    
+    <br>
       <div id="setPlay">
         <button id="setB" onclick="setB()" style="display: inline;">Digits</button>
         <button id="drawB" onclick="drawB()" style="display: inline; background: green;">Islands</button>
@@ -111,37 +109,29 @@
 
         <button id="makeB" onmousedown="makeBoard()">START making board </button>
         <br>
-        <button id="makeBr">Max length of bridges:</button><br>
+        <button id="makeBr">Max bridge length:</button><br>
         <button class="bridgeLen" onclick="minusLen()">-</button>
         <input type="text" id="bridgeLength" value="2" onchange="changedBridgeLength()" maxlength="2"></input>
         <button class="bridgeLen" onclick="plusLen()">+</button>
+<br><br>
+        
+      <button id="bSave"><a id="aSave" onclick="saveBoard()">Save board to a file</a></button>
+      <button id="bPrint" onclick="printBoard()">Print</button>
       </div>
       <br>
       <br>
 
    
      </div>
+     
+     <div id="noscript">
+      <noscript> This page requires <i>JavaScript</i> to work properly. Without it you won't be able to do anything
+        with the board. <br> Please turn JavaScript on, it's really worth it :) </noscript>
+    </div>
     </div>
     <div id="MENU_RIGHT2">   
 
-      <div id="menu2hide2">
-
-        <div id="sizes">
-          <div>Choose board size: </div>
-          <span id="wymiar" style="visibility: hidden;">16</span>
-          <span id="size16" onclick="changeSize(16)" style="background: green;" class="size2">16</span>
-          <span id="size25" onclick="changeSize(25)" class="size2">25</span>
-          <span id="size36" onclick="changeSize(36)" class="size2">36</span>
-          <br>
-          <br>
-          <button id="unlockSize1" onclick="unlockSize(1)">Lock 1</button>
-          <button id="unlockSize2" onclick="unlockSize(2)">Lock 2</button>
-          <button id="unlockSize3" onclick="unlockSize(3)">Lock 3</button>
-          
-          <div id="tooltipSizes">Unlock 3 locks to change size</div>
-        </div>
-    <br>
-    <br>   
+      <div id="menu2hide2a">
     <div id="samples" style="display: block;">
 
       <button id="GameChoose">Choose game to play:</button><br>
@@ -150,10 +140,28 @@
       <button id="GamePlus" onclick="plusGame()">+</button><br>
       <button id="GamePlay" onclick="playGame()">Play</button>
       <button id="GameSolve" onclick="solveGame()">Show solution</button><br>
-      <button id="GameGet" id="getAll" onclick="getAllOnBoard2()">Get board</button>
-      <button id="GameSet" id="setAll" onclick="setAllOnBoard2()">Set board</button>
+      <button id="GameGet" onclick="getAllOnBoard2()">Get board</button>
+      <button id="GameSet" onclick="setAllOnBoard2()">Set board</button>
     </div>
     <br><br>
+    </div>
+    <div id="menu2hide2b">
+    <div id="sizes">
+      <div>Choose board size: </div>
+      <span id="wymiar" style="visibility: hidden;">16</span>
+      <span id="size16" onclick="changeSize(16)" style="background: green;" class="size2">16</span>
+      <span id="size25" onclick="changeSize(25)" class="size2">25</span>
+      <span id="size36" onclick="changeSize(36)" class="size2">36</span>
+      <br>
+      <br>
+      <button id="unlockSize1" onclick="unlockSize(1)">Lock 1</button>
+      <button id="unlockSize2" onclick="unlockSize(2)">Lock 2</button>
+      <button id="unlockSize3" onclick="unlockSize(3)">Lock 3</button>
+      
+      <div id="tooltipSizes">Unlock 3 locks to change size</div>
+    </div>
+<br>
+<br>   
       
     <div id="themes" style="display: inline;">
         <button id="ThemeChoose">Choose theme to load:</button><br>
