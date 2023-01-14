@@ -23,7 +23,8 @@ var stateBoard = "";
 var pola = "";
 var czas = 0;
 var idTimeout = 0;
-var menu2HIDDEN = false;
+var menu2aHIDDEN = false;
+var menu2bHIDDEN = false;
 var menu1HIDDEN = false;
 
 var clicked = false;
@@ -77,17 +78,39 @@ function onLoud() {
   document.getElementById("GameNumber").value = 1;
   document.getElementById('bridgeLength').value=2;
 
+  //solve(1);
   stepsy[0] = getAllOnBoard();
   step0();
+}
+
+
+function printBoard(){
+  beforeTN=parseInt(document.getElementById("ThemeNumber").value);
+  document.getElementById("ThemeNumber").value=2;
+  themeNUMBER = 2;
+  loadTheme();
+  window.print();
+
+  document.getElementById("ThemeNumber").value=beforeTN;
+  themeNUMBER = beforeTN;
+  loadTheme();
+}
+
+function saveBoard(){
+    content=getAllOnBoard();
+    a=document.getElementById('aSave')
+    a.href = window.URL.createObjectURL(new Blob([content], {type: "text/plain"}));
+    a.download = "solution"+wymiar+"_"+(new Date()).getTime()+".txt";
+    
 }
 
 function hideClassLoad() {
   hideClass = document.createElement("style");
   hideClass.setAttribute("id", "hideClass");
   hideClass.innerHTML =
-    ".hideMenu{border: 1px dashed gray; background-color: " +
+    ".hideMenu{border: 1px dashed gray; width: 40px; background-color: " +
     colorBACKGROUND +
-    "; color: gray; padding: 5px; margin: 10px;}   .hideMenu:hover{border: 1px gray; border-style: dashed; background-color: " +
+    "; color: gray; padding: 5px; margin: 5px;}   .hideMenu:hover{border: 1px gray; border-style: dashed; background-color: " +
     colorBACKGROUND +
     "; color: gray;}";
   document.getElementsByTagName("head")[0].appendChild(hideClass);
@@ -98,9 +121,9 @@ function hideClassChange() {
   hideClass = document.createElement("style");
   hideClass.setAttribute("id", "hideClass");
   hideClass.innerHTML =
-    ".hideMenu{border: 1px dashed gray; background-color: " +
+    ".hideMenu{border: 1px dashed gray; width: 40px; background-color: " +
     colorBACKGROUND +
-    "; color: gray; padding: 5px; margin: 10px;}   .hideMenu:hover{border: 1px gray; border-style: dashed; background-color: " +
+    "; color: gray; padding: 5px; margin: 5px;}   .hideMenu:hover{border: 1px gray; border-style: dashed; background-color: " +
     colorBACKGROUND +
     "; color: gray;}";
   document.getElementsByTagName("head")[0].appendChild(hideClass);
@@ -110,18 +133,35 @@ function hideMenu1() {
   if (!menu1HIDDEN) {
     document.getElementById("menu2hide1").style.display = "none";
     menu1HIDDEN = true;
+    document.getElementById('hide1').innerHTML='+';
   } else {
     document.getElementById("menu2hide1").style.display = "inline";
     menu1HIDDEN = false;
+    document.getElementById('hide1').innerHTML='-';
   }
 }
-function hideMenu2() {
-  if (!menu2HIDDEN) {
-    document.getElementById("menu2hide2").style.display = "none";
-    menu2HIDDEN = true;
+function hideMenu2a() {
+  if (!menu2aHIDDEN) {
+    document.getElementById("menu2hide2a").style.display = "none";
+    menu2aHIDDEN = true;
+    document.getElementById('hide2a').innerHTML='++';
   } else {
-    document.getElementById("menu2hide2").style.display = "inline";
-    menu2HIDDEN = false;
+    document.getElementById("menu2hide2a").style.display = "inline";
+    menu2aHIDDEN = false;
+    
+    document.getElementById('hide2a').innerHTML='--';
+  }
+}
+
+function hideMenu2b() {
+  if (!menu2bHIDDEN) {
+    document.getElementById("menu2hide2b").style.display = "none";
+    menu2bHIDDEN = true;
+    document.getElementById('hide2b').innerHTML='+++';
+  } else {
+    document.getElementById("menu2hide2b").style.display = "inline";
+    menu2bHIDDEN = false;
+    document.getElementById('hide2b').innerHTML='---';
   }
 }
 
@@ -656,16 +696,12 @@ function unlockSize(nr) {
 
 function changeSize(size) {
   if (unlocked) {
-    
-    lock();
-    stepsy = [];
+    document.getElementById("bridgeLength").value=2;  
+    changedBridgeLength();
+  
     krok = 0;
-    stepsy[0] = getAllOnBoard();
-    step0();
-    navigate();
     wymiar = size;
     document.getElementById("GameNumber").value = 1;
-    document.getElementById("innav").value = "0";
     document.getElementById("wymiar").innerHTML = size;
     switch (size) {
       case 16:
@@ -691,15 +727,15 @@ function changeSize(size) {
         document.getElementById("size25").style.background = "green";
         document.getElementById("size36").style.background = "black";
 
-        document.getElementById("CONTENT").style.width = "720px";
-        document.getElementById("CONTENT").style.height = "720px";
-        document.getElementById("mostq").style.width = "700px";
-        document.getElementById("mostq").style.height = "700px";
+        document.getElementById("CONTENT").style.width = "725px";
+        document.getElementById("CONTENT").style.height = "725px";
+        document.getElementById("mostq").style.width = "705px";
+        document.getElementById("mostq").style.height = "705px";
 
         drawBoard(size);
         rows = Array.from(document.getElementsByClassName("row"));
         rows.forEach((row) => {
-          row.style.width = "700px";
+          row.style.width = "705px";
         });
         break;
       case 36:
@@ -708,21 +744,32 @@ function changeSize(size) {
         document.getElementById("size25").style.background = "black";
         document.getElementById("size36").style.background = "green";
 
-        document.getElementById("CONTENT").style.width = "1030px";
-        document.getElementById("CONTENT").style.height = "1030px";
-        document.getElementById("mostq").style.width = "1010px";
-        document.getElementById("mostq").style.height = "1010px";
+        document.getElementById("CONTENT").style.width = "1035px";
+        document.getElementById("CONTENT").style.height = "1035px";
+        document.getElementById("mostq").style.width = "1015px";
+        document.getElementById("mostq").style.height = "1015px";
 
         drawBoard(size);
         rows = Array.from(document.getElementsByClassName("row"));
         rows.forEach((row) => {
-          row.style.width = "1010px";
+          row.style.width = "1015px";
         });
         break;
 
       default:
         break;
     }
+
+
+    
+    lock();
+    stepsy = [];
+    krok = 0;
+    stepsy[0] = getAllOnBoard();
+    step0();
+    navigate();
+
+    document.getElementById("innav").value = 0;
   }
 }
 
@@ -2236,7 +2283,7 @@ function shortenBoard(board) {
 
   return board;
 }
-function lenghtenBoard(board) {
+function lengthenBoard(board) {
   //console.log(board);
   changeWhat = ["z", "x", "y", "v"];
   changeTo = ["EEEEEE", "EEEE", "EEE", "EE"];
