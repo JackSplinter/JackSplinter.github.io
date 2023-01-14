@@ -228,3 +228,25 @@ input {
 #loadset {
   padding-left: 13px;
 }
+
+#bSave{
+  border-radius: 7px;
+  background-color: rgb(67, 71, 68);
+  color:silver;
+}
+
+a:hover{
+  color:white;
+}
+
+#bPrint{
+  border-radius: 7px;
+  background-color: silver;
+  margin-top: 5px;
+  color:black
+}
+
+#bPrint:hover{
+  background-color: white;
+  color:black
+}
